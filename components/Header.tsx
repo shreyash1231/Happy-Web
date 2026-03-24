@@ -1,5 +1,5 @@
 import { Button } from "./ui/button";
-
+import Link from "next/link";
 export default function Header() {
   return (
     <div className="pt-12 px-4 xl:p-16 z-50 mx-auto max-w-[1920px]">
@@ -10,8 +10,8 @@ export default function Header() {
               </Button>
             </div>
             <div className="col-span-2 md:flex md:gap-4 lg:gap-10 items-center justify-center hidden md:text-sm text-2xl">
-              <div>About US</div>
-              <div>Programs</div>
+              <div className="cursor-pointer"><Link href={"/AboutUs"}>About US</Link></div>
+              <div className="cursor-pointer"><Link href={"/Programs"}>Programs</Link></div>
               <div>Corporate</div>
               <div>Blog</div>
             </div>
