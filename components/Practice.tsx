@@ -15,10 +15,16 @@ export default function Practice() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden xl:rounded-b-[80px] rounded-b-[40px] pb-50">
+    <div className="relative z-10 mx-auto max-w-[1920px] pb-40">
       
       {/* Background image */}
-      <div className="absolute inset-0 bg-[url('/homebackground-image.png')] bg-cover bg-center bg-bottom" />
+         <div className="absolute inset-0">
+        <img
+          src="/homebackground-image.png"
+          alt="background"
+          className="w-full h-full object-cover object-bottom rounded-b-[40px] xl:rounded-b-[80px]"
+        />
+      </div>
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-[1920px]">
