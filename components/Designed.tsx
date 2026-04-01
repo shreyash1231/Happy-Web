@@ -70,8 +70,8 @@ export default function Designed() {
               </div>
 
            {index < stats.length - 1 && (
-  <div className="hidden lg:block h-32 w-[2px] bg-yellow-400 mx-4 self-stretch" />
-)}
+              <div className="hidden lg:block h-32 w-[2px] bg-yellow-400 mx-4 self-stretch" />
+            )}
             </motion.div>
           ))}
         </motion.div>
@@ -84,9 +84,9 @@ export default function Designed() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <strong className="text-xl md:text-4xl lg:text-5xl  xl:text-6xl">
+          <span className="text-xl md:text-4xl lg:text-5xl  xl:text-6xl">
             Designed Around Your Needs
-          </strong>
+          </span>
         </motion.div>
 
         {/* ================= Cards ================= */}
@@ -95,15 +95,15 @@ export default function Designed() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="flex flex-wrap items-center justify-center gap-8 lg:gap-5 mt-8"
+          className="flex flex-wrap items-center justify-center gap-8 lg:gap-5 mt-3"
         >
           {[ 
             { img: "/3.png", title: "Consciousness Guidance", bg: "#dcd8ce" },
             { img: "/4.png", title: "Meditation Coaching", bg: "#7d7d83" },
             { img: "/5.png", title: "Holistic Healing", bg: "#3f5c4a" },
           ].map((card, i) => (
-            <motion.div key={i} variants={fadeUp} className="w-[90%] md:w-[45%] ">
-              <Card className="flex h-90 w-full lg:h-100 lg:w-90 flex-col justify-between border-2 border-yellow-400 px-6 pb-8 rounded-4xl"
+            <motion.div key={i} variants={fadeUp} className="w-[95%] md:w-[45%] lg:w-auto">
+              <Card className="flex h-90 w-full lg:h-110 lg:w-90 flex-col justify-between border-2 border-yellow-400 px-6 pb-8 rounded-4xl"
                 style={{ backgroundColor: card.bg }}
               >
                 <div className="flex items-center justify-center">
@@ -112,12 +112,12 @@ export default function Designed() {
                   alt=""
                   width={250}
                   height={250}
-                  className="w-48 h-48 w-55 h-55 lg:w-64 lg:h-64"
+                  className="w-50 h-50 md:w-55 md:h-55 lg:w-70 lg:h-70"
                 />
                 </div>
 
                 <div
-                  className={`text-left text-3xl lg:text-4xl font-semibold ${
+                  className={`text-left text-3xl lg:text-4xl ${
                     i=== 0 ? "text-[#544120]" : "text-[#c39e86]"
                   }`}
                 >
@@ -135,11 +135,11 @@ export default function Designed() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="text-center mt-8"
+          className="text-center mt-3"
         >
-          <strong className="text-xl md:text-4xl lg:text-6xl">
+          <span className="text-xl md:text-4xl lg:text-6xl">
             Therapy Formats
-          </strong>
+          </span>
         </motion.div>
 
         <motion.div
@@ -147,7 +147,7 @@ export default function Designed() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-3"
         >
 
           {/* Card 1 */}

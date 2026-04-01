@@ -6,12 +6,12 @@ import Footer from "@/components/Footer";
 
 export default function AboutUs(){
     return(
-        <div>
+        <>
         <Header/>
         <Founder/>
         <Growth/>
         <Happy/>
         <Footer/>
-        </div>
+        </>
     );
 }

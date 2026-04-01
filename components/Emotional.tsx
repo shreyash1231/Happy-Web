@@ -110,14 +110,14 @@ export default function Emotional() {
 
         <motion.span
           variants={fadeUp}
-          className="text-xl md:text-4xl lg:text-6xl text-[#544120]"
+          className="text-xl md:text-4xl xl:text-5xl text-[#544120]"
         >
           You don’t have to navigate this alone.
         </motion.span>
 
         <motion.span
           variants={fadeUp}
-          className="text-lg md:text-3xl lg:text-5xl text-[#c39e86]"
+          className="text-lg md:text-3xl xl:text-4xl text-[#c39e86]"
         >
           Start building emotional resilience today.
         </motion.span>
@@ -129,7 +129,7 @@ export default function Emotional() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
         >
-          <Button className="mt-4 cursor-pointer w-[180px] md:w-[220px] bg-[#3f5c4a] hover:bg-[#344c3d] rounded-full py-5 px-6  md:py-5 border-yellow-400 border-2 text-[12px]">
+          <Button className="mt-4 cursor-pointer w-[180px] md:w-[220px] bg-[#3f5c4a] hover:bg-[#344c3d] rounded-full py-5 px-6  md:py-5 lg:py-7 border-yellow-400 border-2 text-[12px]">
             Book Discovery Session
           </Button>
         </motion.div>

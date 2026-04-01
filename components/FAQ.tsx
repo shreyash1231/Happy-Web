@@ -66,10 +66,10 @@ export default function FAQ() {
           variants={fadeUp}
           className="text-center"
         >
-          <p className="text-xl md:text-3xl lg:text-4xl font-semibold text-[#c39e86]">
+          <p className="text-xl md:text-3xl xl:text-3xl text-[#c39e86]">
             Frequently Asked Questions
           </p>
-          <h2 className="text-xl md:text-3xl lg:text-6xl font-bold">
+          <h2 className="text-xl md:text-3xl xl:text-5xl mt-2">
             Clarity Before You Begin
           </h2>
         </motion.div>
@@ -93,7 +93,7 @@ export default function FAQ() {
                 {/* Question */}
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full text-left text-sm text-3xl lg:text-4xl font-medium flex justify-between items-center"
+                  className="w-full text-left text-sm md:text-3xl xl:text-3xl font-medium flex justify-between items-center"
                 >
                   {faq.question}
 
@@ -118,7 +118,7 @@ export default function FAQ() {
                       transition={{ duration: 0.4, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="mt-3 text-gray-700 leading-relaxed text-sm text-3xl lg:text-4xl">
+                      <p className="mt-3 text-gray-700 leading-relaxed text-sm md:text-3xl xl:text-3xl">
                         {faq.answer}
                       </p>
                     </motion.div>
