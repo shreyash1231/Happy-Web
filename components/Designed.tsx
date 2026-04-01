@@ -1,5 +1,9 @@
+"use client";
+
 import { Card } from "./ui/card";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
 export default function Designed() {
   const stats = [
     { value: "1K+", label1: "Customers", label2: "Worldwide" },
@@ -8,138 +12,182 @@ export default function Designed() {
     { value: "22+", label1: "Retreats", label2: "\u00A0" },
   ];
 
+  /* ================= Animations ================= */
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" as const },
+    },
+  };
+
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
   return (
     <div className="mx-auto max-w-[1920px] pt-8 px-4 md:p-10 xl:p-16">
       <div className="flex flex-col gap-5 lg:gap-20 items-center justify-center">
-        
-        {/* Stats Section */}
-        <div className="grid grid-cols-2 gap-12 xl:flex flex-wrap items-center justify-center">
-          {stats.map((stat, index) => (
-            <div key={index} className="flex items-center">
-              <div className="flex flex-col gap-4 lg:px-16 text-center">
-                <strong className="text-4xl md:text-7xl text-[#544120]">
-                  {stat.value}
-                </strong>
 
-                <div className="flex flex-col">
-                  <span className="text-sm md:text-xl text-[#c39e86]">{stat.label1}</span>
-                  <span className="text-sm md:text-xl text-[#c39e86]">{stat.label2}</span>
-                </div>
+        {/* ================= Stats Section ================= */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-2 gap-12 lg:gap-6 lg:grid-cols-4 items-center justify-center"
+        >
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              variants={fadeUp}
+              className="flex items-center"
+            >
+              <div className="flex flex-col gap-4 lg:px-16 text-center">
+
+                <motion.strong
+                  variants={fadeUp}
+                  className="text-4xl md:text-7xl lg:text-6xl text-[#544120]"
+                >
+                  {stat.value}
+                </motion.strong>
+
+                <motion.div variants={fadeUp} className="flex flex-col">
+                  <span className="text-sm md:text-xl text-[#c39e86]">
+                    {stat.label1}
+                  </span>
+                  <span className="text-sm md:text-xl text-[#c39e86]">
+                    {stat.label2}
+                  </span>
+                </motion.div>
               </div>
 
-              {index < stats.length - 1 && (
-                <div className="mx-4 hidden h-32 w-[2px] bg-yellow-400 xl:block" />
-              )}
-            </div>
+           {index < stats.length - 1 && (
+  <div className="hidden lg:block h-32 w-[2px] bg-yellow-400 mx-4 self-stretch" />
+)}
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Heading */}
-        <div className="text-center">
-          <strong className="text-xl md:text-5xl">
+        {/* ================= Heading ================= */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <strong className="text-xl md:text-4xl lg:text-5xl  xl:text-6xl">
             Designed Around Your Needs
           </strong>
-        </div>
+        </motion.div>
 
-        {/* Cards */}
-        <div className="flex flex-wrap items-center justify-center gap-8">
-          <Card className="flex h-80 w-70 flex-col justify-between border border-yellow-400 bg-[#dcd8ce] px-6 pb-8">
-            <div className="flex items-center justify-center text-lg font-semibold">
-              <Image
-               src="/3.png"
-               alt="Consciousness"
-               width={200}
-               height={200}
-               />
-            </div>
-
-            <div className="text-left text-3xl font-semibold">
-              Consciousness <br /> Guidance
-            </div>
-          </Card>
-
-          <Card className="flex h-80 w-70 flex-col justify-between border border-yellow-400 bg-[#7d7d83] px-6 pb-8">
-            <div className="flex items-center justify-center text-lg font-semibold">
+        {/* ================= Cards ================= */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="flex flex-wrap items-center justify-center gap-8 lg:gap-5 mt-8"
+        >
+          {[ 
+            { img: "/3.png", title: "Consciousness Guidance", bg: "#dcd8ce" },
+            { img: "/4.png", title: "Meditation Coaching", bg: "#7d7d83" },
+            { img: "/5.png", title: "Holistic Healing", bg: "#3f5c4a" },
+          ].map((card, i) => (
+            <motion.div key={i} variants={fadeUp} className="w-[90%] md:w-[45%] ">
+              <Card className="flex h-90 w-full lg:h-100 lg:w-90 flex-col justify-between border-2 border-yellow-400 px-6 pb-8 rounded-4xl"
+                style={{ backgroundColor: card.bg }}
+              >
+                <div className="flex items-center justify-center">
                <Image
-               src="/4.png"
-               alt="Meditation"
-               width={200}
-               height={200}
-               />
-            </div>
+                  src={card.img}
+                  alt=""
+                  width={250}
+                  height={250}
+                  className="w-48 h-48 w-55 h-55 lg:w-64 lg:h-64"
+                />
+                </div>
 
-            <div className="text-left text-3xl font-semibold">
-              Meditation <br /> Coaching
-            </div>
-          </Card>
+                <div
+                  className={`text-left text-3xl lg:text-4xl font-semibold ${
+                    i=== 0 ? "text-[#544120]" : "text-[#c39e86]"
+                  }`}
+                >
+                  {card.title.split(" ")[0]} <br />
+                  {card.title.split(" ")[1]}
+                </div>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
 
-          <Card className="flex h-80 w-70 flex-col justify-between border border-yellow-400 bg-[#3f5c4a] px-6 pb-8">
-            <div className="flex items-center justify-center text-lg font-semibold">
-               <Image
-               src="/5.png"
-               alt="Holistic"
-               width={200}
-               height={200}
-               />
-            </div>
-
-            <div className="text-left text-3xl font-semibold">
-              Holistic <br /> Healing
-            </div>
-          </Card>
-        </div>
-        <div className="text-center">
-          <strong className="text-xl md:text-5xl">
+        {/* ================= Therapy Formats ================= */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="text-center mt-8"
+        >
+          <strong className="text-xl md:text-4xl lg:text-6xl">
             Therapy Formats
           </strong>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
+        </motion.div>
+
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8"
+        >
+
           {/* Card 1 */}
-          <Card className="bg-[#544120] rounded-3xl border-2 border-yellow-400 w-full max-w-sm lg:max-w-xl flex flex-col p-6 sm:p-8">
-            <div className="flex justify-end">
-              <Image
-                src="/6.png"
-                alt="Holistic"
-                width={200}
-                height={200}
-                className="w-32 sm:w-40 lg:w-52 h-auto"
-              />
-            </div>
-            <div className="flex flex-col gap-4 text-[#c39e86] mt-4">
-              <strong className="text-2xl sm:text-3xl lg:text-4xl">
-                For Individuals
-              </strong>
-
-              <div className="text-sm sm:text-base lg:text-lg leading-relaxed">
-                Personal coaching, meditation guidance, emotional wellness support,
-                relationship clarity, life direction, healing work.
+          <motion.div variants={fadeUp}>
+            <Card className="bg-[#544120] rounded-4xl border-2 border-yellow-400 w-full h-full lg:max-w-xl flex flex-col p-6 sm:p-8">
+              <div className="flex justify-end">
+                <Image src="/6.png" alt="" width={200} height={200} />
               </div>
-            </div>
-          </Card>
+
+              <div className="flex flex-col gap-4 text-[#c39e86] mt-4">
+                <strong className="text-2xl sm:text-2xl lg:text-4xl">
+                  For Individuals
+                </strong>
+                <div className="text-sm sm:text-base lg:text-lg leading-relaxed">
+                  Personal coaching, meditation guidance, emotional wellness support,
+                  relationship clarity, life direction, healing work.
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+
           {/* Card 2 */}
-          <Card className="bg-transparent rounded-3xl border-2 border-[#544120] w-full max-w-sm lg:max-w-xl flex flex-col p-6 sm:p-8">
-            
-            <div className="flex justify-end">
-              <Image
-                src="/6.png"
-                alt="Holistic"
-                width={200}
-                height={200}
-                className="w-32 sm:w-40 lg:w-52 h-auto"
-              />
-            </div>
-            <div className="flex flex-col gap-4 text-[#544120] mt-4">
-              <strong className="text-2xl sm:text-3xl lg:text-4xl">
-                For Individuals
-              </strong>
-
-              <div className="text-sm sm:text-base lg:text-lg leading-relaxed">
-                Personal coaching, meditation guidance, emotional wellness support,
-                relationship clarity, life direction, healing work.
+          <motion.div variants={fadeUp}>
+            <Card className="bg-transparent rounded-4xl border-2 border-[#544120] w-full h-full lg:max-w-xl flex flex-col p-6 sm:p-8">
+              <div className="flex justify-end">
+                <Image src="/6.png" alt="" width={200} height={200} />
               </div>
-            </div>
-          </Card>
-        </div>
+
+              <div className="flex flex-col gap-4 text-[#544120] mt-4">
+                <strong className="text-2xl sm:text-2xl lg:text-4xl">
+                  For Organizations
+                </strong>
+                <div className="text-sm sm:text-base lg:text-lg leading-relaxed">
+                  Corporate wellness programs, executive coaching, happiness measurement, emotional intelligence training, mentoring, leadership development.
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+
+        </motion.div>
       </div>
     </div>
   );

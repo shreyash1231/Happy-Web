@@ -1,9 +1,9 @@
 
-
+import Image from "next/image";
 
 export default function Footer(){
     return(
-        <div className="bg-[#dcd8ce] rounded-4xl p-5 md:p-10 lg:p-16 mx-auto max-w-[1920px] items-center justify-center">
+        <div className="bg-[#dcd8ce] rounded-4xl p-5 md:p-10 lg:p-16">
             <div className="flex flex-col gap-10">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-0 md:gap-10 lg:gap-30">
                     <div className="flex flex-col gap-2">
@@ -23,10 +23,12 @@ export default function Footer(){
                             <span>For Organizations</span>
                             <span>Signature Programs</span>
                        <div className="flex flex-col pl-4">
-                            <span>• Cosmic Guidance</span>
+                            <span>• Cosmic</span>
+                            <span>&nbsp;&nbsp; Guidance</span>
                             <span>• Meditation</span>
                             <span>&nbsp;&nbsp; Coaching</span>
-                            <span>• Holistic Healing</span>
+                            <span>• Holistic</span>
+                            <span>&nbsp;&nbsp; Healing</span>
                             </div>
                         </div>
                     </div>
@@ -38,7 +40,12 @@ export default function Footer(){
                         </div>
                     </div>
                     <div className="mt-10 md:mt-0">
-                        <span>Logo</span>
+                        <Image
+                        src="/footerImage.png"
+                        alt="Meditation"
+                        width={200}
+                        height={200}
+                        />
                     </div>
                 </div>  
                 <div>
@@ -57,7 +64,7 @@ export default function Footer(){
                                     <span>Mobile: (+91) 9811237999</span>
                                     <span>Email: info@happyho.in</span>
                                 </div>
-                                <div className="flex gap-3 mt-5 lg:mt-0">
+                                <div className="flex gap-3 mt-5 lg:mt-0 lg:ml-auto text-sm">
                                     <span>FaceBook</span>   
                                     <span>Instagram</span>
                                     <span>Twitter</span>
