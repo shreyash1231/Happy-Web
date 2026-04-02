@@ -1,20 +1,61 @@
+"use client";
 
+import { motion } from "framer-motion";
 
+export default function Happy() {
 
-export default function Happy(){
-    return (
-        <div className="bg-[#3f5c4a] p-8 mt-8 mx-auto max-w-[1920px]">
-            <div className="flex flex-col gap-5 text-white items-center justify-center">
-                <div className="text-6xl text-[#dcd8ce]">
-                    <strong>What makes Happy Ho different</strong>
-                </div>
-                <div className="flex flex-col text-4xl">
-                    <strong>Many wellness platforms offer inspiration or quick advice.</strong>
-                    <strong>Happy Ho focuses on building sustainable habits that help</strong>
-                    <strong>people navigate emotions, relationships, and personal growth</strong>
-                    <strong>more intentionally.</strong>
-                </div>
-            </div>
-        </div>
-    );
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" as const },
+    },
+  };
+
+  return (
+    <div className="bg-[#3f5c4a] p-8 mt-8 mx-auto max-w-[1920px]">
+      
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="flex flex-col gap-5 text-white text-left md:text-center md:items-center md:justify-center"
+      >
+        
+        {/* Heading */}
+        <motion.div
+          variants={fadeUp}
+          className="text-3xl md:text-5xl text-[#dcd8ce]"
+        >
+          What makes Happy Ho different
+        </motion.div>
+
+        {/* Paragraph lines */}
+        <motion.div className="flex flex-col text-lg md:text-2xl text-left md:text-center">
+          {[
+            "Many wellness platforms offer inspiration or quick advice.",
+            "Happy Ho focuses on building sustainable habits that help",
+            "people navigate emotions, relationships, and personal growth",
+            "more intentionally.",
+          ].map((line, index) => (
+            <motion.span key={index} variants={fadeUp}>
+              {line}
+            </motion.span>
+          ))}
+        </motion.div>
+
+      </motion.div>
+    </div>
+  );
 }

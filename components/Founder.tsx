@@ -1,77 +1,119 @@
+"use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Founder() {
+
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut" as const ,
+      },
+    },
+  };
+
+  const imageAnim = {
+    hidden: { opacity: 0, scale: 0.9 },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.7, ease: "easeOut" as const },
+    },
+  };
+
   return (
-    <div className="px-4 pt-8 xl:px-16 mx-auto max-w-[1920px]">
-      <div className="grid grid-cols-1 md:grid-cols-2 px-5 md:px-8 lg:pl-30 gap-5 xl:gap-12">
+    <div className="px-4 pt-12 xl:px-30 xl:pt-12 mx-auto max-w-[1920px]">
+      
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="flex flex-col md:grid md:grid-cols-2 px-3 xl:px-5 md:px-8 lg:pl-30 gap-5 xl:gap-12 justify-center"
+      >
+        
+        {/* LEFT CONTENT */}
         <div className="flex flex-col items-center">
-          <div className="flex flex-col gap-4">
-            <span className="text-lg md:text-xl xl:text-2xl text-[#c39e86]">
-              <span>A Note From Our Founder</span>
-            </span>
-            <div className="flex flex-col gap-1">
-              <span className="text-xl md:text-2xl xl:text-3xl">
-                <span>At Happy Ho, we believe</span>
-              </span>
-              <span className="text-xl md:text-2xl xl:text-3xl">
-                <span>emotional well-being is not a</span>
-              </span>
-              <span className="text-xl md:text-2xl xl:text-3xl">
-                <span>destination — it's a daily practice.</span>
-              </span>
-            </div>
-            <p className="text-sm xl:text-lg text-[#c39e86]">
-              <span>
-                In a world that moves quickly, many of us feel overwhelmed,
-                disconnected, or unsure of how to navigate our inner lives.
-              </span>
-            </p>
-            <p className="text-sm xl:text-lg text-[#c39e86]">
-              <span>
-                Happy Ho was created to provide a space where people can slow
-                down, understand themselves better, and develop the tools needed
-                for lasting emotional balance.
-              </span>
-            </p>
-            <p className="text-sm xl:text-lg text-[#c39e86]">
-              <span>
-                Through coaching, meditation, and holistic guidance, our goal is
-                to help individuals and organizations build clarity, resilience,
-                and meaningful growth. We focus not on quick fixes, but on
-                sustainable practices that help people live more consciously and
-                intentionally.
-              </span>
-            </p>
-            <p className="text-sm xl:text-lg text-[#c39e86]">
-              <span>
-                Happy Ho is not just a platform — it's a community built around
-                the belief that when we understand ourselves better, we can
-                create healthier relationships, better workplaces, and more
-                fulfilling lives.
-              </span>
-            </p>
-            <p className="text-sm xl:text-lg text-[#c39e86]">
-              <span>Thank you for being part of this journey.</span>
-            </p>
-          </div>
+          <motion.div className="flex flex-col gap-4" variants={container}>
+            
+            <motion.span
+              variants={fadeUp}
+              className="text-lg md:text-xl xl:text-2xl text-[#c39e86]"
+            >
+              A Note From Our Founder
+            </motion.span>
+
+            <motion.div className="flex flex-col xl:gap-1">
+              {[
+                "At Happy Ho, we believe",
+                "emotional well-being is not a",
+                "destination — it's a daily practice.",
+              ].map((text, i) => (
+                <motion.span
+                  key={i}
+                  variants={fadeUp}
+                  className="text-lg md:text-lg lg:text-2xl xl:text-3xl"
+                >
+                  {text}
+                </motion.span>
+              ))}
+            </motion.div>
+
+            {[
+              "In a world that moves quickly, many of us feel overwhelmed, disconnected, or unsure of how to navigate our inner lives.",
+              "Happy Ho was created to provide a space where people can slow down, understand themselves better, and develop the tools needed for lasting emotional balance.",
+              "Through coaching, meditation, and holistic guidance, our goal is to help individuals and organizations build clarity, resilience, and meaningful growth. We focus not on quick fixes, but on sustainable practices that help people live more consciously and intentionally.",
+              "Happy Ho is not just a platform — it's a community built around the belief that when we understand ourselves better, we can create healthier relationships, better workplaces, and more fulfilling lives.",
+              "Thank you for being part of this journey.",
+            ].map((para, i) => (
+              <motion.p
+                key={i}
+                variants={fadeUp}
+                className="text-sm xl:text-lg text-[#c39e86]"
+              >
+                {para}
+              </motion.p>
+            ))}
+
+          </motion.div>
         </div>
-        <div className="flex justify-start">
-  <div className="flex flex-col gap-2 md:gap-5">
-    <Image
-      src="/42.png"
-      alt="img"
-      width={400}
-      height={300}
-      className="rounded-2xl w-full max-w-[300px] md:max-w-[400px] lg:max-w-[500px] xl:max-w-[650px] 2xl:max-w-[750px] xl:h-[600px]"
-    />
-    <div className="flex flex-col text-center lg:text-right text-lg lg:text-xl xl:text-2xl text-[#c39e86]">
-      <span>Jwalant Swaroop</span>
-      <span>Founder, Happy Ho</span>
-    </div>
-  </div>
-</div>
-      </div>
+
+        {/* RIGHT IMAGE */}
+        <div className="flex justify-center">
+          <motion.div
+            variants={imageAnim}
+            className="flex flex-col gap-2 md:gap-2 md:mt-13 lg:mt-0"
+          >
+            <Image
+              src="/42.png"
+              alt="img"
+              width={400}
+              height={300}
+              className="rounded-4xl w-full max-w-[300px] md:max-w-[300px] md:h-[550px] lg:max-w-[450px] lg:h-[537px] xl:max-w-[800px] 2xl:max-w-[750px] 2xl:h-[580px] xl:h-[660px]"
+            />
+
+            <div className="flex flex-col text-right text-sm xl:text-xl text-[#c39e86]">
+              <span>Jwalant Swaroop</span>
+              <span>Founder, Happy Ho</span>
+            </div>
+          </motion.div>
+        </div>
+
+      </motion.div>
     </div>
   );
 }
