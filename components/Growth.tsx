@@ -24,7 +24,7 @@ export default function Growth() {
     },
   ];
 
-  const container = {
+ const container = {
     hidden: {},
     show: {
       transition: {
@@ -33,6 +33,7 @@ export default function Growth() {
     },
   };
 
+  // ✅ Child animation (fade + slide up)
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
     show: {
@@ -41,6 +42,7 @@ export default function Growth() {
       transition: { duration: 0.6, ease: "easeOut" as const},
     },
   };
+
 
   return (
     <div className="px-4 pt-8 xl:p-16">
@@ -81,18 +83,23 @@ export default function Growth() {
             <motion.div
               key={index}
               variants={fadeUp}
+              whileHover={{ scale: 1.05 }}
               className="w-full sm:w-[45%] lg:w-[30%] max-w-[350px]"
             >
               <Card className="flex flex-col min-h-[420px] border-3 border-yellow-400 bg-[#7d8d83] rounded-4xl p-4 transition-all duration-300 hover:shadow-xl">
                 
-                <div className="flex justify-center">
+                <motion.div 
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ duration: 0.4 }}     
+                  className="flex justify-center">
                   <Image
                     src={card.img}
                     alt={card.title}
                     width={200}
                     height={200}
                   />
-                </div>
+                </motion.div>
 
                 <div className="flex flex-col gap-3 text-[#dcd8ce]">
                   <span className="text-3xl xl:text-4xl">

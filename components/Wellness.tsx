@@ -80,10 +80,10 @@ export default function Wellness() {
               variants={fadeUp}
               className="flex flex-col md:flex-row gap-2 md:gap-8 md:mt-20"
             >
-              <Button className="w-full md:w-50 lg:w-70 h-10 p-6 rounded-4xl bg-[#3f5c4a] text-[#c39e86] border-2 border-yellow-400 hover:bg-[#2d4435] transition-colors cursor-pointer text-sm">
+              <Button className="w-full md:w-60 lg:w-70 h-10 p-6 rounded-4xl bg-[#3f5c4a] text-[#c39e86] border-2 border-yellow-400 hover:bg-[#2d4435] transition-colors cursor-pointer text-sm">
                 Book Corporate Consultation
               </Button>
-              <Button className="w-full md:w-50 lg:w-60 p-6 h-10 rounded-4xl bg-[#f3efe8] text-[#c39e86] border-2 border-[#3f5c4a] hover:bg-[#e8e2d8] transition-colors cursor-pointer text-sm">
+              <Button className="w-full md:w-60 lg:w-60 p-6 h-10 rounded-4xl bg-[#f3efe8] text-[#c39e86] border-2 border-[#3f5c4a] hover:bg-[#e8e2d8] transition-colors cursor-pointer text-sm">
                 Explore Programs
               </Button>
             </motion.span>

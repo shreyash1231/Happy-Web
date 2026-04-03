@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Footer from "./Footer";
+import Header from "./Header";
 
 export default function Founder() {
 
@@ -43,7 +45,7 @@ export default function Founder() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="flex flex-col md:grid md:grid-cols-2 px-3 xl:px-5 md:px-8 lg:pl-30 gap-5 xl:gap-12 justify-center"
+        className="flex flex-col md:grid md:grid-cols-2 px-3 xl:px-5 md:px-8 lg:pl-20 xl:pl-20 2xl:pl-50 xl:gap-12 justify-center"
       >
         
         {/* LEFT CONTENT */}
@@ -92,26 +94,33 @@ export default function Founder() {
           </motion.div>
         </div>
 
-        {/* RIGHT IMAGE */}
-        <div className="flex justify-center">
-          <motion.div
-            variants={imageAnim}
-            className="flex flex-col gap-2 md:gap-2 md:mt-13 lg:mt-0"
-          >
-            <Image
-              src="/42.png"
-              alt="img"
-              width={400}
-              height={300}
-              className="rounded-4xl w-full max-w-[300px] md:max-w-[300px] md:h-[550px] lg:max-w-[450px] lg:h-[537px] xl:max-w-[800px] 2xl:max-w-[750px] 2xl:h-[580px] xl:h-[660px]"
-            />
+{/* RIGHT IMAGE */}
+<div className="flex justify-center md:justify-center md:items-end xl:justify-start xl:items-end mt-10">
+  <motion.div
+    variants={imageAnim}
+    className="flex flex-col items-center md:items-start gap-3"
+  >
+    
+    {/* Image wrapper */}
+    <div className="w-[200px] sm:w-[240px] md:w-[330px] lg:w-[300px] xl:w-[400px]">
+      <Image
+        src="/42.png"
+        alt="Founder"
+        width={400}
+        height={500}
+        className="rounded-3xl w-full h-auto object-cover"
+        priority
+      />
+    </div>
 
-            <div className="flex flex-col text-right text-sm xl:text-xl text-[#c39e86]">
-              <span>Jwalant Swaroop</span>
-              <span>Founder, Happy Ho</span>
-            </div>
-          </motion.div>
-        </div>
+{/* Name */}
+<div className="w-full text-center md:text-right text-sm xl:text-lg text-[#c39e86]">
+  <span className="block">Jwalant Swaroop</span>
+  <span className="block">Founder, Happy Ho</span>
+</div>
+
+  </motion.div>
+</div>
 
       </motion.div>
     </div>

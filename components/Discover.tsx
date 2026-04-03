@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 
-export default function Step() {
+export default function Discover() {
 
   // Parent container (stagger effect)
   const container = {
@@ -51,9 +51,9 @@ export default function Step() {
         {/* Heading */}
         <motion.h1
           variants={fadeUp}
-          className="text-2xl text-center md:text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl xl:mb-50"
+          className="text-2xl text-center md:text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl xl:mb-60"
         >
-          Take the first
+          Discover the program that fits your life and goals
         </motion.h1>
 
         {/* Two column layout */}
@@ -62,7 +62,7 @@ export default function Step() {
           {/* Left column */}
           <motion.div
             variants={container}
-            className="flex flex-col gap-6 max-w-[500px] 2xl:max-w-[800px] mt-20 xl:mt-0 2xl:mt-50"
+            className="flex flex-col gap-6 max-w-[500px] 2xl:max-w-[800px] mt-20 xl:mt-0 2xl:mt-50 "
           >
 
             {/* Input */}

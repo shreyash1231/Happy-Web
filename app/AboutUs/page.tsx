@@ -9,12 +9,33 @@ import Guides from "@/components/Guides";
 export default function AboutUs(){
     return(
         <>
-        <Header/>
+        <div className="relative hidden md:block mx-auto max-w-[1920px]">
+  {/* Left 60% background */}
+  <div className="absolute inset-0">
+    <div className="w-[60%] h-full bg-[#E5DFD5]" />
+  </div>
+
+  {/* Content */}
+  <div className="relative z-10">
+    <Header/>
         <Founder/>
+  </div>
+</div>
+<div className="block md:hidden"><Header/>
+<Founder/></div>
         <Growth/>
         <Happy/>
         <Guides/>
-        <Step/>
+
+        {/* Step section */}
+        <div className="relative z-0">
+          <Step/>
+        </div>
+
+        {/* Overlapping Footer */}
+        <div className="relative z-20 -mt-10 md:-mt-15 xl:-mt-20">
+          <Footer/>
+        </div>
         </>
     );
 }
