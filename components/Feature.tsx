@@ -47,7 +47,7 @@ export default function Featured() {
           <Card className="rounded-3xl overflow-hidden bg-[#e9e1d6] p-0 h-95 md:h-100 lg:h-120 text-[#978059]">
             <div>
               <Image
-                src="/2.png"
+                src="/65.png"
                 alt="anger"
                 width={800}
                 height={400}
@@ -110,7 +110,7 @@ export default function Featured() {
             <Card className="rounded-3xl overflow-hidden bg-[#e9e1d6] text-[#978059] md:h-50 xl:w-full h-60 lg:h-60 p-0">
               <div>
                 <Image
-                  src="/2.png"
+                  src="/66.png"
                   alt="anger"
                   width={800}
                   height={400}

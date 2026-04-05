@@ -37,17 +37,17 @@ export default function Articles() {
     {
       title: "Healing is Important for Emotional Wellness",
       desc: "This article features an interaction with Naman Khanna, a globally recognized healer and Reiki practitioner.",
-      img: "/2.png",
+      img: "/67.png",
     },
     {
       title: "Power of Affirmations",
       desc: "Affirmations are powerful statements that influence our thoughts and beliefs.",
-      img: "/2.png",
+      img: "/68.png",
     },
     {
       title: "We Rise by Lifting Others",
       desc: "Helping others is a powerful virtue that does not require special skills.",
-      img: "/2.png",
+      img: "/69.png",
     },
   ];
 

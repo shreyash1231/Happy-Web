@@ -44,7 +44,7 @@ export default function Discover() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="relative z-10 px-4 md:px-10 xl:px-16 pt-16 md:pt-20"
+        className="relative z-10 px-4 md:px-10 xl:px-16 pt-16 md:pb-50"
       >
 
         {/* Heading */}
