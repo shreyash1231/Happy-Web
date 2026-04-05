@@ -30,10 +30,10 @@ export default function Trust() {
           viewport={{ once: true }}
           className="flex flex-col gap-4"
         >
-          <span className="text-center text-xl xl:text-5xl">
+          <span className="text-center text-xl xl:text-6xl font-canela font-normal">
             Trusted by Corporate Organizations
           </span>
-          <span className="text-center text-sm xl:text-xl text-[#978059]">
+          <span className="text-center text-sm xl:text-xl text-[#978059] ">
             Our corporate clients range from Public Sector Undertakings to IT companies.
           </span>
         </motion.div>

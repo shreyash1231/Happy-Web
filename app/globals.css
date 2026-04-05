@@ -46,7 +46,17 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 }
+@font-face {
+  font-family: "Canela";
+  src: url("/fonts/Canela-Regular-Trial.otf") format("opentype");
+  font-weight: 400; 
+  font-style: normal;
+  font-display: swap;
+}
 
+.font-canela {
+  font-family: "Canela", serif;
+}
 
 * {
   scrollbar-width: none;

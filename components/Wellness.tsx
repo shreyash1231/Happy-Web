@@ -46,7 +46,7 @@ export default function Wellness() {
             className="flex flex-col gap-6 lg:ml-40 xl:ml-70 lg:pt-15 xl:pt-10"
           >
             {/* Title */}
-            <motion.div variants={fadeUp} className="flex flex-col gap-1 lg:gap-3">
+            <motion.div variants={fadeUp} className="flex flex-col gap-1 lg:gap-3 font-canela font-normal">
               <span className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
                 Corporate
               </span>
@@ -66,7 +66,7 @@ export default function Wellness() {
             {/* Description */}
             <motion.span
               variants={fadeUp}
-              className="text-sm md:text-lg lg:text-xl xl:text-2xl text-[#c39e86]"
+              className="text-sm md:text-lg lg:text-xl xl:text-2xl text-[#7d4545]"
             >
               Happy Ho corporate programs help organizations
               <br className="hidden md:block" /> improve employee well-being,
@@ -78,7 +78,7 @@ export default function Wellness() {
             {/* Buttons */}
             <motion.span
               variants={fadeUp}
-              className="flex flex-col md:flex-row gap-2 md:gap-8 md:mt-20"
+              className="flex flex-col md:flex-row gap-2 md:gap-8 md:mt-5"
             >
               <Button className="w-full md:w-60 lg:w-70 h-10 p-6 rounded-4xl bg-[#3f5c4a] text-[#c39e86] border-2 border-yellow-400 hover:bg-[#2d4435] transition-colors cursor-pointer text-sm">
                 Book Corporate Consultation

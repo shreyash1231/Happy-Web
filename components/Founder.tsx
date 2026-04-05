@@ -54,7 +54,7 @@ export default function Founder() {
             
             <motion.span
               variants={fadeUp}
-              className="text-lg md:text-xl xl:text-2xl text-[#c39e86]"
+              className="text-lg md:text-xl xl:text-2xl text-[#7d4545] italic"
             >
               A Note From Our Founder
             </motion.span>
@@ -85,7 +85,7 @@ export default function Founder() {
               <motion.p
                 key={i}
                 variants={fadeUp}
-                className="text-sm xl:text-lg text-[#c39e86]"
+                className="text-sm xl:text-lg text-[#7d4545]"
               >
                 {para}
               </motion.p>
@@ -114,7 +114,7 @@ export default function Founder() {
     </div>
 
 {/* Name */}
-<div className="w-full text-center md:text-right text-sm xl:text-lg text-[#c39e86]">
+<div className="w-full text-center md:text-right text-sm xl:text-lg text-[#7d4545]">
   <span className="block">Jwalant Swaroop</span>
   <span className="block">Founder, Happy Ho</span>
 </div>

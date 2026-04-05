@@ -39,13 +39,13 @@ export default function Practice() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="flex flex-col md:gap-5"
+              className="flex flex-col md:gap-5 font-canela font-normal"
             >
               <motion.span
                 variants={fadeUp}
-                className="flex flex-col text-left lg:text-center lg:grid lg:grid-cols-4"
+                className="text-center grid grid-cols-4"
               >
-                <span className="lg:col-span-3">
+                <span className="col-span-3">
                   <span className="text-xl md:text-5xl lg:text-6xl xl:text-7xl">
                     Happiness is a skill
                   </span>
@@ -54,11 +54,13 @@ export default function Practice() {
 
               <motion.span
                 variants={fadeUp}
-                className="ml-auto text-center"
+                className="text-center grid grid-cols-6"
               >
-                <span className="text-xl md:text-5xl lg:text-6xl xl:text-7xl">
+                <span></span>
+                <span className="text-xl md:text-5xl lg:text-6xl xl:text-7xl col-span-5 md:col-span-5 lg:col-span-5">
                   We help you practice it.
                 </span>
+                <span></span>
               </motion.span>
             </motion.div>
 
@@ -69,7 +71,7 @@ export default function Practice() {
               whileInView="show"
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="flex flex-col gap-2 text-[#544120] text-sm pt-8 lg:pt-0 md:text-xl xl:text-2xl items-center"
+              className="flex flex-col gap-2 text-[#544120] text-[10px] sm:text-sm pt-8 lg:pt-0 md:text-xl xl:text-2xl items-center"
             >
               <span className="lg:grid lg:grid-cols-3 ">
                 <motion.span

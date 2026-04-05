@@ -37,35 +37,43 @@ export default function Work() {
         </motion.span>
 
         <motion.div variants={fadeUp} className="flex flex-col text-center md:flex-row gap-10 xl:gap-40">
-          <div className="flex flex-col">
-            <span className="text-lg md:text-xl xl:text-3xl">Corporate Discovery Call</span>
-            <span className="text-sm xl:text-xl">Understanding your organization's goals,</span>
-            <span className="text-sm xl:text-xl">challenges, and team structure.</span>
+          <div className="flex gap-3 text-[#c39e86] ">
+            <div className="w-10 h-10 bg-[#3f5c4a] rounded-full text-white text-xl flex justify-center items-center"> 1</div>
+              <div className="flex flex-col text-left">
+                <span className="text-lg md:text-xl xl:text-3xl">Corporate Discovery Call</span>
+                <span className="text-sm xl:text-xl">Understanding your organization's goals,</span>
+                <span className="text-sm xl:text-xl">challenges, and team structure.</span>
+              </div>
           </div>
-
-          <div className="flex flex-col">
-            <span className="text-lg md:text-xl xl:text-3xl">Program Design</span>
-            <span className="text-sm xl:text-xl">Customized coaching, mindfulness, or</span>
-            <span className="text-sm xl:text-xl">wellness workshops tailored for your Team.</span>
+          <div className="flex gap-3 text-[#c39e86] ">
+             <div className="w-10 h-10 bg-[#3f5c4a] rounded-full text-white text-xl flex justify-center items-center"> 2</div>
+              <div className="flex flex-col text-left">
+                <span className="text-lg md:text-xl xl:text-3xl">Program Design</span>
+                <span className="text-sm xl:text-xl">Customized coaching, mindfulness, or</span>
+                <span className="text-sm xl:text-xl">wellness workshops tailored for your Team.</span>
+              </div>
           </div>
         </motion.div>
 
-        <motion.div variants={fadeUp} className="flex flex-col text-center">
+  <motion.div variants={fadeUp}  className="flex gap-3 text-[#c39e86] ">
+             <div className="w-10 h-10 bg-[#3f5c4a] rounded-full text-white text-xl flex justify-center items-center"> 2</div>
+        <div className="flex flex-col text-left">
           <span className="text-lg md:text-xl xl:text-3xl">Implementation</span>
           <span className="text-sm xl:text-xl">Live workshops, coaching sessions,</span>
           <span className="text-sm xl:text-xl">and guided programs for employees.</span>
+        </div>
         </motion.div>
 
-        <motion.div variants={fadeUp} className="flex flex-col gap-5 text-center">
-          <span className="text-xl md:text-2xl xl:text-5xl">
+        <motion.div variants={fadeUp} className="flex flex-col gap-2 text-center font-canela font-normal">
+          <span className="text-xl md:text-2xl xl:text-5xl text-[#77510f]">
             Build a Happier, Healthier Workplace
           </span>
 
-          <div className="flex flex-col gap-1">
-            <span className="text-lg md:text-xl xl:text-2xl">
+          <div className="flex flex-col gap-1 text-[#7d4545]">
+            <span className="text-lg md:text-xl xl:text-4xl">
               Empower your teams with mindfulness, emotional intelligence,
             </span>
-            <span className="text-lg md:text-xl xl:text-2xl">
+            <span className="text-lg md:text-xl xl:text-4xl">
               and resilience training.
             </span>
           </div>

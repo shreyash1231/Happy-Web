@@ -25,20 +25,20 @@ export default function Sessions() {
       <div className="flex flex-col gap-15">
         <div className="flex flex-col gap-4">
           <motion.span
-            className="text-center text-xl md:text-2xl lg:text-3xl xl:text-6xl"
+            className="text-center text-xl md:text-2xl lg:text-3xl xl:text-5xl"
             variants={fadeUp}
           >
             Pre-Curated Corporate Wellness Sessions
           </motion.span>
           <motion.span
-            className="text-center text-sm md:text-xl xl:text-2xl text-[#c39e86]"
+            className="text-center text-sm md:text-xl xl:text-xl text-[#7d4545]"
             variants={fadeUp}
           >
             Experiential emotional wellness workshops designed for corporate teams.
           </motion.span>
 
           <motion.div
-            className="flex flex-col md:flex-row justify-center pt-2 gap-3 md:gap-20 text-[#c39e86]"
+            className="flex flex-col md:flex-row justify-center pt-2 gap-3 md:gap-20 text-[#7d4545]"
             variants={fadeUp}
           >
             <span>
@@ -71,7 +71,7 @@ export default function Sessions() {
           <Button className="px-20 py-6 rounded-full bg-[#544120] text-white border-2 border-yellow-400">
             All Programs
           </Button>
-          <Button className="hidden xl:flex items-center justify-center text-lg py-6 px-10 rounded-full bg-[#f3efe8] text-[#c39e86] border-2 border-[#544120] gap-4 whitespace-nowrap">
+          <Button className="hidden xl:flex items-center justify-center text-lg py-6 px-10 rounded-full bg-[#f3efe8] text-[#7d4545] border-2 border-[#544120] gap-4 whitespace-nowrap">
   <span>Leadership</span>
   <span>|</span>
   <span>Employee Wellness</span>

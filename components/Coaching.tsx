@@ -38,21 +38,21 @@ export default function Coaching(){
       >
         <motion.span
           variants={fadeUp}
-          className="text-center text-lg xl:text-4xl"
+          className="text-center text-lg xl:text-4xl font-canela font-normal"
         >
           Programs designed for emotional clarity and growth
         </motion.span>
 
         <motion.span
           variants={fadeUp}
-          className="text-center text-sm xl:text-3xl text-[#c39e86]"
+          className="text-center text-[10px] xl:text-xl text-[#c39e86]"
         >
           Happy Ho offers a range of coaching, meditation, counselling, and healing programs
-          <br className="xl:block hidden"/>
+          <br className="md:block hidden"/>
           designed for individuals, professionals, and organizations. These programs integrate
-          <br className="xl:block hidden"/>
+          <br className="md:block hidden"/>
           positive psychology, ancient wisdom, and practical coaching tools to improve well-
-          <br className="xl:block hidden"/>
+          <br className="md:block hidden"/>
           being, creativity, productivity, and resilience.
         </motion.span>
       </motion.div>
@@ -63,7 +63,7 @@ export default function Coaching(){
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="flex flex-wrap items-center justify-center gap-8 xl:mt-10 pt-10 xl:pt-25"
+        className="flex flex-wrap items-center justify-center gap-8 xl:mt-10 pt-10 xl:pt-25 pb-12"
       >
 
         {/* Card 1 */}
@@ -114,7 +114,7 @@ export default function Coaching(){
 
         {/* Card 3 */}
         <motion.div variants={fadeUp} whileTap={{ scale: 0.97 }}>
-          <Card className="flex w-70 h-110 md:w-85 flex-col border-3 border-yellow-400 gap-0 p-0 rounded-4xl">
+          <Card className="flex h-110 md:w-85 flex-col border-3 border-yellow-400 gap-0 p-0 rounded-4xl">
             <div className="flex flex-col w-full items-center justify-center rounded-t-xl bg-[#3f5c4a]">
               
               <motion.div
@@ -138,3 +138,7 @@ export default function Coaching(){
     </div>
   );
 }
+
+
+
+

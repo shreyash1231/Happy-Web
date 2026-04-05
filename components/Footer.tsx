@@ -25,14 +25,14 @@ export default function Footer() {
 
   return (
     <motion.div
-      className="bg-[#dcd8ce] xl:rounded-t-[100px] rounded-t-[40px] p-5 md:p-10 lg:p-16 mx-auto max-w-[1920px]"
+      className="bg-[#dcd8ce] xl:rounded-t-[110px] rounded-t-[40px] p-5 md:p-10 lg:p-16 mx-auto max-w-[1920px]"
       variants={container}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
     >
       <motion.div className="flex flex-col gap-10" variants={fadeUp}>
-        <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-0 md:gap-10 lg:gap-30" variants={fadeUp}>
+        <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-0 md:gap-5" variants={fadeUp}>
           {/* About */}
           <motion.div className="flex flex-col gap-2" variants={fadeUp}>
             <span>
@@ -57,12 +57,14 @@ export default function Footer() {
               <span>For Organizations</span>
               <span>Signature Programs</span>
               <div className="flex flex-col pl-4">
-                <span>• Cosmic</span>
-                <span>&nbsp;&nbsp; Guidance</span>
-                <span>• Meditation</span>
-                <span>&nbsp;&nbsp; Coaching</span>
-                <span>• Holistic</span>
-                <span>&nbsp;&nbsp; Healing</span>
+                <span>• Cosmic <span className="hidden lg:inline">Guidance</span></span>
+                <span className="lg:hidden">&nbsp;&nbsp; Guidance</span>
+
+                <span>• Meditation <span className="hidden lg:inline">Coaching</span></span>
+                <span className="lg:hidden">&nbsp;&nbsp; Coaching</span>
+
+                <span>• Holistic <span className="hidden lg:inline">Healing</span></span>
+                <span className="lg:hidden">&nbsp;&nbsp; Healing</span>
               </div>
             </div>
           </motion.div>

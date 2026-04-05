@@ -44,11 +44,11 @@ export default function Guides() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row items-center justify-center gap-10 mt-20"
+          className="flex flex-col md:flex-row items-center justify-center gap-5 mt-20"
         >
           
           {/* Column 1 */}
-          <motion.div variants={fadeUp} className="flex md:flex-col gap-2 md:gap-5">
+          <motion.div variants={fadeUp} className="flex md:flex-col gap-2 md:gap-3">
             <motion.div whileHover={{ scale: 1.05 }}>
               <Image
                 src="/43.png"
@@ -70,7 +70,7 @@ export default function Guides() {
           </motion.div>
 
           {/* Column 2 */}
-          <motion.div variants={fadeUp} className="flex md:flex-col gap-2 md:gap-5">
+          <motion.div variants={fadeUp} className="flex md:flex-col gap-2 md:gap-3">
             <motion.div whileHover={{ scale: 1.05 }}>
               <Image
                 src="/43.png"
@@ -92,7 +92,7 @@ export default function Guides() {
           </motion.div>
 
           {/* Column 3 */}
-          <motion.div variants={fadeUp} className="flex md:flex-col gap-2 md:gap-5">
+          <motion.div variants={fadeUp} className="flex md:flex-col gap-2 md:gap-3">
             <motion.div whileHover={{ scale: 1.05 }}>
               <Image
                 src="/43.png"
@@ -114,7 +114,7 @@ export default function Guides() {
           </motion.div>
 
           {/* Column 4 */}
-          <motion.div variants={fadeUp} className="flex md:flex-col gap-2 md:gap-5">
+          <motion.div variants={fadeUp} className="flex md:flex-col gap-2 md:gap-3">
             <motion.div whileHover={{ scale: 1.05 }}>
               <Image
                 src="/43.png"

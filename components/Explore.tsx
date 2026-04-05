@@ -5,12 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const programs = [
-  {
-    title: "Executive\nCoaching",
-    description:
-      "Guidance for leaders and professionals to develop clarity, emotional intelligence, and strategic decision-making.",
-    dark: true,
-  },
+  { title: "Executive\nCoaching", image: "/14.png" },
   { title: "Happiness\nCoaching", image: "/11.png" },
   { title: "Life\nCoaching", image: "/12.png" },
   { title: "Relationship\nCoaching", image: "/13.png" },
@@ -73,11 +68,7 @@ export default function Explore() {
               className="w-full"
             >
               <Card
-                className={`w-full md:h-65 rounded-2xl border p-4 flex flex-col items-center justify-center text-center transition-all duration-300 ${
-                  program.dark
-                    ? "bg-[#3d3020] text-white border-transparent"
-                    : "bg-[#f3efe8] border-[#3d3020]"
-                }`}
+                className={`w-full md:h-65 rounded-2xl border p-4 flex flex-col items-center justify-center text-center transition-all duration-300 bg-[#f3efe8] border-[#3d3020]`}
               >
                 {/* Image animation */}
                 {program.image && (
@@ -100,16 +91,8 @@ export default function Explore() {
                 <span className="text-2xl whitespace-pre-line mt-2">
                   {program.title}
                 </span>
-
-                {/* Description */}
-                {program.description && (
-                  <span className="text-sm mt-2">
-                    {program.description}
-                  </span>
-                )}
               </Card>
             </motion.div>
-
           ))}
         </motion.div>
       </div>

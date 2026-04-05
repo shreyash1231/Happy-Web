@@ -31,6 +31,14 @@ export default function Designed() {
       },
     },
   };
+    const stagger = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
 
   return (
     <div className="mx-auto max-w-[1920px] pt-8 px-4 md:p-10 xl:p-16">
@@ -70,7 +78,7 @@ export default function Designed() {
               </div>
 
            {index < stats.length - 1 && (
-              <div className="hidden lg:block h-32 w-[2px] bg-yellow-400 mx-4 self-stretch" />
+              <div className="hidden md:block h-32 w-[2px] bg-[#D4A437] mx-4 self-stretch" />
             )}
             </motion.div>
           ))}
@@ -91,7 +99,7 @@ export default function Designed() {
 
         {/* ================= Cards ================= */}
         <motion.div
-          variants={container}
+          variants={stagger}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
@@ -102,23 +110,27 @@ export default function Designed() {
             { img: "/4.png", title: "Meditation Coaching", bg: "#7d7d83" },
             { img: "/5.png", title: "Holistic Healing", bg: "#3f5c4a" },
           ].map((card, i) => (
-            <motion.div key={i} variants={fadeUp} className="w-[95%] md:w-[45%] lg:w-auto">
-              <Card className="flex h-90 w-full lg:h-110 lg:w-90 flex-col justify-between border-2 border-yellow-400 px-6 pb-8 rounded-4xl"
+            <motion.div key={i} variants={fadeUp}     whileTap={{ scale: 0.97 }} className="w-[95%] md:w-[45%] lg:w-auto">
+              <Card className="flex h-90 w-full lg:h-100 lg:w-90 flex-col justify-between border-4 border-[#D4A437] px-6 pb-8 rounded-4xl"
                 style={{ backgroundColor: card.bg }}
               >
-                <div className="flex items-center justify-center">
+                <motion.div 
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ duration: 0.4 }}
+                className="flex items-center justify-center">
                <Image
                   src={card.img}
                   alt=""
-                  width={250}
-                  height={250}
-                  className="w-50 h-50 md:w-55 md:h-55 lg:w-70 lg:h-70"
+                  width={220}
+                  height={220}
+                  className="w-50 h-50 md:w-55 md:h-55 lg:w-60 lg:h-60"
                 />
-                </div>
+                </motion.div>
 
                 <div
                   className={`text-left text-3xl lg:text-4xl ${
-                    i=== 0 ? "text-[#544120]" : "text-[#c39e86]"
+                    i=== 0 ? "text-[#544120]" : "text-[#f3efe8]"
                   }`}
                 >
                   {card.title.split(" ")[0]} <br />
@@ -143,7 +155,7 @@ export default function Designed() {
         </motion.div>
 
         <motion.div
-          variants={container}
+          variants={stagger}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
@@ -151,11 +163,15 @@ export default function Designed() {
         >
 
           {/* Card 1 */}
-          <motion.div variants={fadeUp}>
+          <motion.div variants={fadeUp}  whileTap={{ scale: 0.97 }} >
             <Card className="bg-[#544120] rounded-4xl border-2 border-yellow-400 w-full h-full lg:max-w-xl flex flex-col p-6 sm:p-8">
-              <div className="flex justify-end">
+              <motion.div 
+                  initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ duration: 0.4 }}
+              className="flex justify-end">
                 <Image src="/6.png" alt="" width={200} height={200} />
-              </div>
+              </motion.div>
 
               <div className="flex flex-col gap-4 text-[#c39e86] mt-4">
                 <strong className="text-2xl sm:text-2xl lg:text-4xl">
@@ -170,11 +186,14 @@ export default function Designed() {
           </motion.div>
 
           {/* Card 2 */}
-          <motion.div variants={fadeUp}>
+          <motion.div variants={fadeUp}  whileTap={{ scale: 0.97 }} >
             <Card className="bg-transparent rounded-4xl border-2 border-[#544120] w-full h-full lg:max-w-xl flex flex-col p-6 sm:p-8">
-              <div className="flex justify-end">
+              <motion.div 
+                initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ duration: 0.4 }}className="flex justify-end">
                 <Image src="/6.png" alt="" width={200} height={200} />
-              </div>
+              </motion.div>
 
               <div className="flex flex-col gap-4 text-[#544120] mt-4">
                 <strong className="text-2xl sm:text-2xl lg:text-4xl">
