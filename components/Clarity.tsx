@@ -31,7 +31,7 @@ export default function Clarity() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="md:grid md:grid-cols-6 items-center text-white max-w-5xl mx-auto gap-6"
+        className="md:grid md:grid-cols-6 items-center text-white max-w-5xl mx-auto gap-6 mx-auto"
       >
 
         {/* LEFT → End comma (middle) */}
@@ -50,7 +50,7 @@ export default function Clarity() {
         {/* CENTER → TEXT */}
         <motion.div
           variants={fadeUp}
-          className="text-left flex flex-col md:gap-2 col-span-4"
+          className="text-left flex flex-col md:gap-0 md:col-span-3 lg:col-span-4"
         >
           <span className="text-4xl md:text-2xl lg:text-4xl">
             Clarity replaced confusion.

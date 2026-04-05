@@ -57,7 +57,7 @@ export default function Emotional() {
                       className="overflow-hidden rounded-2xl"
                     >
                       <Image
-                        src="/23.png"
+                        src="/l8.png"
                         alt=""
                         width={300}
                         height={200}
@@ -91,7 +91,7 @@ export default function Emotional() {
                       className="overflow-hidden rounded-2xl"
                     >
                       <Image
-                        src="/23.png"
+                        src="/l8.png"
                         alt=""
                         width={300}
                         height={200}

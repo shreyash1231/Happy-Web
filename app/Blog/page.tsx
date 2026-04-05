@@ -12,7 +12,7 @@ import Published from "@/components/Published";
 export default function Blog(){
     return(
         <>
-         <div className="bg-[#E5DFD5] rounded-b-[60px] pb-10 min-h-[60vh]">
+         <div className="bg-[#E5DFD5] rounded-b-[60px] pb-10">
         <Header/>
         <Insights/>
         </div>
