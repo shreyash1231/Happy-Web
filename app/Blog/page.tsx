@@ -12,20 +12,21 @@ import Published from "@/components/Published";
 export default function Blog(){
     return(
         <>
+         <div className="bg-[#E5DFD5] rounded-b-[60px] pb-10 min-h-[60vh]">
         <Header/>
         <Insights/>
+        </div>
         <Featured/>
         <Articles/>
         <Published/>
-               {/* Step section */}
-                            <div className="relative z-0">
-                              <Discover/>
-                            </div>
-                    
-                            {/* Overlapping Footer */}
-                            <div className="relative z-20 -mt-10 md:-mt-15 xl:-mt-20">
-                              <Footer/>
-                            </div>
+        {/* Step section */}
+        <div className="relative z-0">
+          <Discover/>
+        </div>
+        {/* Overlapping Footer */}
+        <div className="relative z-20 -mt-10 md:-mt-15 xl:-mt-20">
+          <Footer/>
+        </div>
         </>
     );
 }

@@ -44,31 +44,31 @@ export default function Trust() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 xl:gap-6 place-items-center"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 xl:gap-6 place-items-center pt-10 w-fit mx-auto"
         >
           {[
-            "/23.png",
-            "/24.png",
-            "/25.png",
-            "/26.png",
-            "/27.png",
-            "/28.png",
-            "/29.png",
-            "/30.png",
+            "/l8.png",
+            "/l7.png",
+            "/l6.png",
+            "/l5.png",
+            "/l4.png",
+            "/l3.png",
+            "/l1.png",
+            "/l2.png",
           ].map((src, index) => (
             <motion.div
               key={index}
               variants={item}
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 200 }}
-              className="flex items-center justify-center h-[100px]"
+              className="flex items-center justify-center h-[100px] mt-10"
             >
               <Image
                 src={src}
                 alt="logo"
-                width={200}
+                width={150}
                 height={120}
-                className="object-contain"
+                className="object-contain w-full"
               />
             </motion.div>
           ))}

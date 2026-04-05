@@ -5,6 +5,7 @@ import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { article } from "framer-motion/client";
 
 export default function Articles() {
   const categories = [
@@ -71,35 +72,104 @@ export default function Articles() {
         ))}
       </div>
 
-     <motion.div
+    <motion.div
   variants={container}
   initial="hidden"
   whileInView="show"
   viewport={{ once: true }}
- className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center"
+  className="flex flex-wrap justify-center gap-6"
 >
-  {articles.map((item, i) => (
-    <motion.div key={i} variants={fadeUp} whileTap={{ scale: 0.97 }}>
-      <Card className="flex flex-col overflow-hidden rounded-3xl bg-[#e9e1d6] hover:shadow-xl transition-all">
+    <motion.div
+      variants={fadeUp}
+      whileTap={{ scale: 0.97 }}
+      whileHover={{ scale: 1.03 }}
+      className="w-full sm:w-[48%] lg:w-[31%]"
+    >
+      <Card className="flex flex-col overflow-hidden rounded-3xl bg-[#e9e1d6] hover:shadow-xl transition-all h-full">
         
         <Image
-          src={item.img}
-          alt={item.title}
+          src={articles[0].img}
+          alt={articles[0].title}
           width={400}
           height={250}
           className="w-full h-[200px] object-cover"
         />
 
-        <CardContent className="p-2 px-2 space-y-3 text-[#544120]">
-          <h3 className="text-sm font-semibold">{item.title}</h3>
-          <p className="text-[10px]">{item.desc}</p>
+        <CardContent className="p-2 px-4 space-y-3 text-[#544120]">
+          <h3 className="text-sm font-semibold">{articles[0].title}</h3>
+          <p className="text-[10px]">{articles[0].desc}</p>
           <span className="text-sm font-medium cursor-pointer hover:underline">
             Read Article →
           </span>
         </CardContent>
       </Card>
     </motion.div>
-  ))}
+    <motion.div
+  variants={fadeUp}
+  whileTap={{ scale: 0.97 }}
+  whileHover={{ scale: 1.03 }}
+  className="w-full sm:w-[48%] lg:w-[31%]"
+>
+  <Card className="flex flex-col overflow-hidden rounded-3xl bg-[#e9e1d6] hover:shadow-xl transition-all h-full">
+    
+    <Image
+      src={articles[1].img}
+      alt={articles[1].title}
+      width={400}
+      height={250}
+      className="w-full h-[200px] object-cover"
+    />
+
+    {/* 👇 make this flex column */}
+    <CardContent className="flex flex-col justify-between flex-1 px-4 py-3 text-[#544120]">
+      
+      {/* Top content */}
+      <div className="space-y-3">
+        <h3 className="text-sm font-semibold">{articles[1].title}</h3>
+        <p className="text-[10px]">{articles[1].desc}</p>
+      </div>
+
+      {/* Bottom CTA */}
+      <span className="text-sm font-medium cursor-pointer hover:underline mt-4">
+        Read Article →
+      </span>
+
+    </CardContent>
+  </Card>
+</motion.div>
+   <motion.div
+  variants={fadeUp}
+  whileTap={{ scale: 0.97 }}
+  whileHover={{ scale: 1.03 }}
+  className="w-full sm:w-[48%] lg:w-[31%]"
+>
+  <Card className="flex flex-col overflow-hidden rounded-3xl bg-[#e9e1d6] hover:shadow-xl transition-all h-full">
+    
+    <Image
+      src={articles[2].img}
+      alt={articles[2].title}
+      width={400}
+      height={250}
+      className="w-full h-[200px] object-cover"
+    />
+
+    {/* 👇 make this flex column */}
+    <CardContent className="flex flex-col justify-between flex-1 px-4 py-3 text-[#544120]">
+      
+      {/* Top content */}
+      <div className="space-y-3">
+        <h3 className="text-sm font-semibold">{articles[2].title}</h3>
+        <p className="text-[10px]">{articles[2].desc}</p>
+      </div>
+
+      {/* Bottom CTA */}
+      <span className="text-sm font-medium cursor-pointer hover:underline mt-4">
+        Read Article →
+      </span>
+
+    </CardContent>
+  </Card>
+</motion.div>
 </motion.div>
     </div>
   );

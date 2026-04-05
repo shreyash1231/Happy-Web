@@ -1,11 +1,12 @@
+
+
 "use client";
 
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 
-export default function Step() {
-
-  // Parent container (stagger effect)
+export default function Discover() {
+  // Stagger container
   const container = {
     hidden: {},
     show: {
@@ -15,7 +16,7 @@ export default function Step() {
     },
   };
 
-  // Fade + slide up
+  // Fade up animation
   const fadeUp = {
     hidden: { opacity: 0, y: 50 },
     show: {
@@ -24,19 +25,17 @@ export default function Step() {
       transition: { duration: 0.7, ease: "easeOut" as const },
     },
   };
-  
 
   return (
-    <div className="relative z-10 mx-auto max-w-[1920px] pb-40">
+    <div className="relative z-10 mx-auto max-w-[1920px] pb-20 xl:pb-40 2xl:pb-70">
 
-      {/* Background image */}
+      {/* Background */}
       <div className="absolute inset-0">
         <img
           src="/2.png"
           alt="background"
           className="w-full h-full object-cover object-bottom"
         />
-        <div className="absolute inset-0 bg-black/10"></div>
       </div>
 
       {/* Content */}
@@ -45,55 +44,66 @@ export default function Step() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="relative z-10 mx-auto max-w-[1920px] px-4 md:px-10 xl:px-16 pt-16 md:pt-10"
+        className="relative z-10 px-4 md:px-10 xl:px-16 pt-16 md:pt-20"
       >
 
         {/* Heading */}
         <motion.h1
           variants={fadeUp}
-          className="text-2xl text-center md:text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl xl:mb-50"
+          className="text-2xl text-center md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl mb-10 md:mb-16 xl:mb-50 2xl:mb-100 font-canela font-normal text-[#2d2d2d]"
         >
           Take the first
         </motion.h1>
 
-        {/* Two column layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 h-full">
+        {/* Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
-          {/* Left column */}
+          {/* LEFT FORM */}
           <motion.div
             variants={container}
-            className="flex flex-col gap-6 max-w-[500px] 2xl:max-w-[800px] mt-20 xl:mt-0 2xl:mt-50"
+            className="flex flex-col md:justify-end lg:justify-center gap-6 w-[90%] mx-auto md:mx-0 2xl:pl-50"
           >
 
-            {/* Input */}
+            {/* NAME */}
             <motion.input
               variants={fadeUp}
               whileFocus={{ scale: 1.03 }}
-              placeholder="Name"
-              className="placeholder:text-2xl w-full h-12 py-7 px-4 2xl:py-10 2xl:px-5 bg-white rounded-4xl outline-none border-yellow-400 border-2 transition-all"
+              placeholder="NAME"
+              className="w-full py-6 px-6 bg-[#ebe5db]/80 backdrop-blur-sm 
+              rounded-full outline-none border border-[#c79a3b] 
+              placeholder:text-[#b8aa95] placeholder:text-lg tracking-wide transition-all"
             />
 
+            {/* EMAIL */}
             <motion.input
               variants={fadeUp}
               whileFocus={{ scale: 1.03 }}
-              placeholder="Email"
-              className="placeholder:text-2xl w-full h-12 py-7 2xl:py-10 2xl:px-5 px-4 bg-white rounded-4xl outline-none border-yellow-400 border-2 transition-all"
+              placeholder="EMAIL"
+              className="w-full py-6 px-6 bg-[#ebe5db]/80 backdrop-blur-sm 
+              rounded-full outline-none border border-[#c79a3b] 
+              placeholder:text-[#b8aa95] placeholder:text-lg tracking-wide transition-all"
             />
 
+            {/* MESSAGE */}
             <motion.input
               variants={fadeUp}
               whileFocus={{ scale: 1.03 }}
-              placeholder="Message"
-              className="placeholder:text-2xl w-full h-12 py-7 2xl:py-10 px-4 bg-white rounded-4xl outline-none border-yellow-400 border-2 transition-all"
+              placeholder="MESSAGE"
+              className="w-full py-6 px-6 bg-[#ebe5db]/80 backdrop-blur-sm 
+              rounded-full outline-none border border-[#c79a3b] 
+              placeholder:text-[#b8aa95] placeholder:text-lg tracking-wide transition-all"
             />
 
-            {/* Button */}
+            {/* BUTTON */}
             <motion.div variants={fadeUp}>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button className="w-full xl:w-2/3 bg-[#3f5c4a] cursor-pointer hover:bg-[#978059] py-7 2xl:py-10 text-lg rounded-full">
+                <Button
+                  className="bg-[#3f5c4a] hover:bg-[#2f4638] text-white 
+                  px-8 py-6 rounded-full text-base md:w-fit"
+                >
                   Book Discovery Session
                 </Button>
               </motion.div>
@@ -101,11 +111,12 @@ export default function Step() {
 
           </motion.div>
 
-          {/* Right column */}
+          {/* RIGHT SIDE (optional content or empty for now) */}
           <motion.div
             variants={fadeUp}
-            className="flex flex-col justify-center items-center text-white text-center"
+            className="hidden md:flex items-center justify-center"
           >
+            {/* You can add illustration/content here if needed */}
           </motion.div>
 
         </div>
