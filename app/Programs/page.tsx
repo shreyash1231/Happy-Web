@@ -2,6 +2,7 @@ import Coaching from "@/components/Coaching";
 import Discover from "@/components/Discover";
 import Explore from "@/components/Explore";
 import Footer from "@/components/Footer";
+import FooterSmall from "@/components/FooterSmall";
 import Header from "@/components/Header";
 
 
@@ -22,7 +23,12 @@ export default function Programs(){
             
                     {/* Overlapping Footer */}
                     <div className="relative z-20 -mt-10 md:-mt-15 xl:-mt-20">
-                      <Footer/>
+                      <div className="hidden md:block">
+                              <Footer/>
+                          </div>
+                            <div className="block md:hidden">
+                              <FooterSmall/>
+                          </div>
                     </div>
         </div>
     );
