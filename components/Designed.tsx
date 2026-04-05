@@ -78,7 +78,7 @@ export default function Designed() {
               </div>
 
            {index < stats.length - 1 && (
-              <div className="hidden md:block h-32 w-[2px] bg-[#D4A437] mx-4 self-stretch" />
+              <div className="hidden lg:block h-32 w-[2px] bg-[#D4A437] mx-4 self-stretch" />
             )}
             </motion.div>
           ))}
