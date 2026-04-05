@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Footer() {
   // ================= Animations =================
@@ -36,7 +37,7 @@ export default function Footer() {
           {/* About */}
           <motion.div className="flex flex-col gap-2" variants={fadeUp}>
             <span>
-              <strong className="text-[#544120] text-sm lg:text-xl">About</strong>
+              <strong className="text-[#544120] text-sm lg:text-xl"><Link href="/AboutUs" className="cursor-pointer">About</Link></strong>
             </span>
             <div className="flex flex-col text-[#544120] text-[13px] lg:text-lg">
               <span>Founder’s Note</span>
@@ -50,7 +51,7 @@ export default function Footer() {
           {/* Our Programs */}
           <motion.div className="flex flex-col gap-2" variants={fadeUp}>
             <span>
-              <strong className="text-[#544120] text-sm lg:text-xl">Our Programs</strong>
+              <strong className="text-[#544120] text-sm lg:text-xl"><Link href="/Programs" className="cursor-pointer">Our Programs </Link></strong>
             </span>
             <div className="flex flex-col text-[#544120] text-[13px] lg:text-lg">
               <span>For Individuals</span>
@@ -75,7 +76,7 @@ export default function Footer() {
               <strong className="text-[#544120] text-sm lg:text-xl">Content & Learning</strong>
             </span>
             <div className="flex flex-col text-[#544120] text-[13px] lg:text-lg">
-              <span>Blogs</span>
+              <span><Link href="/Blog" className="cursor-pointer">Blog</Link></span>
               <span>Videos / Reels</span>
             </div>
           </motion.div>

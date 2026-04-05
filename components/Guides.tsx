@@ -44,7 +44,7 @@ export default function Guides() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row items-center justify-center gap-5 mt-20"
+        className="hidden md:flex flex-col md:flex-row items-center justify-center gap-5 mt-20"
         >
           
           {/* Column 1 */}
@@ -122,6 +122,98 @@ export default function Guides() {
                 width={200}
                 height={300}
                 className="rounded-[60px] w-[200px] h-[300px] object-cover"
+              />
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }}>
+              <Image
+                src="/44.png"
+                alt="women"
+                width={200}
+                height={200}
+                className="rounded-[60px] w-[200px] h-[200px] object-cover"
+              />
+            </motion.div>
+          </motion.div>
+
+        </motion.div>
+
+
+
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="flex gap-5 mt-10 md:hidden"
+        >
+          {/* Column 1 */}
+          <motion.div variants={fadeUp} className="flex flex-col gap-4">
+            <motion.div whileHover={{ scale: 1.05 }}>
+              <Image
+                src="/43.png"
+                alt="women"
+                width={200}
+                height={200}
+                className="rounded-[60px] w-[200px] h-[200px] object-cover"
+              />
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }}>
+              <Image
+                src="/43.png"
+                alt="women"
+                width={200}
+                height={300}
+                className="rounded-[60px] w-[200px] h-[300px] object-cover"
+              />
+            </motion.div>
+
+            <motion.div whileHover={{ scale: 1.05 }}>
+              <Image
+                src="/43.png"
+                alt="women"
+                width={200}
+                height={200}
+                className="rounded-[60px] w-[200px] h-[200px] object-cover"
+              />
+            </motion.div>
+             <motion.div whileHover={{ scale: 1.05 }}>
+              <Image
+                src="/43.png"
+                alt="women"
+                width={200}
+                height={300}
+                className="rounded-[60px] w-[200px] h-[300px] object-cover"
+              />
+            </motion.div>
+          </motion.div>
+
+          {/* Column 2 */}
+          <motion.div variants={fadeUp} className="flex flex-col gap-4">
+               <motion.div whileHover={{ scale: 1.05 }}>
+              <Image
+                src="/44.png"
+                alt="women"
+                width={200}
+                height={300}
+                className="rounded-[60px] w-[200px] h-[300px] object-cover"
+              />
+            </motion.div>
+             <motion.div whileHover={{ scale: 1.05 }}>
+              <Image
+                src="/42.png"
+                alt="women"
+                width={200}
+                height={300}
+                className="rounded-[60px] w-[200px] h-[300px] object-cover"
+              />
+            </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }}>
+              <Image
+                src="/44.png"
+                alt="women"
+                width={200}
+                height={200}
+                className="rounded-[60px] w-[200px] h-[200px] object-cover"
               />
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }}>

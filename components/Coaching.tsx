@@ -58,17 +58,22 @@ export default function Coaching(){
       </motion.div>
 
       {/* 🔹 Cards */}
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        className="flex flex-wrap items-center justify-center gap-8 xl:mt-10 pt-10 xl:pt-25 pb-12"
-      >
+  <motion.div
+  variants={container}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  className="
+    flex flex-nowrap overflow-x-auto gap-8 px-4 w-full
+    pt-10 pb-12
+    xl:flex-wrap xl:overflow-visible xl:justify-center xl:mt-10 xl:pt-25
+  "
+  style={{ WebkitOverflowScrolling: "touch" }}
+>
 
         {/* Card 1 */}
-        <motion.div variants={fadeUp} whileTap={{ scale: 0.97 }}>
-          <Card className="flex h-110 md:w-85 flex-col border-3 border-yellow-400 gap-0 p-0 rounded-4xl">
+        <motion.div variants={fadeUp} whileTap={{ scale: 0.97 }} className="flex-shrink-0">
+          <Card className="flex h-110 w-75 md:w-85 flex-col border-3 border-yellow-400 gap-0 p-0 rounded-4xl">
             <div className="flex flex-col w-full items-center justify-center rounded-t-xl bg-[#dcd8ce]">
               
               <motion.div
@@ -90,8 +95,8 @@ export default function Coaching(){
         </motion.div>
 
         {/* Card 2 */}
-        <motion.div variants={fadeUp}  whileTap={{ scale: 0.97 }}>
-          <Card className="flex h-110 md:w-85 flex-col border-3 border-yellow-400 gap-0 p-0 rounded-4xl">
+     <motion.div variants={fadeUp} whileTap={{ scale: 0.97 }} className="flex-shrink-0">
+          <Card className="flex h-110 w-75 md:w-85 flex-col border-3 border-yellow-400 gap-0 p-0 rounded-4xl">
             <div className="flex flex-col w-full items-center justify-center rounded-t-xl bg-[#7d8d83]">
               
               <motion.div
@@ -113,8 +118,8 @@ export default function Coaching(){
         </motion.div>
 
         {/* Card 3 */}
-        <motion.div variants={fadeUp} whileTap={{ scale: 0.97 }}>
-          <Card className="flex h-110 md:w-85 flex-col border-3 border-yellow-400 gap-0 p-0 rounded-4xl">
+       <motion.div variants={fadeUp} whileTap={{ scale: 0.97 }} className="flex-shrink-0">
+          <Card className="flex h-110 w-75  md:w-85 flex-col border-3 border-yellow-400 gap-0 p-0 rounded-4xl">
             <div className="flex flex-col w-full items-center justify-center rounded-t-xl bg-[#3f5c4a]">
               
               <motion.div

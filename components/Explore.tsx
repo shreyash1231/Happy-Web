@@ -5,15 +5,15 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const programs = [
-  { title: "Executive\nCoaching", image: "/24.png" },
-  { title: "Happiness\nCoaching", image: "/11.png" },
-  { title: "Life\nCoaching", image: "/12.png" },
-  { title: "Relationship\nCoaching", image: "/13.png" },
-  { title: "Tarot\nGuidance", image: "/14.png" },
-  { title: "Guided\nMindfulness", image: "/18.png" },
-  { title: "Energy\nHealing", image: "/15.png" },
-  { title: "Emotional\nBalance", image: "/16.png" },
-  { title: "Holistic\nWellbeing", image: "/17.png" },
+  { title: "Executive\nCoaching", image: "/24.png", desc: "Guidance for leaders and professionals to develop clarity, emotional intelligence, and strategic decision-making." },
+  { title: "Happiness\nCoaching", image: "/11.png", desc: "Discover practical tools to overcome stress and build a more joyful and balanced life." },
+  { title: "Life\nCoaching", image: "/12.png", desc: "Support for personal growth, goal clarity, and meaningful life direction." },
+  { title: "Relationship\nCoaching", image: "/13.png", desc: "Build deeper connections through improved communication, emotional awareness, and conscious relationship practices." },
+  { title: "Tarot\nGuidance", image: "/14.png", desc: "Gain clarity and direction through intuitive tarot sessions focused on reflection and self-discovery." },
+  { title: "Guided\nMindfulness", image: "/18.png", desc: "Structured sessions that teach present-moment awareness and emotional regulation." },
+  { title: "Energy\nHealing", image: "/15.png", desc: "Holistic practices that support emotional release and energetic balance." },
+  { title: "Emotional\nBalance", image: "/16.png", desc: "Workshops focused on understanding emotions and building inner resilience." },
+  { title: "Holistic\nWellbeing", image: "/17.png", desc: "Integrated approaches combining mindfulness, coaching, and healing practices." },
 ];
 
 export default function Explore() {
@@ -67,31 +67,43 @@ export default function Explore() {
               whileTap={{ scale: 0.97 }}
               className="w-full"
             >
-              <Card
-                className={`w-full md:h-65 rounded-2xl border p-4 flex flex-col items-center justify-center text-center transition-all duration-300 bg-[#f3efe8] border-[#3d3020]`}
-              >
-                {/* Image animation */}
-                {program.image && (
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <Image
-                      src={program.image}
-                      alt={program.title}
-                      width={130}
-                      height={130}
-                      className="mx-auto"
-                    />
-                  </motion.div>
-                )}
+             <Card className="group relative w-full md:h-65 rounded-2xl border p-4 flex flex-col items-center justify-center text-center transition-all duration-300 bg-[#f3efe8] border-[#3d3020] overflow-hidden">
 
-                {/* Title */}
-                <span className="text-2xl whitespace-pre-line mt-2">
-                  {program.title}
-                </span>
-              </Card>
+  {/* Default Content */}
+  <div className="flex flex-col items-center justify-center gap-2 transition-all duration-300 group-hover:opacity-0 group-hover:scale-95">
+    
+    <motion.div
+      initial={{ scale: 0 }}
+      whileInView={{ scale: 1 }}
+      transition={{ duration: 0.4 }}
+    >
+      <Image
+        src={program.image}
+        alt={program.title}
+        width={130}
+        height={130}
+      />
+    </motion.div>
+
+    <span className="text-2xl whitespace-pre-line mt-2">
+      {program.title}
+    </span>
+  </div>
+
+  {/* Hover Content */}
+<div className="absolute inset-0 bg-[#544120] flex flex-col items-center justify-center px-6 opacity-0 group-hover:opacity-100 transition-all duration-300 gap-2">
+  
+  <span className="text-2xl whitespace-pre-line text-white">
+    {program.title}
+  </span>
+
+  <p className="text-sm text-white">
+    {program.desc}
+  </p>
+
+</div>
+
+</Card>
             </motion.div>
           ))}
         </motion.div>
