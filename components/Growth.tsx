@@ -33,6 +33,15 @@ export default function Growth() {
     },
   };
 
+
+      const stagger = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
   // ✅ Child animation (fade + slide up)
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -71,7 +80,60 @@ export default function Growth() {
           </motion.span>
         </motion.div>
 
-        {/* Cards */}
+
+        
+                <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="2xl:hidden flex overflow-x-auto gap-6 px-4 mt-3 w-full scrollbar-hide xl:justify-center"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
+          {["/70.png", "/71.png", "/72.png"].map((img, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              whileTap={{ scale: 0.97 }}
+              className="min-w-[280px] sm:min-w-[320px] flex-shrink-0"
+            >
+              <Image
+                src={img}
+                alt=""
+                width={320}
+                height={360}
+                className="w-full h-90  md:h-120 object-cover rounded-4xl"
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="hidden 2xl:flex flex-wrap gap-6 mt-3 w-full "
+        >
+          {["/70.png", "/71.png", "/72.png"].map((img, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              whileTap={{ scale: 0.97 }}
+              whileHover={{ scale: 1.03 }}
+              className="w-full sm:w-[48%] lg:w-[30%]"
+            >
+              <Image
+                src={img}
+                alt=""
+                width={320}
+                height={360}
+                className="w-full h-150 object-cover rounded-4xl"
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Cards
        <motion.div
   variants={container}
   initial="hidden"
@@ -120,7 +182,7 @@ export default function Growth() {
               </Card>
             </motion.div>
           ))}
-        </motion.div>
+        </motion.div> */}
 
       </div>
     </div>
