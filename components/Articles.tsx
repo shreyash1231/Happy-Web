@@ -60,24 +60,40 @@ export default function Articles() {
       </h2>
 
       {/* Category Pills */}
-      <div className="flex flex-wrap justify-center items-center gap-2 mb-10 w-full">
-        {categories.map((cat, i) => (
-          <Button
-            key={i}
-            variant={i === 0 ? "default" : "outline"}
-            className="rounded-full border-[#544120] px-8 py-6 xl:px-13 xl:py-7 text-[10px] xl:text-sm hover:bg-[#544120] text-black hover:text-white bg-transparent"
-          >
-            {cat}
-          </Button>
-        ))}
-      </div>
+     {/* Scrollable buttons on small/medium */}
+<div className="w-full py-2 lg:hidden overflow-x-auto no-scrollbar">
+  <div className="flex gap-2 min-w-max justify-start px-4">
+    {categories.map((cat, i) => (
+      <Button
+        key={i}
+        variant={i === 0 ? "default" : "outline"}
+        className="flex-shrink-0 rounded-full border-[#544120] px-6 py-3 xl:px-13 xl:py-7 text-[10px] xl:text-sm hover:bg-[#544120] text-black hover:text-white bg-transparent"
+      >
+        {cat}
+      </Button>
+    ))}
+  </div>
+</div>
+
+{/* Buttons on large screens (no scroll) */}
+<div className="flex flex-wrap justify-center items-center gap-2 mb-10 w-full hidden lg:flex">
+  {categories.map((cat, i) => (
+    <Button
+      key={i}
+      variant={i === 0 ? "default" : "outline"}
+      className="rounded-full border-[#544120] px-6 py-3 xl:px-13 xl:py-7 text-[10px] xl:text-sm hover:bg-[#544120] text-black hover:text-white bg-transparent"
+    >
+      {cat}
+    </Button>
+  ))}
+</div>
 
     <motion.div
   variants={container}
   initial="hidden"
   whileInView="show"
   viewport={{ once: true }}
-  className="flex flex-wrap justify-center gap-6"
+  className="flex flex-wrap justify-center gap-6 mt-10 lg:mt-0"
 >
     <motion.div
       variants={fadeUp}
