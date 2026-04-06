@@ -37,7 +37,7 @@ export default function Work() {
         </motion.span>
 
         <motion.div variants={fadeUp} className="flex flex-col text-center md:flex-row gap-10 xl:gap-40">
-          <div className="flex gap-3 text-[#c39e86] ">
+          <div className="flex gap-3 text-[#736345] ">
             <div className="w-8 h-8 md:w-10 md:h-10 bg-[#3f5c4a] rounded-full text-white text-xl flex justify-center items-center"> 1</div>
               <div className="flex flex-col text-left">
                 <span className="text-lg md:text-xl xl:text-3xl">Corporate Discovery Call</span>
@@ -45,7 +45,7 @@ export default function Work() {
                 <span className="text-sm xl:text-xl">challenges, and team structure.</span>
               </div>
           </div>
-          <div className="flex gap-3 text-[#c39e86] ">
+          <div className="flex gap-3 text-[#736345]">
              <div className="w-8 h-8 md:w-10 md:h-10 bg-[#3f5c4a] rounded-full text-white text-xl flex justify-center items-center"> 2</div>
               <div className="flex flex-col text-left">
                 <span className="text-lg md:text-xl xl:text-3xl">Program Design</span>
@@ -55,7 +55,7 @@ export default function Work() {
           </div>
         </motion.div>
 
-         <motion.div variants={fadeUp}  className="flex text-left gap-3 text-[#c39e86] ">
+         <motion.div variants={fadeUp}  className="flex text-left gap-3 text-[#736345]">
             <div className="w-8 h-8 md:w-10 md:h-10 bg-[#3f5c4a] rounded-full text-white text-xl flex justify-center items-center">3</div>
             <div className="flex flex-col">
               <span className="text-lg md:text-xl xl:text-3xl">Implementation</span>
