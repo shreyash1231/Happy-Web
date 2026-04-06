@@ -3,6 +3,7 @@
 import { Card } from "./ui/card";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Designed() {
   const stats = [
@@ -172,99 +173,6 @@ export default function Designed() {
   ))}
 </motion.div>
 
-        
-{/* <motion.div
-  variants={stagger}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true }}
-  className="xl:hidden flex overflow-x-auto gap-6 px-4 mt-3 w-full"
-  style={{ WebkitOverflowScrolling: "touch" }}
->
-  {[
-    { img: "/3.png", title: "Consciousness Guidance", bg: "#dcd8ce" },
-    { img: "/4.png", title: "Meditation Coaching", bg: "#7d7d83" },
-    { img: "/5.png", title: "Holistic Healing", bg: "#3f5c4a" },
-  ].map((card, i) => (
-  <motion.div
-  key={i}
-  variants={fadeUp}
-  whileTap={{ scale: 0.97 }}
-  className="min-w-[280px] sm:min-w-[320px] flex-shrink-0"
->
-      <Card
-        className="flex h-90 w-full lg:h-100 lg:w-90 flex-col justify-between border-3 border-[#C9A84C] px-6 pb-8 rounded-4xl"
-        style={{ backgroundColor: card.bg }}
-      >
-        <motion.div
-          initial={{ scale: 0 }}
-          whileInView={{ scale: 1 }}
-          transition={{ duration: 0.4 }}
-          className="flex items-center justify-center"
-        >
-          <Image
-            src={card.img}
-            alt=""
-            width={220}
-            height={220}
-            className="w-50 h-50 md:w-55 md:h-55 lg:w-60 lg:h-60"
-          />
-        </motion.div>
-
-        <div
-          className={`text-left text-3xl lg:text-4xl ${
-            i === 0 ? "text-[#544120]" : "text-[#f3efe8]"
-          }`}
-        >
-          {card.title.split(" ")[0]} <br />
-          {card.title.split(" ")[1]}
-        </div>
-      </Card>
-    </motion.div>
-  ))}
-</motion.div> */}
-        {/* <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="hidden xl:flex flex-wrap items-center justify-center gap-5 mt-3"
-        >
-          {[ 
-            { img: "/68.png", title: "Consciousness Guidance", bg: "#dcd8ce" },
-            { img: "/69.png", title: "Meditation Coaching", bg: "#7d7d83" },
-            { img: "/70.png", title: "Holistic Healing", bg: "#3f5c4a" },
-          ].map((card, i) => (
-            <motion.div key={i} variants={fadeUp}     whileTap={{ scale: 0.97 }} className="w-[95%] md:w-[45%] lg:w-auto">
-              <Card className="flex h-90 w-full lg:h-100 lg:w-90 flex-col justify-between border-3 border-[#C9A84C] px-6 pb-8 rounded-4xl"
-                style={{ backgroundColor: card.bg }}
-              >
-                <motion.div 
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ duration: 0.4 }}
-                className="flex items-center justify-center">
-               <Image
-                  src={card.img}
-                  alt=""
-                  width={220}
-                  height={220}
-                  className="w-50 h-50 md:w-55 md:h-55 lg:w-60 lg:h-60"
-                />
-                </motion.div>
-
-                <div
-                  className={`text-left text-3xl lg:text-4xl ${
-                    i=== 0 ? "text-[#544120]" : "text-[#f3efe8]"
-                  }`}
-                >
-                  {card.title.split(" ")[0]} <br />
-                  {card.title.split(" ")[1]}
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div> */}
 
         {/* ================= Therapy Formats ================= */}
         <motion.div
@@ -279,17 +187,41 @@ export default function Designed() {
           </span>
         </motion.div>
 
+        <motion.div 
+            variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          className="md:hidden block flex">
+             <Link href="/Programs" className="cursor-pointer">
+          <img
+          src="/80.png"
+          alt="individual"
+          className="w-40 h-40"
+          
+          />
+          </Link>
+               <Link href="/Corporate" className="cursor-pointer">
+           <img
+          src="/81.png"
+          alt="individual"
+          className="w-40 h-40"
+          
+          />
+          </Link>
+        </motion.div>
+
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-3"
+          className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-8 mt-3"
         >
 
           {/* Card 1 */}
           <motion.div variants={fadeUp}  whileTap={{ scale: 0.97 }} >
             <Card className="bg-[#544120] rounded-4xl border-2 border-yellow-400 w-full h-full lg:max-w-xl flex flex-col p-6 sm:p-8">
+              <Link href="/Programs" className="cursor-pointer">
               <motion.div 
                   initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
@@ -307,12 +239,14 @@ export default function Designed() {
                   relationship clarity, life direction, healing work.
                 </div>
               </div>
+              </Link>
             </Card>
           </motion.div>
 
           {/* Card 2 */}
           <motion.div variants={fadeUp}  whileTap={{ scale: 0.97 }} >
             <Card className="bg-transparent rounded-4xl border-2 border-[#544120] w-full h-full lg:max-w-xl flex flex-col p-6 sm:p-8">
+              <Link href="/Corporate" className="cursor-pointer">
               <motion.div 
                 initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
@@ -328,6 +262,7 @@ export default function Designed() {
                   Corporate wellness programs, executive coaching, happiness measurement, emotional intelligence training, mentoring, leadership development.
                 </div>
               </div>
+              </Link>
             </Card>
           </motion.div>
 

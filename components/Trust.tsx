@@ -60,8 +60,44 @@ export default function Trust() {
           </span>
         </motion.div>
 
+
+         <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="hidden md:grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 xl:gap-6 place-items-center pt-10 w-fit mx-auto"
+        >
+          {[
+            "/b8.png",
+            "/b7.png",
+            "/b6.png",
+            "/b5.png",
+            "/b4.png",
+            "/b3.png",
+            "/b1.png",
+            "/b2.png",
+          ].map((src, index) => (
+            <motion.div
+              key={index}
+              variants={item}
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="flex items-center justify-center h-[100px] mt-15 2xl:mt-30"
+            >
+              <Image
+                src={src}
+                alt="logo"
+                width={180}
+                height={120}
+                className="object-contain w-full"
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+
         {/* Logos Grid */}
-        <motion.div variants={fadeUp} className="w-full space-y-6 md:space-y-8">
+    <motion.div variants={fadeUp} className="w-full space-y-6 md:space-y-8 block md:hidden ">
       {/* Row 1 */}
       <div className="overflow-hidden w-full">
         <motion.div

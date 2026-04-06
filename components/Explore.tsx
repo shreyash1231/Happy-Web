@@ -105,7 +105,7 @@ export default function Explore() {
   {/* Hover Content */}
 <div
   className={`
-    absolute inset-0 bg-[#544120] flex flex-col items-center justify-center px-2 md:px-6
+    absolute inset-0 bg-[#907351] flex flex-col items-center justify-center px-2 md:px-6
     transition-all duration-300 gap-2 md:gap-4
     xl:opacity-0 xl:group-hover:opacity-100
     ${activeIndex === index ? "opacity-100" : "opacity-0"}

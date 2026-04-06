@@ -54,7 +54,7 @@ export default function Founder() {
             
             <motion.span
               variants={fadeUp}
-              className="text-lg md:text-xl xl:text-2xl text-[#7d4545] italic"
+              className="text-lg md:text-xl xl:text-2xl text-[#736345] italic"
             >
               A Note From Our Founder
             </motion.span>

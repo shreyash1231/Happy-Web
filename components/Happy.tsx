@@ -36,7 +36,7 @@ export default function Happy() {
         {/* Heading */}
         <motion.div
           variants={fadeUp}
-          className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-[#dcd8ce]"
+          className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-[#9ead8c]"
         >
           What makes Happy Ho different
         </motion.div>
