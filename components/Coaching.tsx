@@ -36,7 +36,7 @@ const [activeIndex, setActiveIndex] = useState(0);
 };
 
   return(
-    <div className="px-4 pt-8 xl:p-16">
+    <div className="px-4 pt-8 xl:p-8">
       
       {/* 🔹 Heading */}
       <motion.div
@@ -44,18 +44,18 @@ const [activeIndex, setActiveIndex] = useState(0);
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="flex flex-col gap-4 xl:gap-10"
+        className="flex flex-col gap-4 xl:gap-6"
       >
         <motion.span
           variants={fadeUp}
-          className="text-center text-lg xl:text-5xl font-canela font-normal"
+          className="text-center text-lg md:text-3xl xl:text-5xl font-canela font-normal"
         >
           Programs designed for emotional clarity and growth
         </motion.span>
 
         <motion.span
           variants={fadeUp}
-          className="text-center text-[10px] xl:text-xl text-[#c39e86]"
+          className="text-center text-[10px] md:text-sm xl:text-xl text-[#c39e86]"
         >
           Happy Ho offers a range of coaching, meditation, counselling, and healing programs
           <br className="md:block hidden"/>
@@ -78,7 +78,7 @@ const [activeIndex, setActiveIndex] = useState(0);
   className="
     flex flex-nowrap overflow-x-auto gap-8 px-4 w-full
     pt-10 pb-12
-    xl:flex-wrap xl:overflow-visible xl:justify-center xl:mt-10 xl:pt-25
+    xl:flex-wrap xl:overflow-visible xl:justify-center xl:pt-10
   "
   style={{ WebkitOverflowScrolling: "touch" }}
 >

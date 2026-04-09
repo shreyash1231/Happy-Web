@@ -19,19 +19,21 @@ export default function Practice() {
       
       {/* Background image */}
          <div className="absolute inset-0">
-        <img
+           <img src="/homebackground-image.png" className="w-full h-full object-cover rounded-b-[40px] xl:rounded-b-[80px]" />
+           
+        {/* <img
           src="/homebackground-image.png"
           alt="background"
-          className="w-full h-full object-cover object-bottom rounded-b-[40px] xl:rounded-b-[80px]"
-        />
+          className="w-full h-full object-cover object-bottom r"
+        /> */}
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-[1920px]">
+      <div className="relative z-10">
         <Header />
 
-        <div className="pt-16 px-4 md:p-10 xl:p-16 md:pt-32">
-          <div className="flex flex-col md:gap-10 xl:gap-25">
+        <div className="pt-16 px-4 md:p-10 xl:p-8">
+          <div className="flex flex-col md:gap-10 xl:gap-10">
 
             {/* Heading */}
             <motion.div
@@ -39,7 +41,7 @@ export default function Practice() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="flex flex-col md:gap-5 font-canela font-normal"
+              className="flex flex-col md:gap-3 font-canela font-normal"
             >
               <motion.span
                 variants={fadeUp}
@@ -73,22 +75,23 @@ export default function Practice() {
               transition={{ delay: 0.2 }}
               className="flex flex-col gap-2 text-[#544120] text-[10px] sm:text-sm pt-8 lg:pt-0 md:text-xl xl:text-2xl items-center"
             >
-              <span className="lg:grid lg:grid-cols-3 ">
+              <span className="lg:grid lg:grid-cols-8 ml-8">
+                <span></span>
                 <motion.span
                   variants={fadeUp}
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true }}
-                  className="md:ml-auto md:col-span-2"
+                  className="md:ml-auto md:col-span-5 lg:col-span-6 xl:col-span-5"
                 >
-                  Happy Ho is a modern emotional wellness and <br className="hidden md:block"/>
-                  life coaching platform designed to help individuals <br className="hidden md:block"/> 
-                  and organization build clarity, resilience, balance, <br className="hidden md:block"/>
+                  Happy Ho is a modern emotional wellness and 
+                  life coaching <br className="hidden md:block"/> platform designed to help individuals 
+                  and organization <br className="hidden md:block"/> build clarity, resilience, balance, 
                   and conscious growth
                 </motion.span>
               </span>
 
-              <span className="md:grid md:grid-cols-3 ml-[40px] md:ml-45">
+              <span className="md:grid md:grid-cols-3 ml-15 md:ml-45">
                 <span className="hidden md:block"></span>
                 <motion.span
                   variants={fadeUp}
@@ -98,8 +101,8 @@ export default function Practice() {
                   className="items-center md:col-span-4"
                 >
                   Through coaching, meditation, consulting, and <br className="hidden lg:block"/> 
-                  transformative programs, we guide you toward <br className="hidden lg:block"/> 
-                  sustainable happiness — at home,<span>&nbsp;</span>at work, and <br className="hidden lg:block"/> 
+                  transformative programs, we guide you toward 
+                  sustainable <br className="hidden lg:block"/> happiness — at home,at work, and 
                   within yourself.
                 </motion.span>
               </span>

@@ -43,7 +43,7 @@ export default function Wellness() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="flex flex-col gap-6 lg:ml-40 xl:ml-70 lg:pt-15 xl:pt-10"
+            className="flex flex-col gap-4 md:gap-6 lg:gap-10 lg:ml-40 xl:ml-70 lg:pt-15 xl:pt-10"
           >
             {/* Title */}
             <motion.div variants={fadeUp} className="flex flex-col gap-1 lg:gap-3 font-canela font-normal">
@@ -56,6 +56,7 @@ export default function Wellness() {
             </motion.div>
 
             {/* Subtitle */}
+            <div className="flex flex-col gap-4 md:gap-6">
             <motion.span
               variants={fadeUp}
               className="text-sm md:text-xl lg:text-2xl"
@@ -87,6 +88,7 @@ export default function Wellness() {
                 Explore Programs
               </Button>
             </motion.span>
+            </div>
           </motion.div>
         </div>
       </div>

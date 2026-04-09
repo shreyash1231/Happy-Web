@@ -24,7 +24,7 @@ export default function Clarity() {
   };
 
   return (
-    <div className="bg-[#3f5c4a] [t-8 px-6 p-16 mt-8 mx-auto max-w-[1920px]">
+    <div className="bg-[#3f5c4a] pt-8 px-6 p-8 mt-8 mx-auto max-w-[1920px]">
 
       <motion.div
         variants={container}

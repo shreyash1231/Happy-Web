@@ -84,9 +84,17 @@ export default function Footer() {
           </motion.div>
 
           {/* Footer Image */}
-          <motion.div className="mt-10 md:mt-0" variants={fadeUp}>
-            <Image src="/footerImage.png" alt="Meditation" width={220} height={220} />
-          </motion.div>
+     <motion.div
+  className="mt-10 md:mt-0 flex justify-center"
+  variants={fadeUp}
+>
+  <Image
+    src="/footerImage.png"
+    alt="Meditation"
+    width={220}
+    height={220}
+  />
+</motion.div>
         </motion.div>
 
         {/* Contact Section */}
@@ -107,7 +115,7 @@ export default function Footer() {
                 <span>Mobile: (+91) 9811237999</span>
                 <span>Email: info@happyho.in</span>
               </div>
-              <div className="flex gap-3 mt-5 lg:mt-0 lg:ml-auto items-center">
+              <div className="flex gap-3 mt-5 md:mt-0 md:ml-auto items-center">
               {[
                 { src: "/200.png", label: "FaceBook" },
                 { src: "/201.png", label: "Instagram" },

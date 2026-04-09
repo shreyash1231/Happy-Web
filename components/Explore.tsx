@@ -39,8 +39,8 @@ export default function Explore() {
   };
 
   return (
-    <div className="px-4 pt-8 xl:p-16 pb-10">
-      <div className="flex flex-col gap-10 xl:gap-20 mx-auto max-w-[1920px]">
+    <div className="px-4 pt-8 xl:p-8 pb-10">
+      <div className="flex flex-col gap-10 xl:gap-15 mx-auto max-w-[1920px]">
         
         {/* Heading */}
         <motion.span
@@ -48,7 +48,7 @@ export default function Explore() {
           whileInView="show"
           viewport={{ once: true }}
           variants={fadeUp}
-          className="text-center text-3xl xl:text-5xl"
+          className="text-center text-xl md:text-3xl xl:text-5xl"
         >
           Explore Our Programs
         </motion.span>

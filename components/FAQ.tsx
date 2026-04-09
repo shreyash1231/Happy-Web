@@ -55,7 +55,7 @@ export default function FAQ() {
   };
 
   return (
-    <div className="pt-8 px-4 xl:p-16 mx-auto max-w-[1920px]">
+    <div className="pt-8 px-4 xl:p-20 mx-auto max-w-[1920px]">
       <div className="flex flex-col gap-10">
 
         {/* ================= Heading ================= */}
@@ -93,7 +93,7 @@ export default function FAQ() {
                 {/* Question */}
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full text-left text-sm md:text-3xl xl:text-3xl font-medium flex justify-between items-center"
+                  className="w-full text-left text-sm md:text-2xl font-medium flex justify-between items-center"
                 >
                   {faq.question}
 
@@ -101,7 +101,7 @@ export default function FAQ() {
                   <motion.span
                     animate={{ rotate: openIndex === index ? 45 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="text-lg md:text-xl lg:text-2xl cursor-pointer"
+                    className="text-lg md:text-xl cursor-pointer"
                   >
                     +
                   </motion.span>
@@ -118,7 +118,7 @@ export default function FAQ() {
                       transition={{ duration: 0.4, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="mt-3 text-gray-700 leading-relaxed text-sm md:text-3xl xl:text-3xl">
+                      <p className="mt-3 text-gray-700 leading-relaxed text-sm md:text-xl">
                         {faq.answer}
                       </p>
                     </motion.div>

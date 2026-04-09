@@ -26,12 +26,12 @@ const stagger = {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
-        className="pt-8 px-6 xl:p-16 mx-auto max-w-[1920px]">
+        className="pt-8 px-6 xl:p-8 mx-auto max-w-[1920px]">
             <div className="flex flex-col gap-8">
                 <motion.div    variants={fadeUp} className="text-xl md:text-2xl xl:text-5xl text-center font-canela font-normal">Insights for a More Conscious Life</motion.div>
                <motion.span
                     variants={fadeUp}
-                    className="flex flex-col gap-2 md:gap-5 text-[10px] md:text-lg xl:text-xl md:items-center">
+                    className="flex flex-col gap-2 md:gap-5 text-[10px] md:text-lg xl:text-xl md:items-center text-[#736345]">
                     <span className="flex flex-col text-left md:text-left md:grid md:grid-grid-4 xl:grid-cols-2">
                         <span className="xl:hidden block"></span>
                          <motion.span
@@ -46,7 +46,7 @@ const stagger = {
                         className="text-center md:text-left md:grid md:grid-cols-4">
                         <span></span>
                         <span className="flex flex-col md:justify-start md:col-span-3 lg:col-span-3 ml-auto">
-                            <span>Articles that help you understand the mind, <br/>develop resilience, and live with clarity.</span>
+                            <span>Articles that help you understand the mind, develop <br/> resilience, and live with clarity.</span>
                         </span>
                         <span></span>
                     </motion.span>

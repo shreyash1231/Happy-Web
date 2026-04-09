@@ -88,9 +88,9 @@ export default function Trust() {
               <Image
                 src={src}
                 alt="logo"
-                width={180}
+                width={150}
                 height={120}
-                className="object-contain w-full"
+                className="object-contain w-45"
               />
             </motion.div>
           ))}

@@ -54,7 +54,7 @@ export default function FooterSmall() {
           <strong className="text-[#544120] text-sm"><Link href="/Programs" className="cursor-pointer">Our Programs </Link></strong>
           <div className="flex flex-col text-[#544120] text-[13px]">
               <span><Link href="/Programs" className="cursor-pointer">For Individuals</Link></span>
-              <span><Link href="/AboutUs" className="cursor-pointer">For Organizations</Link></span>
+              <span><Link href="/Corporate" className="cursor-pointer">For Organizations</Link></span>
               <span><Link href="/Programs" className="cursor-pointer">Signature Programs </Link></span>
             <div className="flex flex-col pl-4 text-[10px]">
               <span>• Cosmic Guidance</span>

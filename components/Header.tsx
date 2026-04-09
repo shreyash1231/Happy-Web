@@ -11,7 +11,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="pt-12 px-4 xl:p-16 z-50 mx-auto max-w-[1920px]">
+    <div className="pt-12 px-4 xl:p-8 z-50 mx-auto max-w-[1920px]">
       
       <div className="bg-[#dcd8ce] p-2 rounded-full flex md:grid md:grid-cols-4 items-center">
 
@@ -21,15 +21,15 @@ export default function Header() {
             <Image
               src="/footerImage.png"
               alt="logo"
-              width={50}
-              height={50}
+              width={60}
+              height={60}
               className="cursor-pointer"
             />
           </Link>
         </div>
 
         {/* NAV LINKS (desktop only) */}
-        <div className="col-span-2 hidden md:flex gap-6 lg:gap-10 items-center justify-center text-sm">
+        <div className="col-span-2 hidden md:flex gap-6 lg:gap-10 items-center justify-center text-sm lg:text-lg">
           <Link href="/AboutUs" className="cursor-pointer">About Us</Link>
           <Link href="/Programs" className="cursor-pointer">Programs</Link>
           <Link href="/Corporate" className="cursor-pointer">Corporate</Link>
@@ -40,7 +40,7 @@ export default function Header() {
         <div className="ml-auto flex items-center">
 
           {/* DESKTOP BUTTON */}
-          <Button className="hidden md:flex items-center justify-center bg-[#3f5c4a] hover:bg-[#162d22] cursor-pointer rounded-full text-base px-4 lg:px-8 py-6">
+          <Button className="hidden md:flex items-center justify-center bg-[#3f5c4a] hover:bg-[#162d22] cursor-pointer rounded-full text-lg px-4 lg:px-8 py-6">
   Get Started
 </Button>
 

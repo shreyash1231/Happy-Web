@@ -70,7 +70,7 @@ export default function Growth() {
 
 
   return (
-    <div className="px-4 pt-8 xl:p-16 mx-auto max-w-[1920px]">
+    <div className="px-4 pt-8 xl:p-8 mx-auto max-w-[1920px]">
       <div className="flex flex-col gap-5">
 
         {/* Heading */}
@@ -108,7 +108,7 @@ export default function Growth() {
           className="2xl:hidden flex overflow-x-auto gap-6 px-4 mt-3 w-full scrollbar-hide xl:justify-center"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
-          {["/70.png", "/71.png", "/72.png"].map((img, i) => (
+          {["/1200.png", "/1201.png", "/1202.png"].map((img, i) => (
             <motion.div
               key={i}
               variants={fadeUp}
@@ -152,7 +152,7 @@ export default function Growth() {
           viewport={{ once: true }}
           className="hidden 2xl:flex flex-wrap gap-6 mt-3 w-full "
         >
-          {["/70.png", "/71.png", "/72.png"].map((img, i) => (
+          {["/1200.png", "/1201.png", "/1202.png"].map((img, i) => (
             <motion.div
               key={i}
               variants={fadeUp}

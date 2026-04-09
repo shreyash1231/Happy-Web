@@ -55,11 +55,11 @@ const [activeIndex, setActiveIndex] = useState(0);
         staggerChildren: 0.15,
       },
     },
-  };
+  };  
 
   return (
-    <div className="mx-auto max-w-[1920px] pt-8 px-4 md:p-10 xl:p-16">
-      <div className="flex flex-col gap-5 lg:gap-20 items-center justify-center">
+    <div className="mx-auto max-w-[1920px] pt-8 px-4 md:p-10 xl:p-8">
+      <div className="flex flex-col gap-5 lg:gap-15 items-center justify-center">
 
         {/* ================= Stats Section ================= */}
 <motion.div
@@ -73,7 +73,7 @@ const [activeIndex, setActiveIndex] = useState(0);
   {/* Item 1 */}
   <motion.div variants={fadeUp} className="flex items-center justify-center lg:border-r-2 lg:border-[#D4A437]">
     <div className="flex flex-col gap-4 lg:px-10 text-center">
-      <motion.strong variants={fadeUp} className="text-4xl md:text-7xl lg:text-6xl text-[#544120]">
+      <motion.strong variants={fadeUp} className="text-4xl md:text-7xl lg:text-5xl text-[#544120]">
         1K+
       </motion.strong>
       <motion.div variants={fadeUp} className="flex flex-col">
@@ -145,14 +145,14 @@ const [activeIndex, setActiveIndex] = useState(0);
   initial="hidden"
   whileInView="show"
   viewport={{ once: true }}
-  className="xl:hidden flex overflow-x-auto gap-6 px-4 mt-3 w-full scrollbar-hide snap-x snap-mandatory"
+  className="xl:hidden flex overflow-x-auto gap-3 mt-3 w-full h-fit scrollbar-hide snap-x snap-mandatory"
 >
-  {["/58.png", "/59.png", "/60.png"].map((img, i) => (
+  {["/700.png", "/701.png", "/702.png"].map((img, i) => (
     <motion.div
       key={i}
       variants={fadeUp}
       whileTap={{ scale: 0.97 }}
-      className="min-w-[280px] sm:min-w-[320px] flex-shrink-0 snap-center"
+      className="min-w-[300px] sm:min-w-[320px] flex-shrink-0 snap-center"
     >
       <Image
         src={img}
@@ -189,9 +189,9 @@ const [activeIndex, setActiveIndex] = useState(0);
   initial="hidden"
   whileInView="show"
   viewport={{ once: true }}
-  className="hidden xl:flex flex-wrap justify-center gap-6 px-4 mt-3 w-full"
+  className="hidden xl:flex flex-wrap justify-center gap-3 mt-3 w-full h-fit"
 >
-  {["/58.png", "/59.png", "/60.png"].map((img, i) => (
+  {["/700.png", "/701.png", "/702.png"].map((img, i) => (
     <motion.div
       key={i}
       variants={fadeUp}

@@ -128,14 +128,14 @@ export default function Emotional() {
       <div className="flex flex-col gap-1 ">
                <motion.span
           variants={fadeUp}
-          className="text-sm md:text-4xl xl:text-6xl text-[#544120] font-canela font-normal pt-10"
+          className="text-sm md:text-4xl xl:text-5xl text-[#544120] font-canela font-normal pt-10"
         >
           You don’t have to navigate this alone.
         </motion.span>
 
         <motion.span
           variants={fadeUp}
-          className="text-[10px] md:text-2xl xl:text-4xl text-[#c39e86]"
+          className="text-[10px] md:text-2xl xl:text-3xl text-[#c39e86]"
         >
           Start building emotional resilience today.
         </motion.span>

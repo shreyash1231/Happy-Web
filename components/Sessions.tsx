@@ -65,13 +65,13 @@ export default function Sessions() {
         </div>
 
         <motion.div
-          className="flex justify-center gap-6"
+          className="flex flex-col xl:flex justify-center gap-6"
           variants={fadeUp}
         >
-          <Button className="px-20 py-6 rounded-full bg-[#544120] text-white border-2 border-yellow-400">
-            All Programs
-          </Button>
-          <Button className="hidden xl:flex items-center justify-center text-lg py-6 px-10 rounded-full bg-[#f3efe8] text-[#7d4545] border-2 border-[#544120] gap-4 whitespace-nowrap">
+        <Button className="px-20 py-6 rounded-full bg-[#544120] text-white border-2 border-yellow-400 self-center">
+  All Programs
+</Button>
+<Button className="hidden md:flex items-center justify-center text-lg py-6 px-10 rounded-full bg-[#f3efe8] text-[#7d4545] border-2 border-[#544120] gap-4 whitespace-nowrap w-fit self-center">
   <span>Leadership</span>
   <span>|</span>
   <span>Employee Wellness</span>
