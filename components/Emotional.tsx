@@ -43,7 +43,7 @@ export default function Emotional() {
 
 
   return (
-    <div className="mx-auto max-w-[1920px] p-4 pt-8">
+    <div className="mx-auto max-w-[1920px] p-4 pt-8 pb-12">
       <motion.div
         variants={container}
         initial="hidden"
