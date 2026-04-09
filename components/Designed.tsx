@@ -156,7 +156,7 @@ const handleScroll = () => {
     alt=""
     width={400}
     height={300}
-    className="w-full md:h-[250px] xl:h-[350px] object-contain rounded-3xl"
+    className="w-full md:h-[250px] xl:h-[450px] object-contain rounded-3xl"
   />
 </motion.div>
   ))}

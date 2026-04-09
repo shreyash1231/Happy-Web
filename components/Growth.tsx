@@ -98,129 +98,43 @@ export default function Growth() {
 
 
         
-        <motion.div
-          ref={scrollRef}
-          onScroll={handleScroll}
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="xl:hidden flex overflow-x-auto px-4 mt-3 w-full scrollbar-hide"
-          style={{ WebkitOverflowScrolling: "touch" }}
-        >
-          {["/1200.png", "/1201.png", "/1202.png"].map((img, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              whileTap={{ scale: 0.97 }}
-              className="min-w-[280px] sm:min-w-[320px] flex-shrink-0"
-            >
-              <Image
-                src={img}
-                alt=""
-                width={320}
-                height={360}
-                className="w-full h-90  md:h-120 object-cover rounded-4xl"
-              />
-            </motion.div>
-          ))}
-        </motion.div>
-        <div className="justify-center items-center gap-2 mt-3 hidden md:flex lg:hidden">
-  {[0, 1].map((dot) => (
-    <div
-      key={dot}
-      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-        activeIndex === dot ? "bg-blue-500 scale-110" : "bg-gray-400"
-      }`}
-    />
-  ))}
-</div>
-<div className="flex justify-center items-center gap-2 mt-3 md:hidden">
-  {[0, 1, 2].map((dot) => (
-    <div
-      key={dot}
-      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-        activeIndex === dot ? "bg-blue-500 scale-110" : "bg-gray-400"
-      }`}
-    />
-  ))}
-</div>
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="hidden xl:flex flex-wrap gap-6 mt-3 w-full justify-center"
-        >
-          {["/1200.png", "/1201.png", "/1202.png"].map((img, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              whileTap={{ scale: 0.97 }}
-              whileHover={{ scale: 1.03 }}
-              className="w-full sm:w-[48%] lg:w-[30%]"
-            >
-              <Image
-                src={img}
-                alt=""
-                width={320}
-                height={360}
-                className="w-full 2xl:h-190 object-cover rounded-4xl"
-              />
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Cards
-       <motion.div
-  variants={container}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true }}
-  className="
-    flex flex-nowrap overflow-x-auto gap-8 px-4 w-full
-    xl:flex-wrap xl:overflow-visible xl:justify-center xl:mt-10
-  "
-  style={{ WebkitOverflowScrolling: "touch" }}
->
-          {cards.map((card, index) => (
+     <motion.div
+       ref={scrollRef}
+       onScroll={handleScroll}
+       variants={stagger}
+       initial="hidden"
+       whileInView="show"
+       viewport={{ once: true }}
+       className="flex overflow-x-auto xl:overflow-x-visible md:grid md:grid-cols-3 gap-6 md:gap-6 md:mx-auto md:w-fit mt-3 w-full scrollbar-hide snap-x snap-mandatory md:snap-none md:justify-center"
+     >
+       {["/1000.png", "/1001.png", "/1002.png"].map((img, i) => (
          <motion.div
-  key={index}
-  variants={fadeUp}
-  whileHover={{ scale: 1.05 }}
-  className="
-    w-full sm:w-[45%] lg:w-[30%] max-w-[350px]
-    flex-shrink-0
-  "
->
-              <Card className="flex flex-col min-h-[420px] border-3 border-yellow-400 bg-[#7d8d83] rounded-4xl p-4 transition-all duration-300 hover:shadow-xl">
-                
-                <motion.div 
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ duration: 0.4 }}     
-                  className="flex justify-center">
-                  <Image
-                    src={card.img}
-                    alt={card.title}
-                    width={200}
-                    height={200}
-                  />
-                </motion.div>
-
-                <div className="flex flex-col gap-3 text-[#dcd8ce]">
-                  <span className="text-3xl xl:text-4xl">
-                    {card.title}
-                  </span>
-                  <p className="text-base xl:text-lg">
-                    {card.desc}
-                  </p>
-                </div>
-
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div> */}
+       key={i}
+       variants={fadeUp}
+       whileTap={{ scale: 0.97 }}
+       whileHover={{ scale: 1.03 }}
+       className="min-w-full md:min-w-0 flex-shrink-0 md:flex-shrink md:w-full snap-center md:snap-align-none"
+     >
+       <Image
+         src={img}
+         alt=""
+         width={400}
+         height={300}
+         className="w-full md:h-[350px] xl:h-[450px] object-contain rounded-3xl"
+       />
+     </motion.div>
+       ))}
+     </motion.div>
+     <div className="flex justify-center items-center gap-2 mt-3 md:hidden">
+       {[0, 1, 2].map((dot) => (
+         <div
+           key={dot}
+           className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+             activeIndex === dot ? "bg-blue-500 scale-110" : "bg-gray-400"
+           }`}
+         />
+       ))}
+     </div>
 
       </div>
     </div>
