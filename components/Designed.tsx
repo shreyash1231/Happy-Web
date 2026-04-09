@@ -141,7 +141,7 @@ const handleScroll = () => {
   initial="hidden"
   whileInView="show"
   viewport={{ once: true }}
-  className="flex overflow-x-auto xl:overflow-x-visible md:grid md:grid-cols-3 md:gap-6 xl:w-fit mt-3 w-full scrollbar-hide snap-x snap-mandatory md:snap-none"
+  className="flex overflow-x-auto xl:overflow-x-visible md:grid md:grid-cols-3 gap-6 md:gap-6 md:w-fit mt-3 w-full scrollbar-hide snap-x snap-mandatory md:snap-none"
 >
   {["/2000.png", "/2001.png", "/2002.png"].map((img, i) => (
     <motion.div
@@ -149,14 +149,14 @@ const handleScroll = () => {
   variants={fadeUp}
   whileTap={{ scale: 0.97 }}
   whileHover={{ scale: 1.03 }}
-  className="min-w-full sm:min-w-full md:min-w-0 flex-shrink-0 xl:flex-shrink md:w-full snap-center md:snap-align-none"
+  className="min-w-full md:min-w-0 flex-shrink-0 md:flex-shrink md:w-full snap-center md:snap-align-none"
 >
   <Image
     src={img}
     alt=""
     width={400}
     height={300}
-    className="w-full md:h-[250px] lg:h-[350px] object-contain rounded-3xl"
+    className="w-full md:h-[250px] xl:h-[350px] object-contain rounded-3xl"
   />
 </motion.div>
   ))}
