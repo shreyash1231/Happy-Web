@@ -29,14 +29,10 @@ export default function Growth() {
     },
   ];
 
-    const handleScroll = () => {
+ const handleScroll = () => {
   if (!scrollRef.current) return;
-
-  const scrollLeft = scrollRef.current.scrollLeft;
-  const cardWidth = scrollRef.current.offsetWidth; // visible width
-
-  const index = Math.round(scrollLeft / cardWidth);
-  setActiveIndex(index);
+  const { scrollLeft, offsetWidth } = scrollRef.current;
+  setActiveIndex(Math.round(scrollLeft / offsetWidth));
 };
 
 

@@ -118,7 +118,7 @@ export default function FAQ() {
                       transition={{ duration: 0.4, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="mt-3 text-gray-700 leading-relaxed text-lg md:text-2xl 2xl:text-3xl">
+                      <p className="mt-3 text-gray-700 leading-relaxed text-sm md:text-xl 2xl:text-3xl">
                         {faq.answer}
                       </p>
                     </motion.div>
