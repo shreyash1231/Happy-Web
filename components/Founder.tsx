@@ -68,7 +68,7 @@ export default function Founder() {
                 <motion.span
                   key={i}
                   variants={fadeUp}
-                  className="text-lg md:text-lg lg:text-2xl xl:text-4xl font-canela"
+                  className="text-xl md:text-xl lg:text-2xl xl:text-4xl font-canela"
                 >
                   {text}
                 </motion.span>

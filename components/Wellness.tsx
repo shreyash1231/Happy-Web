@@ -27,7 +27,7 @@ export default function Wellness() {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="/corporatebgimage.png"
+          src="/corporatebgImage.png"
           alt="background"
           className="w-full h-full object-cover object-center rounded-b-[40px]"
         />
