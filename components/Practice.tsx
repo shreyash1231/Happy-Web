@@ -91,7 +91,7 @@ export default function Practice() {
                 </motion.span>
               </span>
 
-              <span className="md:grid md:grid-cols-3 ml-15 md:ml-45 min-[375px]:ml-18 min-[425px]:ml-30">
+              <span className="md:grid md:grid-cols-3 ml-15 md:ml-45 min-[375px]:ml-22 min-[425px]:ml-30">
                 <span className="hidden md:block"></span>
                 <motion.span
                   variants={fadeUp}
