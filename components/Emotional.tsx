@@ -128,7 +128,7 @@ export default function Emotional() {
       <div className="flex flex-col gap-1 md:gap-3">
                <motion.span
           variants={fadeUp}
-          className="text-2xl md:text-4xl xl:text-5xl text-[#7a5c42] font-canela pt-10"
+          className="text-2xl md:text-4xl xl:text-5xl text-[#7a5c42] font-canela pt-5"
         >
           You don’t have to navigate this alone.
         </motion.span>
