@@ -241,7 +241,7 @@ const handleScroll = () => {
 
           {/* Card 1 */}
           <motion.div variants={fadeUp}  whileTap={{ scale: 0.97 }} >
-            <Card className="bg-[#544120] rounded-4xl border-2 border-yellow-400 w-full h-full lg:max-w-xl flex flex-col p-6 sm:p-8">
+            <Card className="bg-[#907351] rounded-4xl border-2 border-yellow-400 w-full h-full lg:max-w-xl flex flex-col p-6 sm:p-8">
               <Link href="/Programs" className="cursor-pointer">
               <motion.div 
                   initial={{ scale: 0 }}

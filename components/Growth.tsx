@@ -101,7 +101,7 @@ export default function Growth() {
        initial="hidden"
        whileInView="show"
        viewport={{ once: true }}
-       className="flex overflow-x-auto xl:overflow-x-visible md:grid md:grid-cols-3 gap-6 md:gap-6 md:mx-auto md:w-fit mt-3 w-full scrollbar-hide snap-x snap-mandatory md:snap-none md:justify-center"
+       className="flex overflow-x-auto xl:overflow-x-visible md:grid md:grid-cols-3 gap-6 md:gap-6 md:mx-auto md:w-fit mt-10 w-full scrollbar-hide snap-x snap-mandatory md:snap-none md:justify-center"
      >
        {["/1000.png", "/1001.png", "/1002.png"].map((img, i) => (
          <motion.div
