@@ -71,7 +71,7 @@ export default function Growth() {
 
   return (
     <div className="px-4 pt-8 xl:p-8 mx-auto max-w-[1920px]">
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 mt-10">
 
         {/* Heading */}
         <motion.div
@@ -83,14 +83,14 @@ export default function Growth() {
         >
           <motion.span
             variants={fadeUp}
-            className="text-3xl xl:text-6xl text-center"
+            className="text-3xl xl:text-5xl text-center"
           >
             Our Philosophy
           </motion.span>
 
           <motion.span
             variants={fadeUp}
-            className="text-[#c39e86] text-center text-xl xl:text-4xl"
+            className="text-[#c39e86] text-center text-xl xl:text-3xl"
           >
             Growth through awareness and practice
           </motion.span>
@@ -98,9 +98,9 @@ export default function Growth() {
 
 
         
-                <motion.div
-                  ref={scrollRef}
-  onScroll={handleScroll}
+        <motion.div
+          ref={scrollRef}
+          onScroll={handleScroll}
           variants={stagger}
           initial="hidden"
           whileInView="show"
@@ -150,7 +150,7 @@ export default function Growth() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="hidden 2xl:flex flex-wrap gap-6 mt-3 w-full "
+          className="hidden 2xl:flex flex-wrap gap-6 mt-3 w-full justify-center"
         >
           {["/1200.png", "/1201.png", "/1202.png"].map((img, i) => (
             <motion.div
