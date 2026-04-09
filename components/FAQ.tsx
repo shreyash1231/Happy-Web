@@ -81,19 +81,19 @@ export default function FAQ() {
           whileInView="show"
           viewport={{ once: true }}
         >
-          <Card className="w-full border-2 border-[#c39e86] bg-[#f3efe8] p-5 rounded-xl">
+          <Card className="w-full border-2 border-[#c39e86] bg-[#f3efe8] rounded-xl">
 
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
                 variants={fadeUp}
-                className="border-b border-gray-300 py-2 last:border-none"
+                className="border-b-2 border-[#c39e86] py-2 last:border-none p-3"
               >
 
                 {/* Question */}
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full text-left text-sm md:text-2xl font-medium flex justify-between items-center"
+                  className="w-full text-left text-lg md:text-2xl 2xl:text-3xl font-medium flex justify-between items-center"
                 >
                   {faq.question}
 
@@ -101,7 +101,7 @@ export default function FAQ() {
                   <motion.span
                     animate={{ rotate: openIndex === index ? 45 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="text-lg md:text-xl cursor-pointer"
+                    className="text-lg md:text-xl 2xl:text-2xl cursor-pointer"
                   >
                     +
                   </motion.span>
@@ -118,7 +118,7 @@ export default function FAQ() {
                       transition={{ duration: 0.4, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="mt-3 text-gray-700 leading-relaxed text-sm md:text-xl">
+                      <p className="mt-3 text-gray-700 leading-relaxed text-lg md:text-2xl 2xl:text-3xl">
                         {faq.answer}
                       </p>
                     </motion.div>

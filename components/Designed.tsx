@@ -125,7 +125,7 @@ const handleScroll = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="text-center"
+          className="text-center mt-5"
         >
           <span className="text-xl md:text-4xl lg:text-5xl  xl:text-6xl">
             Designed Around Your Needs
@@ -201,7 +201,7 @@ const handleScroll = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="text-center mt-3"
+          className="text-center mt-6"
         >
           <span className="text-xl md:text-4xl lg:text-6xl">
             Therapy Formats
