@@ -7,41 +7,60 @@ import Insights from "@/components/Insights";
 import Featured from "@/components/Feature";
 import Published from "@/components/Published";
 import Link from "next/link";
-import { fetchWordPressPostsPage, stripHtml, type WordPressPost } from "@/lib/wordpress";
-
-const CATEGORIES = [
-  "Spirituality & Wellbeing",
-  "Positive Psychology",
-  "Mindfulness & Meditation",
-  "Applied Philosophy",
-];
+import { fetchWordPressPostsPage, fetchWordPressTags, stripHtml, type WordPressPost } from "@/lib/wordpress";
 
 function getFeaturedImage(post: WordPressPost): string | undefined {
   return post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? post.yoast_head_json?.og_image?.[0]?.url;
 }
 
 type BlogPageProps = {
-  searchParams?: Promise<{ q?: string; page?: string }>;
+  searchParams?: Promise<{ q?: string; page?: string; tag?: string }>;
 };
 
-function buildResourcesUrl(page: number, query: string): string {
+function buildResourcesUrl(page: number, query: string, tag: string): string {
   const params = new URLSearchParams();
   if (query) params.set("q", query);
+  if (tag) params.set("tag", tag);
   if (page > 1) params.set("page", String(page));
   const queryString = params.toString();
   return queryString ? `/Resources?${queryString}` : "/Resources";
 }
 
+function getVisiblePages(currentPage: number, totalPages: number): number[] {
+  const maxButtons = 7;
+
+  if (totalPages <= maxButtons) {
+    return Array.from({ length: totalPages }, (_, index) => index + 1);
+  }
+
+  const half = Math.floor(maxButtons / 2);
+  let start = Math.max(1, currentPage - half);
+  const end = Math.min(totalPages, start + maxButtons - 1);
+
+  if (end - start + 1 < maxButtons) {
+    start = Math.max(1, end - maxButtons + 1);
+  }
+
+  return Array.from({ length: end - start + 1 }, (_, index) => start + index);
+}
+
 export default async function Blog({ searchParams }: BlogPageProps) {
   const params = (await searchParams) ?? {};
   const query = params.q?.trim() ?? "";
+  const selectedTagSlug = params.tag?.trim() ?? "";
   const currentPage = Math.max(1, Number(params.page ?? "1") || 1);
+
+  const tags = await fetchWordPressTags();
+  const selectedTag = tags.find((tag) => tag.slug === selectedTagSlug || tag.name.toLowerCase() === selectedTagSlug.toLowerCase());
 
   const { posts, totalPages } = await fetchWordPressPostsPage({
     page: currentPage,
     perPage: 10,
     search: query || undefined,
+    tagId: selectedTag?.id,
   });
+
+  const visiblePages = getVisiblePages(currentPage, totalPages);
 
   return (
     <>
@@ -55,15 +74,7 @@ export default async function Blog({ searchParams }: BlogPageProps) {
       <section className="px-4 md:px-6 xl:px-8 py-8 max-w-[1200px] mx-auto">
         <h2 className="text-3xl xl:text-5xl text-center mb-8 text-[#1d1d1d]">Explore Articles</h2>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-6">
-          {CATEGORIES.map((category) => (
-            <span key={category} className="rounded-full border border-[#544120] px-5 py-2 text-xs md:text-sm text-[#544120]">
-              {category}
-            </span>
-          ))}
-        </div>
-
-        <form action="/Resources" method="get" className="mb-8 max-w-2xl mx-auto flex flex-col sm:flex-row gap-3">
+        <form action="/Resources" method="get" className="mb-8 max-w-4xl mx-auto grid md:grid-cols-3 gap-3">
           <input
             type="text"
             name="q"
@@ -71,13 +82,30 @@ export default async function Blog({ searchParams }: BlogPageProps) {
             placeholder="Search articles..."
             className="w-full rounded-full border border-[#8b7a5c] bg-white px-5 py-3 outline-none focus:ring-2 focus:ring-[#3f5c4a]"
           />
+
+          <input
+            type="text"
+            name="tag"
+            list="wordpress-tags"
+            defaultValue={selectedTagSlug}
+            placeholder="Search by tag..."
+            className="w-full rounded-full border border-[#8b7a5c] bg-white px-5 py-3 outline-none focus:ring-2 focus:ring-[#3f5c4a]"
+          />
+          <datalist id="wordpress-tags">
+            {tags.map((tag) => (
+              <option key={tag.id} value={tag.slug}>
+                {tag.name}
+              </option>
+            ))}
+          </datalist>
+
           <button type="submit" className="rounded-full bg-[#3f5c4a] text-white px-6 py-3 hover:bg-[#162d22] transition">
             Search
           </button>
         </form>
 
         {posts.length === 0 ? (
-          <div className="rounded-3xl border border-dashed border-[#8b7a5c] p-8 text-center text-[#544120]">No articles found. Try a different search term.</div>
+          <div className="rounded-3xl border border-dashed border-[#8b7a5c] p-8 text-center text-[#544120]">No articles found. Try another keyword or tag.</div>
         ) : (
           <>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -108,19 +136,19 @@ export default async function Blog({ searchParams }: BlogPageProps) {
               })}
             </div>
 
-            <div className="flex flex-wrap justify-center gap-3 mt-10">
+            <div className="flex flex-wrap justify-center gap-2 mt-10 items-center">
               <Link
-                href={buildResourcesUrl(Math.max(currentPage - 1, 1), query)}
-                className={`rounded-full px-5 py-2 border ${currentPage <= 1 ? "pointer-events-none opacity-40" : "hover:bg-[#e9e1d6]"}`}
+                href={buildResourcesUrl(Math.max(currentPage - 1, 1), query, selectedTagSlug)}
+                className={`rounded-full px-4 py-2 border text-sm ${currentPage <= 1 ? "pointer-events-none opacity-40" : "hover:bg-[#e9e1d6]"}`}
               >
                 Previous
               </Link>
 
-              {Array.from({ length: totalPages }, (_, index) => index + 1).map((pageNumber) => (
+              {visiblePages.map((pageNumber) => (
                 <Link
                   key={pageNumber}
-                  href={buildResourcesUrl(pageNumber, query)}
-                  className={`rounded-full px-4 py-2 border ${
+                  href={buildResourcesUrl(pageNumber, query, selectedTagSlug)}
+                  className={`rounded-full w-9 h-9 text-sm flex items-center justify-center border ${
                     pageNumber === currentPage ? "bg-[#3f5c4a] text-white border-[#3f5c4a]" : "hover:bg-[#e9e1d6]"
                   }`}
                 >
@@ -129,8 +157,8 @@ export default async function Blog({ searchParams }: BlogPageProps) {
               ))}
 
               <Link
-                href={buildResourcesUrl(Math.min(currentPage + 1, totalPages || 1), query)}
-                className={`rounded-full px-5 py-2 border ${currentPage >= totalPages ? "pointer-events-none opacity-40" : "hover:bg-[#e9e1d6]"}`}
+                href={buildResourcesUrl(Math.min(currentPage + 1, totalPages || 1), query, selectedTagSlug)}
+                className={`rounded-full px-4 py-2 border text-sm ${currentPage >= totalPages ? "pointer-events-none opacity-40" : "hover:bg-[#e9e1d6]"}`}
               >
                 Next
               </Link>

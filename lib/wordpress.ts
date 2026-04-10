@@ -35,6 +35,13 @@ export type WordPressPost = {
   };
 };
 
+export type WordPressTag = {
+  id: number;
+  count: number;
+  name: string;
+  slug: string;
+};
+
 export type WordPressPostsPage = {
   posts: WordPressPost[];
   totalPages: number;
@@ -59,15 +66,18 @@ export async function fetchWordPressPostsPage({
   page = 1,
   perPage = 10,
   search,
+  tagId,
 }: {
   page?: number;
   perPage?: number;
   search?: string;
+  tagId?: number;
 }): Promise<WordPressPostsPage> {
   const url = buildWpUrl("/wp-json/wp/v2/posts", {
     _embed: "1",
     per_page: perPage,
     page,
+    tags: tagId,
     orderby: "date",
     order: "desc",
     _fields: `${WP_POST_FIELDS},_embedded.wp:featuredmedia.source_url,_embedded.wp:featuredmedia.alt_text`,
@@ -87,6 +97,58 @@ export async function fetchWordPressPostsPage({
     totalPages: Number(response.headers.get("X-WP-TotalPages") || "1"),
     totalPosts: Number(response.headers.get("X-WP-Total") || "0"),
   };
+}
+
+export async function fetchWordPressTags(search?: string): Promise<WordPressTag[]> {
+  const firstUrl = buildWpUrl("/wp-json/wp/v2/tags", {
+    per_page: 100,
+    page: 1,
+    hide_empty: 1,
+    orderby: "count",
+    order: "desc",
+    search,
+    _fields: "id,count,name,slug",
+  });
+
+  const firstResponse = await fetch(firstUrl, {
+    next: { revalidate: DEFAULT_REVALIDATE_SECONDS, tags: ["wordpress-tags"] },
+  });
+
+  if (!firstResponse.ok) {
+    return [];
+  }
+
+  const totalPages = Number(firstResponse.headers.get("X-WP-TotalPages") || "1");
+  const firstPage = (await firstResponse.json()) as WordPressTag[];
+
+  if (totalPages <= 1) {
+    return firstPage;
+  }
+
+  const remaining = await Promise.all(
+    Array.from({ length: totalPages - 1 }, (_, index) => {
+      const url = buildWpUrl("/wp-json/wp/v2/tags", {
+        per_page: 100,
+        page: index + 2,
+        hide_empty: 1,
+        orderby: "count",
+        order: "desc",
+        search,
+        _fields: "id,count,name,slug",
+      });
+
+      return fetch(url, {
+        next: { revalidate: DEFAULT_REVALIDATE_SECONDS, tags: ["wordpress-tags"] },
+      }).then(async (response) => {
+        if (!response.ok) {
+          return [] as WordPressTag[];
+        }
+        return (await response.json()) as WordPressTag[];
+      });
+    }),
+  );
+
+  return [firstPage, ...remaining].flat();
 }
 
 export async function fetchWordPressPosts(search?: string): Promise<WordPressPost[]> {
