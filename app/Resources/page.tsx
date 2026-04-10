@@ -12,6 +12,10 @@ function getFeaturedImage(post: WordPressPost): string | undefined {
   return post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? post.yoast_head_json?.og_image?.[0]?.url;
 }
 
+function getAuthor(post: WordPressPost): string {
+  return post._embedded?.author?.[0]?.name || "Happy HO";
+}
+
 type BlogPageProps = {
   searchParams?: Promise<{ q?: string; page?: string }>;
 };
@@ -54,6 +58,10 @@ export default async function Blog({ searchParams }: BlogPageProps) {
   });
 
   const featuredPosts = posts.slice(0, 3);
+  const leftFeatured = featuredPosts[0];
+  const topRightFeatured = featuredPosts[1];
+  const bottomRightFeatured = featuredPosts[2];
+
   const visiblePages = getVisiblePages(currentPage, totalPages);
 
   return (
@@ -64,33 +72,50 @@ export default async function Blog({ searchParams }: BlogPageProps) {
       </div>
 
       <section className="px-4 md:px-6 xl:px-8 py-8 max-w-[1200px] mx-auto">
-        <h2 className="text-3xl xl:text-5xl text-center mb-8 text-[#1d1d1d]">Featured Insights</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {featuredPosts.map((post) => {
-            const featured = getFeaturedImage(post);
-            const summary = stripHtml(post.excerpt?.rendered || post.content?.rendered || "")
-              .slice(0, 120)
-              .trim();
+        <h2 className="text-3xl xl:text-6xl text-center mb-8 text-[#1d1d1d]">Featured Insights</h2>
 
-            return (
-              <article key={post.id} className="rounded-3xl overflow-hidden bg-[#e9e1d6] shadow-sm">
-                {featured ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {leftFeatured ? (
+            <article className="rounded-3xl overflow-hidden bg-[#e9e1d6] shadow-sm text-[#9a7f56]">
+              {getFeaturedImage(leftFeatured) ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={getFeaturedImage(leftFeatured)} alt={stripHtml(leftFeatured.title?.rendered || "Article image")} className="w-full h-[260px] object-cover" />
+              ) : (
+                <div className="w-full h-[260px] bg-[#d6cbb8]" />
+              )}
+              <div className="p-6 flex flex-col gap-4">
+                <h3 className="text-2xl">{stripHtml(leftFeatured.title?.rendered ?? "Untitled")}</h3>
+                <p className="text-sm">Author: {getAuthor(leftFeatured)}<br />Published: {new Date(leftFeatured.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
+                <p className="text-lg">{stripHtml(leftFeatured.excerpt?.rendered || leftFeatured.content?.rendered || "Read this article.").slice(0, 140)}</p>
+                <Link href={`/Resources/${leftFeatured.slug}`} className="font-medium hover:underline">Read Article →</Link>
+              </div>
+            </article>
+          ) : null}
+
+          <div className="flex flex-col gap-6">
+            {topRightFeatured ? (
+              <article className="rounded-3xl bg-[#e9e1d6] shadow-sm p-6 text-[#9a7f56]">
+                <h3 className="text-2xl">{stripHtml(topRightFeatured.title?.rendered ?? "Untitled")}</h3>
+                <p className="text-sm mt-4">Author: {getAuthor(topRightFeatured)}<br />Published: {new Date(topRightFeatured.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
+                <p className="text-lg mt-4">{stripHtml(topRightFeatured.excerpt?.rendered || topRightFeatured.content?.rendered || "Read this article.").slice(0, 120)}</p>
+                <Link href={`/Resources/${topRightFeatured.slug}`} className="font-medium hover:underline mt-4 inline-block">Read Article →</Link>
+              </article>
+            ) : null}
+
+            {bottomRightFeatured ? (
+              <article className="rounded-3xl overflow-hidden bg-[#e9e1d6] shadow-sm text-[#9a7f56]">
+                {getFeaturedImage(bottomRightFeatured) ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={featured} alt={stripHtml(post.title?.rendered || "Article image")} className="w-full h-[220px] object-cover" />
+                  <img src={getFeaturedImage(bottomRightFeatured)} alt={stripHtml(bottomRightFeatured.title?.rendered || "Article image")} className="w-full h-[220px] object-cover" />
                 ) : (
                   <div className="w-full h-[220px] bg-[#d6cbb8]" />
                 )}
-
-                <div className="p-5 flex flex-col gap-3 text-[#544120]">
-                  <h3 className="text-base md:text-lg font-semibold">{stripHtml(post.title?.rendered ?? "Untitled")}</h3>
-                  <p className="text-xs md:text-sm">{summary || "Read this article."}</p>
-                  <Link href={`/Resources/${post.slug}`} className="font-medium hover:underline">
-                    View Article →
-                  </Link>
+                <div className="p-6 pt-4">
+                  <Link href={`/Resources/${bottomRightFeatured.slug}`} className="font-medium hover:underline">Read Article →</Link>
                 </div>
               </article>
-            );
-          })}
+            ) : null}
+          </div>
         </div>
       </section>
 

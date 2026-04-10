@@ -1,4 +1,4 @@
-export const WORDPRESS_BASE_URL = "https://happyho.in";
+export const WORDPRESS_BASE_URL = process.env.WORDPRESS_API_BASE_URL?.replace(/\/$/, "") || "https://happyho.in";
 
 const WP_POST_FIELDS = [
   "id",
@@ -31,6 +31,9 @@ export type WordPressPost = {
     "wp:featuredmedia"?: Array<{
       source_url?: string;
       alt_text?: string;
+    }>;
+    author?: Array<{
+      name?: string;
     }>;
   };
 };
@@ -90,7 +93,7 @@ export async function fetchWordPressPostsPage({
     tags: tagId,
     orderby: "date",
     order: "desc",
-    _fields: `${WP_POST_FIELDS},_embedded.wp:featuredmedia.source_url,_embedded.wp:featuredmedia.alt_text`,
+    _fields: `${WP_POST_FIELDS},_embedded.wp:featuredmedia.source_url,_embedded.wp:featuredmedia.alt_text,_embedded.author.name`,
     search,
   });
 
@@ -188,7 +191,7 @@ export async function fetchWordPressPostBySlug(slug: string): Promise<WordPressP
     _embed: "1",
     slug,
     per_page: 1,
-    _fields: `${WP_POST_FIELDS},_embedded.wp:featuredmedia.source_url,_embedded.wp:featuredmedia.alt_text`,
+    _fields: `${WP_POST_FIELDS},_embedded.wp:featuredmedia.source_url,_embedded.wp:featuredmedia.alt_text,_embedded.author.name`,
   });
 
   try {
