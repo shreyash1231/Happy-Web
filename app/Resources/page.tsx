@@ -1,3 +1,5 @@
+export const revalidate = 300;
+
 import Footer from "@/components/Footer";
 import FooterSmall from "@/components/FooterSmall";
 import Header from "@/components/Header";

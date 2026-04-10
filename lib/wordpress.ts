@@ -85,7 +85,9 @@ export async function fetchWordPressPosts(search?: string): Promise<WordPressPos
     Array.from({ length: firstPage.totalPages - 1 }, (_, index) => fetchPostsPage(index + 2, search)),
   );
 
-  return [firstPage.posts, ...remaining.map((entry) => entry.posts)].flat();
+  return [firstPage.posts, ...remaining.map((entry) => entry.posts)]
+    .flat()
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export async function fetchWordPressPostBySlug(slug: string): Promise<WordPressPost | null> {
