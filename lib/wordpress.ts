@@ -13,6 +13,8 @@ const WP_POST_FIELDS = [
   "_links",
 ].join(",");
 
+const DEFAULT_REVALIDATE_SECONDS = 300;
+
 export type WordPressPost = {
   id: number;
   date: string;
@@ -47,10 +49,11 @@ function buildWpUrl(path: string, params?: Record<string, string | number | unde
   return url.toString();
 }
 
-export async function fetchWordPressPosts(search?: string): Promise<WordPressPost[]> {
+async function fetchPostsPage(page: number, search?: string) {
   const url = buildWpUrl("/wp-json/wp/v2/posts", {
     _embed: "1",
-    per_page: 20,
+    per_page: 50,
+    page,
     orderby: "date",
     order: "desc",
     _fields: `${WP_POST_FIELDS},_embedded.wp:featuredmedia.source_url,_embedded.wp:featuredmedia.alt_text`,
@@ -58,14 +61,33 @@ export async function fetchWordPressPosts(search?: string): Promise<WordPressPos
   });
 
   const response = await fetch(url, {
-    next: { revalidate: 300, tags: ["wordpress-posts"] },
+    next: { revalidate: DEFAULT_REVALIDATE_SECONDS, tags: ["wordpress-posts"] },
   });
 
   if (!response.ok) {
-    return [];
+    return { posts: [] as WordPressPost[], totalPages: 0 };
   }
 
-  return (await response.json()) as WordPressPost[];
+  const totalPages = Number(response.headers.get("X-WP-TotalPages") || "1");
+  const posts = (await response.json()) as WordPressPost[];
+
+  return { posts, totalPages };
+}
+
+export async function fetchWordPressPosts(search?: string): Promise<WordPressPost[]> {
+  const firstPage = await fetchPostsPage(1, search);
+
+  if (firstPage.totalPages <= 1) {
+    return firstPage.posts;
+  }
+
+  const remaining = await Promise.all(
+    Array.from({ length: firstPage.totalPages - 1 }, (_, index) => fetchPostsPage(index + 2, search)),
+  );
+
+  return [firstPage.posts, ...remaining.map((entry) => entry.posts)]
+    .flat()
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export async function fetchWordPressPostBySlug(slug: string): Promise<WordPressPost | null> {
@@ -77,7 +99,7 @@ export async function fetchWordPressPostBySlug(slug: string): Promise<WordPressP
   });
 
   const response = await fetch(url, {
-    next: { revalidate: 300, tags: [`wordpress-post-${slug}`, "wordpress-posts"] },
+    next: { revalidate: DEFAULT_REVALIDATE_SECONDS, tags: [`wordpress-post-${slug}`, "wordpress-posts"] },
   });
 
   if (!response.ok) {
@@ -89,22 +111,8 @@ export async function fetchWordPressPostBySlug(slug: string): Promise<WordPressP
 }
 
 export async function fetchAllWordPressSlugs(): Promise<Array<{ slug: string; modified: string }>> {
-  const url = buildWpUrl("/wp-json/wp/v2/posts", {
-    per_page: 100,
-    _fields: "slug,modified",
-    orderby: "modified",
-    order: "desc",
-  });
-
-  const response = await fetch(url, {
-    next: { revalidate: 300, tags: ["wordpress-posts"] },
-  });
-
-  if (!response.ok) {
-    return [];
-  }
-
-  return (await response.json()) as Array<{ slug: string; modified: string }>;
+  const posts = await fetchWordPressPosts();
+  return posts.map((post) => ({ slug: post.slug, modified: post.modified }));
 }
 
 export function stripHtml(html: string): string {
