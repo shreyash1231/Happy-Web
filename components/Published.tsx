@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Published() {
   const fadeUp = {
@@ -14,7 +15,7 @@ export default function Published() {
   };
 
   return (
-    <div className="bg-[#3f5c4a] py-12 px-6 xl:px-16 mt-10 max-w-[1920px] mx-auto">
+    <div className="bg-[#3f5c4a] py-12 px-1 xl:px-16 mt-10 max-w-[1920px] mx-auto">
       
       {/* Heading */}
       <motion.div
@@ -34,18 +35,18 @@ export default function Published() {
       </motion.div>
 
       {/* Cards */}
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 max-w-[1000px] mx-auto"
-      >
-          <motion.div
-            variants={fadeUp}
-            whileHover={{ scale: 1.02 }}
-            className="bg-white rounded-3xl p-6 flex gap-4 items-start"
-          >
+<motion.div
+  variants={fadeUp}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  className="flex md:grid md:grid-cols-2 gap-6 mt-10 max-w-[1000px] mx-auto overflow-x-auto md:overflow-visible snap-x snap-mandatory"
+>
+<motion.div
+  variants={fadeUp}
+  whileHover={{ scale: 1.02 }}
+  className="w-[420px] flex-shrink-0 md:w-auto snap-start bg-white rounded-3xl p-6 flex gap-4 items-start"
+>
             {/* Logo */}
             <Image
               src="/22.png"
@@ -65,16 +66,20 @@ export default function Published() {
                     Spirituality has been made unnecessarily serious. Priests, monks, and moralists have turned it into a grave business, as if truth can only be reached with a long face. But existence is not serious. Existence is playful.
               </p>
 
-              <span className="text-sm mt-2">
-                Read on Speaking Tree
+              <span className="text-sm mt-6 md:mt-10 lg:mt-2">
+                <Link className="cursor-pointer"   
+                      target="_blank"
+                      rel="noopener noreferrer" href="https://timesofindia.indiatimes.com/blogs/toi-edit-page/unheeded-wisdom-and-a-materialistic-superpower/">
+                  Read on Speaking Tree
+                </Link>
               </span>
             </div>
           </motion.div>
-          <motion.div
-            variants={fadeUp}
-            whileHover={{ scale: 1.02 }}
-            className="bg-white rounded-3xl p-6 flex gap-4 items-start"
-          >
+<motion.div
+  variants={fadeUp}
+  whileHover={{ scale: 1.02 }}
+  className="w-[420px] flex-shrink-0 md:w-auto snap-start bg-white rounded-3xl p-6 flex gap-4 items-start"
+>
             {/* Logo */}
             <Image
               src="/22.png"
@@ -95,7 +100,12 @@ export default function Published() {
               </p>
 
               <span className="text-sm mt-2">
-                Read on Speaking Tree
+                <Link   className="cursor-pointer"   
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://timesofindia.indiatimes.com/blogs/toi-edit-page/laughter-the-forgotten-doorway-to-divinity/">
+                           Read on Speaking Tree
+                </Link>
               </span>
             </div>
           </motion.div>
