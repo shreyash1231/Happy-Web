@@ -9,10 +9,12 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
   const posts = await fetchAllWordPressSlugs();
   const latestModified = posts[0]?.modified ? new Date(posts[0].modified).getTime() : Date.now();
 
+  const articlePaths = posts.map((post) => `/Resources/${post.slug}`);
+
   return {
     rules: {
       userAgent: "*",
-      allow: "/",
+      allow: ["/", ...articlePaths],
     },
     sitemap: [
       `${BASE_URL}/sitemap.xml?v=${latestModified}`,

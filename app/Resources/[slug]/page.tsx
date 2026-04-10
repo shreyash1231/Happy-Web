@@ -12,7 +12,8 @@ type ArticlePageProps = {
 
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = await fetchWordPressPostBySlug(slug);
+  const decodedSlug = decodeURIComponent(slug);
+  const post = await fetchWordPressPostBySlug(decodedSlug);
 
   if (!post) {
     return {
@@ -28,7 +29,8 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
-  const post = await fetchWordPressPostBySlug(slug);
+  const decodedSlug = decodeURIComponent(slug);
+  const post = await fetchWordPressPostBySlug(decodedSlug);
 
   if (!post) {
     notFound();

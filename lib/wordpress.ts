@@ -35,6 +35,12 @@ export type WordPressPost = {
   };
 };
 
+export type WordPressPostsPage = {
+  posts: WordPressPost[];
+  totalPages: number;
+  totalPosts: number;
+};
+
 function buildWpUrl(path: string, params?: Record<string, string | number | undefined>) {
   const url = new URL(path, WORDPRESS_BASE_URL);
 
@@ -49,10 +55,18 @@ function buildWpUrl(path: string, params?: Record<string, string | number | unde
   return url.toString();
 }
 
-async function fetchPostsPage(page: number, search?: string) {
+export async function fetchWordPressPostsPage({
+  page = 1,
+  perPage = 10,
+  search,
+}: {
+  page?: number;
+  perPage?: number;
+  search?: string;
+}): Promise<WordPressPostsPage> {
   const url = buildWpUrl("/wp-json/wp/v2/posts", {
     _embed: "1",
-    per_page: 50,
+    per_page: perPage,
     page,
     orderby: "date",
     order: "desc",
@@ -65,24 +79,27 @@ async function fetchPostsPage(page: number, search?: string) {
   });
 
   if (!response.ok) {
-    return { posts: [] as WordPressPost[], totalPages: 0 };
+    return { posts: [], totalPages: 0, totalPosts: 0 };
   }
 
-  const totalPages = Number(response.headers.get("X-WP-TotalPages") || "1");
-  const posts = (await response.json()) as WordPressPost[];
-
-  return { posts, totalPages };
+  return {
+    posts: (await response.json()) as WordPressPost[],
+    totalPages: Number(response.headers.get("X-WP-TotalPages") || "1"),
+    totalPosts: Number(response.headers.get("X-WP-Total") || "0"),
+  };
 }
 
 export async function fetchWordPressPosts(search?: string): Promise<WordPressPost[]> {
-  const firstPage = await fetchPostsPage(1, search);
+  const firstPage = await fetchWordPressPostsPage({ page: 1, perPage: 50, search });
 
   if (firstPage.totalPages <= 1) {
     return firstPage.posts;
   }
 
   const remaining = await Promise.all(
-    Array.from({ length: firstPage.totalPages - 1 }, (_, index) => fetchPostsPage(index + 2, search)),
+    Array.from({ length: firstPage.totalPages - 1 }, (_, index) =>
+      fetchWordPressPostsPage({ page: index + 2, perPage: 50, search }),
+    ),
   );
 
   return [firstPage.posts, ...remaining.map((entry) => entry.posts)]
