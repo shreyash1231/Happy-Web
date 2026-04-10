@@ -62,6 +62,16 @@ function buildWpUrl(path: string, params?: Record<string, string | number | unde
   return url.toString();
 }
 
+async function safeFetch(url: string) {
+  try {
+    return await fetch(url, {
+      next: { revalidate: DEFAULT_REVALIDATE_SECONDS, tags: ["wordpress-posts"] },
+    });
+  } catch {
+    return null;
+  }
+}
+
 export async function fetchWordPressPostsPage({
   page = 1,
   perPage = 10,
@@ -84,11 +94,9 @@ export async function fetchWordPressPostsPage({
     search,
   });
 
-  const response = await fetch(url, {
-    next: { revalidate: DEFAULT_REVALIDATE_SECONDS, tags: ["wordpress-posts"] },
-  });
+  const response = await safeFetch(url);
 
-  if (!response.ok) {
+  if (!response || !response.ok) {
     return { posts: [], totalPages: 0, totalPosts: 0 };
   }
 
@@ -110,45 +118,51 @@ export async function fetchWordPressTags(search?: string): Promise<WordPressTag[
     _fields: "id,count,name,slug",
   });
 
-  const firstResponse = await fetch(firstUrl, {
-    next: { revalidate: DEFAULT_REVALIDATE_SECONDS, tags: ["wordpress-tags"] },
-  });
+  try {
+    const firstResponse = await fetch(firstUrl, {
+      next: { revalidate: DEFAULT_REVALIDATE_SECONDS, tags: ["wordpress-tags"] },
+    });
 
-  if (!firstResponse.ok) {
+    if (!firstResponse.ok) {
+      return [];
+    }
+
+    const totalPages = Number(firstResponse.headers.get("X-WP-TotalPages") || "1");
+    const firstPage = (await firstResponse.json()) as WordPressTag[];
+
+    if (totalPages <= 1) {
+      return firstPage;
+    }
+
+    const remaining = await Promise.all(
+      Array.from({ length: totalPages - 1 }, (_, index) => {
+        const url = buildWpUrl("/wp-json/wp/v2/tags", {
+          per_page: 100,
+          page: index + 2,
+          hide_empty: 1,
+          orderby: "count",
+          order: "desc",
+          search,
+          _fields: "id,count,name,slug",
+        });
+
+        return fetch(url, {
+          next: { revalidate: DEFAULT_REVALIDATE_SECONDS, tags: ["wordpress-tags"] },
+        })
+          .then(async (response) => {
+            if (!response.ok) {
+              return [] as WordPressTag[];
+            }
+            return (await response.json()) as WordPressTag[];
+          })
+          .catch(() => [] as WordPressTag[]);
+      }),
+    );
+
+    return [firstPage, ...remaining].flat();
+  } catch {
     return [];
   }
-
-  const totalPages = Number(firstResponse.headers.get("X-WP-TotalPages") || "1");
-  const firstPage = (await firstResponse.json()) as WordPressTag[];
-
-  if (totalPages <= 1) {
-    return firstPage;
-  }
-
-  const remaining = await Promise.all(
-    Array.from({ length: totalPages - 1 }, (_, index) => {
-      const url = buildWpUrl("/wp-json/wp/v2/tags", {
-        per_page: 100,
-        page: index + 2,
-        hide_empty: 1,
-        orderby: "count",
-        order: "desc",
-        search,
-        _fields: "id,count,name,slug",
-      });
-
-      return fetch(url, {
-        next: { revalidate: DEFAULT_REVALIDATE_SECONDS, tags: ["wordpress-tags"] },
-      }).then(async (response) => {
-        if (!response.ok) {
-          return [] as WordPressTag[];
-        }
-        return (await response.json()) as WordPressTag[];
-      });
-    }),
-  );
-
-  return [firstPage, ...remaining].flat();
 }
 
 export async function fetchWordPressPosts(search?: string): Promise<WordPressPost[]> {
@@ -177,16 +191,20 @@ export async function fetchWordPressPostBySlug(slug: string): Promise<WordPressP
     _fields: `${WP_POST_FIELDS},_embedded.wp:featuredmedia.source_url,_embedded.wp:featuredmedia.alt_text`,
   });
 
-  const response = await fetch(url, {
-    next: { revalidate: DEFAULT_REVALIDATE_SECONDS, tags: [`wordpress-post-${slug}`, "wordpress-posts"] },
-  });
+  try {
+    const response = await fetch(url, {
+      next: { revalidate: DEFAULT_REVALIDATE_SECONDS, tags: [`wordpress-post-${slug}`, "wordpress-posts"] },
+    });
 
-  if (!response.ok) {
+    if (!response.ok) {
+      return null;
+    }
+
+    const posts = (await response.json()) as WordPressPost[];
+    return posts[0] ?? null;
+  } catch {
     return null;
   }
-
-  const posts = (await response.json()) as WordPressPost[];
-  return posts[0] ?? null;
 }
 
 export async function fetchAllWordPressSlugs(): Promise<Array<{ slug: string; modified: string }>> {
