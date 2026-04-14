@@ -49,7 +49,7 @@ export default function Practice() {
                 className="text-center grid grid-cols-4"
               >
                 <span className="col-span-3">
-                  <span className="text-2xl md:text-5xl lg:text-6xl xl:text-7xl">
+                  <span className="text-2xl md:text-5xl lg:text-5xl xl:text-6xl">
                     Happiness is a skill
                   </span>
                 </span>
@@ -60,7 +60,7 @@ export default function Practice() {
                 className="text-center grid grid-cols-6"
               >
                 <span></span>
-                <span className="text-2xl md:text-5xl lg:text-6xl xl:text-7xl col-span-5 md:col-span-5 lg:col-span-5">
+                <span className="text-2xl md:text-5xl lg:text-5xl xl:text-6xl col-span-5 md:col-span-5 lg:col-span-5">
                   We help you practice it.
                 </span>
                 <span></span>
