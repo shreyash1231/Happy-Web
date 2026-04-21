@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,6 +9,19 @@ import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+    const [opened, setOpened] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setOpened(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <div className="pt-12 px-4 xl:p-8 z-50 mx-auto max-w-[1920px]">
@@ -33,7 +46,49 @@ export default function Header() {
           <Link href="/AboutUs" className="cursor-pointer">About Us</Link>
           <Link href="/Programs" className="cursor-pointer">Programs</Link>
           <Link href="/Corporate" className="cursor-pointer">Corporate</Link>
-          <Link href="/Resources" className="cursor-pointer">Resources</Link>
+          <div className="relative" ref={dropdownRef}>
+  <div className="flex items-center gap-1">
+    
+    {/* Navigate to /Resources */}
+    <Link href="/Resources" className="cursor-pointer">
+      Resources
+    </Link>
+
+    {/* Only arrow toggles dropdown */}
+    <button
+      onClick={() => setOpened(prev => !prev)}
+      className="cursor-pointer"
+    >
+     <span
+  className={`inline-block transform transition-transform duration-200 ${
+    opened ? "rotate-180" : "rotate-0"
+  }`}
+>
+  ▼
+</span>
+    </button>
+  </div>
+
+  {opened && (
+    <div className="absolute top-full mt-3 bg-white shadow-lg rounded-lg py-2 w-[160px] lg:w-[180px] z-50">
+      <Link
+        href="/blog"
+        className="block px-4 py-2 hover:bg-gray-100"
+        onClick={() => setOpened(false)}
+      >
+        Blog
+      </Link>
+
+      <Link
+        href="/videos"
+        className="block px-4 py-2 hover:bg-gray-100"
+        onClick={() => setOpened(false)}
+      >
+        Videos / Reels
+      </Link>
+    </div>
+  )}
+</div>
         </div>
 
         {/* RIGHT SIDE */}
