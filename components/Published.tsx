@@ -15,7 +15,7 @@ export default function Published() {
   };
 
   return (
-    <div className="bg-[#3f5c4a] py-12 px-1 xl:px-16 mt-10 max-w-[1920px] min-h-[80vh] mx-auto">
+    <div className="bg-[#3f5c4a] py-12 px-1 xl:px-16 mt-10 max-w-[1920px] min-h-[550px] md:min-h-[600px] mx-auto">
       
       {/* Heading */}
       <motion.div
