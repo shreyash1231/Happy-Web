@@ -32,9 +32,17 @@ export default function Trust() {
     "/b7.png",
     "/b6.png",
     "/b5.png",
+    "/b2.png",
+    "/b1.png",
+    "/b3.png",
+    "/b4.png",
   ];
 
   const images1 = [
+    "/b8.png",
+    "/b7.png",
+    "/b6.png",
+    "/b5.png",
     "/b2.png",
     "/b1.png",
     "/b3.png",

@@ -69,7 +69,7 @@ export default function Sessions() {
     <div className="bg-white p-4 rounded-full shadow-sm">
       <img src="/corporate1.png" className="w-18 h-18 object-contain" />
     </div>
-    <span className="text-[9px] text-[#544120] leading-tight">
+    <span className="text-[11px] text-[#544120] leading-tight">
       Mindfulness <br/>practices
     </span>
   </div>
@@ -79,7 +79,7 @@ export default function Sessions() {
     <div className="bg-white p-4 rounded-full shadow-sm">
       <img src="/corporate2.png" className="w-18 h-18 object-contain" />
     </div>
-    <span className="text-[9px] text-[#544120] leading-tight">
+    <span className="text-[11px] text-[#544120] leading-tight">
       NLP<br/>Techniques
     </span>
   </div>
@@ -89,7 +89,7 @@ export default function Sessions() {
     <div className="bg-white p-4 rounded-full shadow-sm">
       <img src="/corporate3.png" className="w-18 h-18 object-contain" />
     </div>
-    <span className="text-[9px] text-[#544120] leading-tight">
+    <span className="text-[11px] text-[#544120] leading-tight">
       Meditation
     </span>
   </div>
@@ -99,7 +99,7 @@ export default function Sessions() {
     <div className="bg-white p-4 rounded-full shadow-sm">
       <img src="/corporate4.png" className="w-18 h-18 object-contain" />
     </div>
-    <span className="text-[9px] text-[#544120] leading-tight">
+    <span className="text-[11px] text-[#544120] leading-tight">
       Positive <br/>Psychology
     </span>
   </div>
@@ -109,7 +109,7 @@ export default function Sessions() {
     <div className="bg-white p-4 rounded-full shadow-sm">
       <img src="/corporate5.png" className="w-18 h-18 object-contain" />
     </div>
-    <span className="text-[9px] text-[#544120] leading-tight">
+    <span className="text-[11px] text-[#544120] leading-tight">
       Behavioural <br/>Interventions
     </span>
   </div>
@@ -150,7 +150,7 @@ export default function Sessions() {
     <div className="bg-white p-4 rounded-full shadow-sm">
       <img src="/corporate6.png" className="w-18 h-18 object-contain" />
     </div>
-    <span className="text-[9px] text-[#544120] leading-tight">
+    <span className="text-[11px] text-[#544120] leading-tight">
       <span className="font-semibold">4 - 5 hours</span><br/>Immersive Workshop
     </span>
   </div>
@@ -160,7 +160,7 @@ export default function Sessions() {
     <div className="bg-white p-4 rounded-full shadow-sm">
       <img src="/corporate7.png" className="w-18 h-18 object-contain" />
     </div>
-    <span className="text-[9px] text-[#544120] leading-tight">
+    <span className="text-[11px] text-[#544120] leading-tight">
       <span className="font-semibold">30 - 35</span>
       <br />
       Participants
@@ -172,7 +172,7 @@ export default function Sessions() {
     <div className="bg-white p-4 rounded-full shadow-sm">
       <img src="/corporate8.png" className="w-18 h-18 object-contain" />
     </div>
-    <span className="text-[9px] text-[#544120] leading-tight">
+    <span className="text-[11px] text-[#544120] leading-tight">
       <span className="font-semibold">Interactive</span>
       <br />
       Practical & Engaging

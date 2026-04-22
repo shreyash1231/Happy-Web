@@ -16,8 +16,7 @@ export default function Practice() {
   };
 
   return (
-    <div className="relative z-10 mx-auto max-w-[1920px] pb-20">
-      
+    <div className="relative z-10 mx-auto max-w-[1920px] pb-20 min-h-[400px] md:min-h-[500px] xl:min-h-[700px]"> 
       {/* Background image */}
          <div className="absolute inset-0">
            <img src="/Assets1.png" className="w-full h-full object-cover object-center rounded-b-[40px] xl:rounded-b-[80px]" />

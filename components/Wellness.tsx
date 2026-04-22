@@ -22,7 +22,7 @@ const stagger = {
 
 export default function Wellness() {
   return (
-    <div className="relative z-10 mx-auto max-w-[1920px] pb-20">
+<div className="relative z-10 mx-auto max-w-[1920px] pb-20 min-h-[400px] md:min-h-[500px] xl:min-h-[800px]">
 
       {/* Background image */}
       <div className="absolute inset-0">
@@ -81,7 +81,7 @@ export default function Wellness() {
               variants={fadeUp}
               className="flex flex-col md:flex-row gap-2 md:gap-8 pt-8 md:mt-5"
             >
-              <Button className="w-full md:w-60 lg:w-70 h-10 p-6 rounded-4xl bg-[#3f5c4a] text-[#c39e86] border-2 border-yellow-400 hover:bg-[#2d4435] transition-colors cursor-pointer text-sm">
+              <Button className="w-60 md:w-60 lg:w-70 h-10 p-6 rounded-4xl bg-[#3f5c4a] text-[#c39e86] border-2 border-yellow-400 hover:bg-[#2d4435] transition-colors cursor-pointer text-sm">
                 Book Corporate Consultation
               </Button>
             </motion.span>

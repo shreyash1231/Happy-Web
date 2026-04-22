@@ -9,9 +9,31 @@ import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-    const [opened, setOpened] = useState(false);
+  const [opened, setOpened] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [openedsmall, setOpenedsmall] = useState(false);
+  const dropdownRefsmall = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    const handleClickOutsidesmall = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setOpened(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutsidesmall);
+    return () => document.removeEventListener("mousedown", handleClickOutsidesmall);
+  }, []);
+
+  useEffect(() => {
+  const handleResize = () => {
+    if (window.innerWidth >= 768) { // 768px = Tailwind's md breakpoint
+      setOpen(false);
+    }
+  };
+
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
   // Close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -60,7 +82,7 @@ export default function Header() {
       className="cursor-pointer"
     >
      <span
-  className={`inline-block transform transition-transform duration-200 ${
+  className={`inline-block text-xs transform transition-transform duration-200 ${
     opened ? "rotate-180" : "rotate-0"
   }`}
 >
@@ -132,7 +154,49 @@ className="fixed inset-0 bg-[#dcd8ce] z-40 flex flex-col items-start justify-cen
       <Link href="/AboutUs" onClick={() => setOpen(false)}>About Us</Link>
       <Link href="/Programs" onClick={() => setOpen(false)}>Programs</Link>
       <Link href="/Corporate" onClick={() => setOpen(false)}>Corporate</Link>
-      <Link href="/Resources" onClick={() => setOpen(false)}>Resources</Link>
+   <div className="relative" ref={dropdownRefsmall}>
+  <div className="flex items-center gap-1">
+    
+    {/* Navigate to /Resources */}
+    <Link href="/Resources" className="cursor-pointer">
+      Resources
+    </Link>
+
+    {/* Only arrow toggles dropdown */}
+    <button
+      onClick={() => setOpenedsmall(prev => !prev)}
+      className="cursor-pointer"
+    >
+     <span
+  className={`inline-block text-xs transform transition-transform duration-200 ${
+    opened ? "rotate-180" : "rotate-0"
+  }`}
+>
+  ▼
+</span>
+    </button>
+  </div>
+
+  {openedsmall && (
+    <div className="absolute top-full mt-3 bg-white shadow-lg rounded-lg py-2 w-[160px] lg:w-[180px] z-50">
+      <Link
+        href="/blog"
+        className="block px-4 py-2 hover:bg-gray-100 text-sm"
+        onClick={() => setOpenedsmall(false)}
+      >
+        Blog
+      </Link>
+
+      <Link
+        href="/videos"
+        className="block px-4 py-2 hover:bg-gray-100 text-sm"
+        onClick={() => setOpenedsmall(false)}
+      >
+        Videos / Reels
+      </Link>
+    </div>
+  )}
+</div>
 
       {/* CTA */}
       <Button className="bg-[#3f5c4a] text-white px-8 py-6 rounded-full">
