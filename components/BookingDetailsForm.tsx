@@ -39,7 +39,7 @@ export default function BookingDetailsForm() {
   };
 
   return (
-    <div className="w-full md:max-w-3xl lg:max-w-4xl  xl:max-w-5xl mx-auto px-4 py-8">
+    <div className="w-full md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto px-4 py-8">
       {/* Header */}
       <h2 className="text-xl md:text-2xl text-[#2f2a25] mb-1">
         Step 2: Enter Your Details
@@ -49,11 +49,11 @@ export default function BookingDetailsForm() {
       </p>
 
       {/* Card */}
-      <div className="bg-[#e9dac9] rounded-3xl px-3 py-8">
-        <div className="flex flex-col gap-5">
+      <div className="bg-[#e9dac9] rounded-3xl px-4 md:px-8 py-8 w-full overflow-hidden">
+        <div className="flex flex-col gap-5 w-full">
 
           {/* Full Name */}
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 w-full">
             <label className="text-sm text-[#736345] font-medium">
               Full Name*
             </label>
@@ -62,13 +62,13 @@ export default function BookingDetailsForm() {
               name="fullName"
               value={form.fullName}
               onChange={handleChange}
-              className="w-full bg-white rounded-lg px-3 py-2 text-sm text-gray-700 outline-none border border-transparent focus:border-[#736345]/40"
+              className="w-full min-w-0 bg-white rounded-lg px-3 py-2 text-sm text-gray-700 outline-none border border-transparent focus:border-[#736345]/40"
             />
           </div>
 
           {/* Email + Phone */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="flex flex-col gap-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+            <div className="flex flex-col gap-1 min-w-0">
               <label className="text-sm text-[#736345] font-medium">
                 Email*
               </label>
@@ -77,35 +77,35 @@ export default function BookingDetailsForm() {
                 name="email"
                 value={form.email}
                 onChange={handleChange}
-                className="w-full bg-white rounded-lg px-3 py-2 text-sm text-gray-700 outline-none border border-transparent focus:border-[#736345]/40"
+                className="w-full min-w-0 bg-white rounded-lg px-3 py-2 text-sm text-gray-700 outline-none border border-transparent focus:border-[#736345]/40"
               />
             </div>
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1 min-w-0">
               <label className="text-sm text-[#736345] font-medium">
                 Phone Number*
               </label>
-              <div className="flex gap-2">
+              <div className="flex gap-2 min-w-0">
                 <input
                   type="text"
                   name="countryCode"
                   value={form.countryCode}
                   onChange={handleChange}
-                  className="w-14 bg-white rounded-lg px-2 py-2 text-sm text-gray-700 outline-none border border-transparent focus:border-[#736345]/40 text-center"
+                  className="w-14 flex-shrink-0 bg-white rounded-lg px-2 py-2 text-sm text-gray-700 outline-none border border-transparent focus:border-[#736345]/40 text-center"
                 />
                 <input
                   type="tel"
                   name="phone"
                   value={form.phone}
                   onChange={handleChange}
-                  className="flex-1 bg-white rounded-lg px-3 py-2 text-sm text-gray-700 outline-none border border-transparent focus:border-[#736345]/40"
+                  className="flex-1 min-w-0 bg-white rounded-lg px-3 py-2 text-sm text-gray-700 outline-none border border-transparent focus:border-[#736345]/40"
                 />
               </div>
             </div>
           </div>
 
           {/* Selected Service + Guide */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="flex flex-col gap-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+            <div className="flex flex-col gap-1 min-w-0">
               <label className="text-sm text-[#736345] font-medium">
                 Selected Service
               </label>
@@ -115,10 +115,10 @@ export default function BookingDetailsForm() {
                 value={form.selectedService}
                 onChange={handleChange}
                 readOnly
-                className="w-full bg-white rounded-lg px-3 py-2 text-sm text-gray-700 outline-none border border-transparent cursor-default"
+                className="w-full min-w-0 bg-white rounded-lg px-3 py-2 text-sm text-gray-700 outline-none border border-transparent cursor-default"
               />
             </div>
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1 min-w-0">
               <label className="text-sm text-[#736345] font-medium">
                 Selected Guide
               </label>
@@ -128,7 +128,7 @@ export default function BookingDetailsForm() {
                 value={form.selectedGuide}
                 onChange={handleChange}
                 readOnly
-                className="w-full bg-white rounded-lg px-3 py-2 text-sm text-gray-700 outline-none border border-transparent cursor-default"
+                className="w-full min-w-0 bg-white rounded-lg px-3 py-2 text-sm text-gray-700 outline-none border border-transparent cursor-default"
               />
             </div>
           </div>
@@ -139,7 +139,7 @@ export default function BookingDetailsForm() {
               Session Type*
             </label>
             <div className="flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-6">
-              <label className="flex items-start md:items-center gap-2 text-sm text-[#736345] cursor-pointer">
+              <label className="flex items-center gap-2 text-sm text-[#736345] cursor-pointer">
                 <input
                   type="radio"
                   name="sessionType"
@@ -150,7 +150,7 @@ export default function BookingDetailsForm() {
                 />
                 Online (Zoom / Google Meet)
               </label>
-              <label className="flex items-start md:items-center gap-2 text-sm text-[#736345] cursor-pointer">
+              <label className="flex items-center gap-2 text-sm text-[#736345] cursor-pointer">
                 <input
                   type="radio"
                   name="sessionType"
@@ -165,21 +165,21 @@ export default function BookingDetailsForm() {
           </div>
 
           {/* Preferred Time & Date */}
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 w-full">
             <label className="text-sm text-[#736345] font-medium">
-              Preffered Time & Date
+              Preferred Time & Date
             </label>
             <input
               type="datetime-local"
               name="preferredDateTime"
               value={form.preferredDateTime}
               onChange={handleChange}
-              className="w-full bg-white rounded-lg px-3 py-2 text-sm text-gray-700 outline-none border border-transparent focus:border-[#736345]/40"
+              className="w-full min-w-0 bg-white rounded-lg px-3 py-2 text-sm text-gray-700 outline-none border border-transparent focus:border-[#736345]/40"
             />
           </div>
 
           {/* Concern / Focus Area */}
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 w-full">
             <label className="text-sm text-[#736345] font-medium">
               Concern / Focus Area*
             </label>
@@ -188,7 +188,7 @@ export default function BookingDetailsForm() {
               value={form.concern}
               onChange={handleChange}
               rows={4}
-              className="w-full bg-white rounded-lg px-3 py-2 text-sm text-gray-700 outline-none border border-transparent focus:border-[#736345]/40 resize-none"
+              className="w-full min-w-0 bg-white rounded-lg px-3 py-2 text-sm text-gray-700 outline-none border border-transparent focus:border-[#736345]/40 resize-none"
             />
           </div>
 
