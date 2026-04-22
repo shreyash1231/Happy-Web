@@ -4,7 +4,7 @@
 
 export default function Paymentpay(){
     return(
-        <div className="w-full md:max-w-2xl lg:max-w-4xl  xl:max-w-5xl mx-auto px-4 py-8">
+        <div className="w-full md:max-w-3xl lg:max-w-4xl  xl:max-w-5xl mx-auto px-2 py-8">
       {/* Header */}
       <h2 className="text-xl md:text-2xl text-[#2f2a25] mb-1">
        Step 3: Payment Summary
