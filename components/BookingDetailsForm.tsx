@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
-
+  import { motion } from "framer-motion";
+  import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
 interface BookingFormData {
   fullName: string;
   email: string;
@@ -15,6 +22,26 @@ interface BookingFormData {
 }
 
 export default function BookingDetailsForm() {
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  };
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, ease: "easeOut"  as const},
+    },
+  };
   const [form, setForm] = useState<BookingFormData>({
     fullName: "",
     email: "",
@@ -36,20 +63,58 @@ export default function BookingDetailsForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(form);
+    setIsSubmitted(true);
+
   };
+
+  const service=[
+  "Tarot Guidance",
+  "Energy Healing",
+  "Astrology",
+  "Numerology",
+  "Name Correction",
+  "Conscious Guidance",
+  "Meditation",
+  "Vastu"
+]
+const guides=[
+  "Jwalant S.",
+  "Nona",
+  "Saachi A.",
+  "Monika S.",
+  "Pooja",
+  "Monika",
+  "Nagesh",
+  "Saachi A."
+]
 
   return (
     <div className="w-full md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto px-4 py-8">
       {/* Header */}
-      <h2 className="text-xl md:text-2xl text-[#2f2a25] mb-1">
+      <motion.h2
+  className="text-xl md:text-2xl text-[#2f2a25] mb-1"
+  variants={fadeUp}
+  initial="hidden"
+  animate="show"
+>
         Step 2: Enter Your Details
-      </h2>
-      <p className="text-sm md:text-lg text-[#736345]/70 mb-6">
+      </motion.h2>
+      <motion.p
+  className="text-sm md:text-lg text-[#736345]/70 mb-6"
+  variants={fadeUp}
+  initial="hidden"
+  animate="show"
+>
         Please fill in your details to proceed with booking
-      </p>
+      </motion.p>
 
       {/* Card */}
-      <div className="bg-[#e9dac9] rounded-3xl px-4 md:px-8 py-8 w-full overflow-hidden">
+      <motion.div
+          className="bg-[#e9dac9] rounded-3xl px-4 md:px-8 py-8 w-full overflow-hidden"
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
         <div className="flex flex-col gap-5 w-full">
 
           {/* Full Name */}
@@ -106,31 +171,72 @@ export default function BookingDetailsForm() {
           {/* Selected Service + Guide */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
             <div className="flex flex-col gap-1 min-w-0">
-              <label className="text-sm text-[#736345] font-medium">
-                Selected Service
-              </label>
-              <input
-                type="text"
-                name="selectedService"
-                value={form.selectedService}
-                onChange={handleChange}
-                readOnly
-                className="w-full min-w-0 bg-white rounded-lg px-3 py-2 text-sm text-gray-700 outline-none border border-transparent cursor-default"
-              />
-            </div>
-            <div className="flex flex-col gap-1 min-w-0">
-              <label className="text-sm text-[#736345] font-medium">
-                Selected Guide
-              </label>
-              <input
-                type="text"
-                name="selectedGuide"
-                value={form.selectedGuide}
-                onChange={handleChange}
-                readOnly
-                className="w-full min-w-0 bg-white rounded-lg px-3 py-2 text-sm text-gray-700 outline-none border border-transparent cursor-default"
-              />
-            </div>
+  <label className="text-sm text-[#736345] font-medium">
+    Selected Service
+  </label>
+
+  <DropdownMenu>
+    <DropdownMenuTrigger asChild>
+      <button className="w-full flex items-center justify-between bg-white rounded-lg px-3 py-2 text-sm text-gray-700 border border-transparent focus:border-[#736345]/40 cursor-pointer">
+        <span className="truncate">
+          {form.selectedService || "Select Service"}
+        </span>
+        <ChevronDown className="w-4 h-4 opacity-60" />
+      </button>
+    </DropdownMenuTrigger>
+
+    <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] rounded-xl border border-gray-100 shadow-md">
+      {service.map((item, index) => (
+        <DropdownMenuItem
+          key={index}
+          onSelect={() =>
+            setForm((prev) => ({
+              ...prev,
+              selectedService: item,
+              selectedGuide: "", // reset guide when service changes (important)
+            }))
+          }
+          className="cursor-pointer px-3 py-2 text-sm text-[#736345] hover:bg-[#f5ede2] rounded-md"
+        >
+          {item}
+        </DropdownMenuItem>
+      ))}
+    </DropdownMenuContent>
+  </DropdownMenu>
+</div>
+           <div className="flex flex-col gap-1 min-w-0">
+  <label className="text-sm text-[#736345] font-medium">
+    Selected Guide
+  </label>
+
+  <DropdownMenu>
+    <DropdownMenuTrigger asChild>
+      <button className="w-full flex items-center justify-between bg-white rounded-lg px-3 py-2 text-sm text-gray-700 border border-transparent focus:border-[#736345]/40 cursor-pointer">
+        <span className="truncate">
+          {form.selectedGuide || "Select Guide"}
+        </span>
+        <ChevronDown className="w-4 h-4 opacity-60" />
+      </button>
+    </DropdownMenuTrigger>
+
+    <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] rounded-xl border border-gray-100 shadow-md">
+      {guides.map((guide, index) => (
+        <DropdownMenuItem
+          key={index}
+          onSelect={() =>
+            setForm((prev) => ({
+              ...prev,
+              selectedGuide: guide,
+            }))
+          }
+          className="cursor-pointer px-3 py-2 text-sm text-[#736345] hover:bg-[#f5ede2] rounded-md"
+        >
+          {guide}
+        </DropdownMenuItem>
+      ))}
+    </DropdownMenuContent>
+  </DropdownMenu>
+</div>
           </div>
 
           {/* Session Type */}
@@ -204,7 +310,65 @@ export default function BookingDetailsForm() {
             You'll be redirected to Payment securely
           </p>
         </div>
+      </motion.div>
+    {isSubmitted && (
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={fadeUp}
+        className="w-full md:max-w-3xl lg:max-w-4xl xl:max-w-5xl mx-auto px-2 py-8"
+      >
+      {/* Header */}
+      <h2 className="text-xl md:text-2xl text-[#2f2a25] mb-1">
+       Step 3: Payment Summary
+      </h2>
+      <p className="text-sm md:text-lg text-[#736345]/70 mb-6">
+       Complete your payment to confirm your booking
+      </p>
+
+      {/* Card */}
+      <div className="bg-[#e9dac9] rounded-3xl px-4 py-6">
+        <div className="flex flex-col gap-3 text-[#2f2a25] text-sm md:text-base">
+
+          <span className="font-semibold text-lg mb-2">Payment Summary</span>
+
+          <div className="flex justify-between">
+            <span className="text-[#736345]">Service:</span>
+            <span>{form.selectedService || "—"}</span>
+          </div>
+
+          <div className="flex justify-between">
+            <span className="text-[#736345]">Guide:</span>
+            <span>{form.selectedGuide || "—"}</span>
+          </div>
+
+          <div className="flex justify-between">
+            <span className="text-[#736345]">Mode:</span>
+            <span>
+              {form.sessionType === "online"
+                ? "Online (Zoom / Google Meet)"
+                : form.sessionType === "offline"
+                ? "Offline (Studio)"
+                : "—"}
+            </span>
+          </div>
+
+          <div className="flex justify-between font-semibold text-lg mt-2">
+            <span>Amount:</span>
+            <span>₹3000</span>
+          </div>
+
+          {/* Buttons */}
+          <button className="mt-4 bg-[#3f5c4a] text-white py-3 rounded-xl text-sm font-medium hover:bg-[#162d22] transition">
+            Pay via Razorpay / UPI
+          </button>
+
+          <button className="bg-[#8b6b4a] text-white py-3 rounded-xl text-sm font-medium">
+            Pay via Bank Transfer
+          </button>
+        </div>
       </div>
-    </div>
+    </motion.div>)}
+  </div>
   );
 }

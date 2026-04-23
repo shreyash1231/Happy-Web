@@ -38,16 +38,7 @@ export default function Trust() {
     "/b4.png",
   ];
 
-  const images1 = [
-    "/b8.png",
-    "/b7.png",
-    "/b6.png",
-    "/b5.png",
-    "/b2.png",
-    "/b1.png",
-    "/b3.png",
-    "/b4.png",
-  ];
+
   return (
     <div className="bg-[#dcd8ce] p-1 pt-8 xl:p-8 xl:pt-10 mx-auto max-w-[1920px]">
       <div className="flex flex-col mx-auto max-w-[1920px] gap-6">
@@ -120,40 +111,6 @@ export default function Trust() {
           {[...Array(2)].map((_, repeatIndex) => (
             <div key={repeatIndex} className="flex gap-3 sm:gap-4 md:gap-6">
               {images.map((src, i) => (
-                <motion.div
-                  key={i}
-                  whileHover={{ scale: 1.05 }}
-                  className="overflow-hidden rounded-2xl"
-                >
-                  <Image
-                    src={src}
-                    alt={`logo-${i}`}
-                    width={180}
-                    height={120}
-                    className="w-[140px] sm:w-[160px] md:w-[180px] lg:w-[200px]
-                               h-[90px] sm:h-[100px] md:h-[120px] lg:h-[140px] object-contain"
-                  />
-                </motion.div>
-              ))}
-            </div>
-          ))}
-        </motion.div>
-      </div>
-
-      {/* Row 2 (reverse direction) */}
-      <div className="overflow-hidden w-full">
-        <motion.div
-          className="flex gap-3 sm:gap-4 md:gap-6 w-max min-w-full"
-          animate={{ x: ["-50%", "0%"] }}
-          transition={{
-            duration: 25,
-            ease: "linear",
-            repeat: Infinity,
-          }}
-        >
-          {[...Array(2)].map((_, repeatIndex) => (
-            <div key={repeatIndex} className="flex gap-3 sm:gap-4 md:gap-6">
-              {images1.map((src, i) => (
                 <motion.div
                   key={i}
                   whileHover={{ scale: 1.05 }}
