@@ -39,7 +39,7 @@ const services = [
   { name: "Numerology",         detail: "₹15,000",           img: "/Happy Ho_Payments_Numerology.svg",           hasSessionSelect: false, guides: ["Saachi A."],                                    sessions: [] },
   { name: "Name Correction",    detail: "₹15,000",           img: "/Happy Ho_Payments_Name Correction.svg",      hasSessionSelect: false, guides: ["Saachi A."],                                    sessions: [] },
   { name: "Conscious Guidance", detail: "₹15,000",           img: "/Happy Ho_Payments_Conscious Guidance.svg",   hasSessionSelect: false, guides: ["Pooja"],                                        sessions: [] },
-  { name: "Meditation",         detail: "",                  img: "/Happy Ho_Payments_Meditation.svg",           hasSessionSelect: true,  guides: ["Jwalant S.", "Nagesh", "Sandeep A"],            sessions: ["Single Session: ₹5,000", "5 Sessions: ₹25,000", "10 Sessions: ₹45,000"] },
+  { name: "Meditation",         detail: "",                  img: "/Happy Ho_Payments_Meditation.svg",           hasSessionSelect: true,  guides: ["Jwalant S.", "Nagesh", "Dr Sandeep A"],            sessions: ["Single Session: ₹5,000", "5 Sessions: ₹25,000", "10 Sessions: ₹45,000"] },
   { name: "Vastu",              detail: "",                  img: "/Happy Ho_Payments_Vastu.svg",                hasSessionSelect: true,  guides: ["Saachi A."],                                    sessions: ["Site Visit: ₹11,000", "Detailed Report: ₹40,000"] },
 ];
   const [selectedGuides, setSelectedGuides] = useState<string[]>(
