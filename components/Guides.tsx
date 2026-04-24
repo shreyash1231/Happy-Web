@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { GuideCard, GuideCardlarge } from "./GuideCard";
 
 export default function Guides() {
 
@@ -50,88 +51,89 @@ export default function Guides() {
           {/* Column 1 */}
           <motion.div variants={fadeUp} className="flex md:flex-col gap-2 md:gap-3">
             <motion.div whileHover={{ scale: 1.05 }}>
-              <Image
-                src="/43.png"
-                alt="women"
-                width={200}
-                height={200}
-                className="rounded-[60px] w-[200px] h-[200px] object-cover"
-              />
+             <GuideCard
+  src="/Pooja-Chandra_HH.png"
+  title="Pooja Chandra"
+  desc="Conscious Guidance + Energy Healing"
+/>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }}>
-              <Image
-                src="/44.png"
-                alt="women"
-                width={200}
-                height={300}
-                className="rounded-[60px] w-[200px] h-[300px] object-cover"
-              />
+              <GuideCardlarge
+      src="/44.png"
+  title="Dr.Sandeep Nath"
+  desc="Mindfulness + Habit Formation +
+Intuition and Beliefs +
+Energy-work/Jigong +
+Organizational Alignment +
+Executive Capacity Coaching +
+Ethics-based Corporate Culture"
+/>
+    
             </motion.div>
           </motion.div>
 
           {/* Column 2 */}
           <motion.div variants={fadeUp} className="flex md:flex-col gap-2 md:gap-3">
             <motion.div whileHover={{ scale: 1.05 }}>
-              <Image
-                src="/43.png"
-                alt="women"
-                width={200}
-                height={300}
-                className="rounded-[60px] w-[200px] h-[300px] object-cover"
-              />
+                 <GuideCardlarge
+  src="/43.png"
+  title="Saumya Sharma"
+  desc="Emotional Freedom Techniques (EFT) +
+Matrix Reimprinting +
+Family Constellation +
+Somatic Experiencing"
+/>
+
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }}>
-              <Image
-                src="/44.png"
-                alt="women"
-                width={200}
-                height={200}
-                className="rounded-[60px] w-[200px] h-[200px] object-cover"
-              />
+                         <GuideCard
+    src="/guid4.jpeg"
+  title="Nonah"
+  desc="Health Tarot + Energy Healing"
+/>
             </motion.div>
           </motion.div>
 
           {/* Column 3 */}
           <motion.div variants={fadeUp} className="flex md:flex-col gap-2 md:gap-3">
             <motion.div whileHover={{ scale: 1.05 }}>
-              <Image
-                src="/43.png"
-                alt="women"
-                width={200}
-                height={200}
-                className="rounded-[60px] w-[200px] h-[200px] object-cover"
-              />
+                 <GuideCard
+            src="/guid5.jpeg"
+  title="Saachi Aggarwal"
+  desc="Relationship Tarot +
+Vastu +
+Numerology +
+Name Correction"
+/>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }}>
-              <Image
-                src="/42.png"
-                alt="women"
-                width={200}
-                height={300}
-                className="rounded-[60px] w-[200px] h-[300px] object-cover"
-              />
+                               <GuideCardlarge
+             src="/42.png"
+  title="Jwalant Swaroop"
+  desc="Tarot + Meditation + Career &
+Business Coach +
+Life Coach + Neuro Linguistic Programming (NLP) +
+Motivation"
+/>
             </motion.div>
           </motion.div>
 
           {/* Column 4 */}
           <motion.div variants={fadeUp} className="flex md:flex-col gap-2 md:gap-3">
             <motion.div whileHover={{ scale: 1.05 }}>
-              <Image
-                src="/43.png"
-                alt="women"
-                width={200}
-                height={300}
-                className="rounded-[60px] w-[200px] h-[300px] object-cover"
-              />
+               <GuideCardlarge
+              src="/NageshAlai_HH.png"
+  title="Nagesh Alai"
+  desc="Career & Business Coach +
+Motivation"
+/>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }}>
-              <Image
-                src="/44.png"
-                alt="women"
-                width={200}
-                height={200}
-                className="rounded-[60px] w-[200px] h-[200px] object-cover"
-              />
+               <GuideCard
+                src="/guid11.jpeg"
+  title="Monika Shankar"
+  desc="Tarot + Astrology"
+/>
             </motion.div>
           </motion.div>
 
@@ -149,81 +151,80 @@ export default function Guides() {
           {/* Column 1 */}
           <motion.div variants={fadeUp} className="flex flex-col gap-4">
             <motion.div whileHover={{ scale: 1.05 }}>
-              <Image
-                src="/43.png"
-                alt="women"
-                width={200}
-                height={200}
-                className="rounded-[60px] w-[200px] h-[200px] object-cover"
-              />
+               <GuideCard
+  src="/Pooja-Chandra_HH.png"
+  title="Pooja Chandra"
+  desc="Conscious Guidance + Energy Healing"
+/>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }}>
-              <Image
-                src="/43.png"
-                alt="women"
-                width={200}
-                height={300}
-                className="rounded-[60px] w-[200px] h-[300px] object-cover"
-              />
+               <GuideCardlarge
+             src="/42.png"
+  title="Jwalant Swaroop"
+  desc="Tarot + Meditation + Career &
+Business Coach +
+Life Coach + Neuro Linguistic Programming (NLP) +
+Motivation"
+/>
             </motion.div>
 
             <motion.div whileHover={{ scale: 1.05 }}>
-              <Image
-                src="/43.png"
-                alt="women"
-                width={200}
-                height={200}
-                className="rounded-[60px] w-[200px] h-[200px] object-cover"
-              />
+                <GuideCardlarge
+    src="/guid4.jpeg"
+  title="Nonah"
+  desc="Health Tarot + Energy Healing"
+/>
             </motion.div>
              <motion.div whileHover={{ scale: 1.05 }}>
-              <Image
-                src="/43.png"
-                alt="women"
-                width={200}
-                height={300}
-                className="rounded-[60px] w-[200px] h-[300px] object-cover"
-              />
+               <GuideCard
+            src="/guid5.jpeg"
+  title="Saachi Aggarwal"
+  desc="Relationship Tarot +
+Vastu +
+Numerology +
+Name Correction"
+/>
             </motion.div>
           </motion.div>
 
           {/* Column 2 */}
           <motion.div variants={fadeUp} className="flex flex-col gap-4">
                <motion.div whileHover={{ scale: 1.05 }}>
-              <Image
-                src="/44.png"
-                alt="women"
-                width={200}
-                height={300}
-                className="rounded-[60px] w-[200px] h-[300px] object-cover"
-              />
+               <GuideCardlarge
+      src="/44.png"
+  title="Dr.Sandeep Nath"
+  desc="Mindfulness + Habit Formation +
+Intuition and Beliefs +
+Energy-work/Jigong +
+Organizational Alignment +
+Executive Capacity Coaching +
+Ethics-based Corporate Culture"
+/>
             </motion.div>
              <motion.div whileHover={{ scale: 1.05 }}>
-              <Image
-                src="/42.png"
-                alt="women"
-                width={200}
-                height={300}
-                className="rounded-[60px] w-[200px] h-[300px] object-cover"
-              />
+                <GuideCard
+  src="/43.png"
+  title="Saumya Sharma"
+  desc="Emotional Freedom Techniques (EFT) +
+Matrix Reimprinting +
+Family Constellation +
+Somatic Experiencing"
+/>
             </motion.div>
               <motion.div whileHover={{ scale: 1.05 }}>
-              <Image
-                src="/44.png"
-                alt="women"
-                width={200}
-                height={200}
-                className="rounded-[60px] w-[200px] h-[200px] object-cover"
-              />
+               <GuideCard
+              src="/NageshAlai_HH.png"
+  title="Nagesh Alai"
+  desc="Career & Business Coach +
+Motivation"
+/>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }}>
-              <Image
-                src="/44.png"
-                alt="women"
-                width={200}
-                height={200}
-                className="rounded-[60px] w-[200px] h-[200px] object-cover"
-              />
+                 <GuideCardlarge
+                src="/guid11.jpeg"
+  title="Monika Shankar"
+  desc="Tarot + Astrology"
+/>
             </motion.div>
           </motion.div>
 

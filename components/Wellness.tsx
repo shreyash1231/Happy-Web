@@ -22,8 +22,7 @@ const stagger = {
 
 export default function Wellness() {
   return (
-<div className="relative z-10 mx-auto max-w-[1920px] pb-20 min-h-[400px] md:min-h-[500px] xl:min-h-[800px]">
-
+    <div className="relative z-10 mx-auto max-w-[1920px] pb-20 min-h-[400px] md:min-h-[500px] xl:min-h-[800px]">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
