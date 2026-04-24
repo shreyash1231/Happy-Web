@@ -12,8 +12,9 @@ import {
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import BookingDetailsForm from "./BookingDetailsForm";
 export default function Secure() {
-
+const [activeBooking, setActiveBooking] = useState<{ guide: string; serviceName: string } | null>(null);
 
 const container = {
   hidden: {},
@@ -98,12 +99,12 @@ const services = [
       initial="hidden"
       animate="show"
     >
-        {services.map((service, i) => (
-   <motion.div
-  key={i}
-  variants={fadeUp}
-  className="relative rounded-4xl overflow-hidden min-w-max md:min-w-0 flex-shrink-0 md:w-full"
->
+      {services.map((service, i) => (
+          <motion.div
+          key={i}
+          variants={fadeUp}
+          className="relative rounded-4xl overflow-hidden min-w-max md:min-w-0 flex-shrink-0 md:w-full"
+        >
         
         {/* Background image */}
         <img
@@ -197,7 +198,11 @@ const services = [
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-            <button className="bg-[#3f5c4a] text-[#e9dac9] px-4 lg:px-6 py-1 rounded-full text-sm font-medium hover:bg-[#162d22] transition whitespace-nowrap">
+            <button onClick={() => {
+                if (!selectedGuides[i]) return; // guard: guide must be selected
+                setActiveBooking({ guide: selectedGuides[i], serviceName: service.name });
+              }}
+              className="bg-[#3f5c4a] text-[#e9dac9] px-4 lg:px-6 py-1 rounded-full text-sm font-medium hover:bg-[#162d22] transition whitespace-nowrap">
               Continue →
             </button>
           </div>
@@ -208,6 +213,12 @@ const services = [
   </motion.div>
 
 </div>
+{activeBooking && (
+  <BookingDetailsForm
+    guide={activeBooking.guide}
+    serviceName={activeBooking.serviceName}
+  />
+)}
     </div>
   );
 }

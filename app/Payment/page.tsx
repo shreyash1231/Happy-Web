@@ -11,7 +11,6 @@ export default function Payment(){
         <>
         <Journery/>
         <Secure/>
-        <BookingDetailsForm/>
         <Footer/>
         </> 
     );

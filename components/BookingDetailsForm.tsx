@@ -21,7 +21,12 @@ interface BookingFormData {
   concern: string;
 }
 
-export default function BookingDetailsForm() {
+interface BookingDetailsFormProps {
+  guide: string;
+  serviceName: string;
+}
+
+export default function BookingDetailsForm({ guide, serviceName }: BookingDetailsFormProps) {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -47,8 +52,8 @@ export default function BookingDetailsForm() {
     email: "",
     countryCode: "+91",
     phone: "",
-    selectedService: "",
-    selectedGuide: "",
+   selectedService: serviceName,  // ← pre-filled
+    selectedGuide: guide, 
     sessionType: "",
     preferredDateTime: "",
     concern: "",
@@ -67,26 +72,6 @@ export default function BookingDetailsForm() {
 
   };
 
-  const service=[
-  "Tarot Guidance",
-  "Energy Healing",
-  "Astrology",
-  "Numerology",
-  "Name Correction",
-  "Conscious Guidance",
-  "Meditation",
-  "Vastu"
-]
-const guides=[
-  "Jwalant S.",
-  "Nona",
-  "Saachi A.",
-  "Monika S.",
-  "Pooja",
-  "Monika",
-  "Nagesh",
-  "Saachi A."
-]
 
   return (
     <div className="w-full md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto px-4 py-8">
@@ -170,72 +155,27 @@ const guides=[
 
           {/* Selected Service + Guide */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-            <div className="flex flex-col gap-1 min-w-0">
+    <div className="flex flex-col gap-1 min-w-0">
   <label className="text-sm text-[#736345] font-medium">
     Selected Service
   </label>
-
-  <DropdownMenu>
-    <DropdownMenuTrigger asChild>
-      <button className="w-full flex items-center justify-between bg-white rounded-lg px-3 py-2 text-sm text-gray-700 border border-transparent focus:border-[#736345]/40 cursor-pointer">
-        <span className="truncate">
-          {form.selectedService || "Select Service"}
-        </span>
-        <ChevronDown className="w-4 h-4 opacity-60" />
-      </button>
-    </DropdownMenuTrigger>
-
-    <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] rounded-xl border border-gray-100 shadow-md">
-      {service.map((item, index) => (
-        <DropdownMenuItem
-          key={index}
-          onSelect={() =>
-            setForm((prev) => ({
-              ...prev,
-              selectedService: item,
-              selectedGuide: "", // reset guide when service changes (important)
-            }))
-          }
-          className="cursor-pointer px-3 py-2 text-sm text-[#736345] hover:bg-[#f5ede2] rounded-md"
-        >
-          {item}
-        </DropdownMenuItem>
-      ))}
-    </DropdownMenuContent>
-  </DropdownMenu>
+  <input
+    type="text"
+    value={form.selectedService}
+    readOnly
+    className="w-full min-w-0 bg-white rounded-lg px-3 py-2 text-sm text-gray-700 outline-none border border-transparent cursor-default"
+  />
 </div>
-           <div className="flex flex-col gap-1 min-w-0">
+       <div className="flex flex-col gap-1 min-w-0">
   <label className="text-sm text-[#736345] font-medium">
     Selected Guide
   </label>
-
-  <DropdownMenu>
-    <DropdownMenuTrigger asChild>
-      <button className="w-full flex items-center justify-between bg-white rounded-lg px-3 py-2 text-sm text-gray-700 border border-transparent focus:border-[#736345]/40 cursor-pointer">
-        <span className="truncate">
-          {form.selectedGuide || "Select Guide"}
-        </span>
-        <ChevronDown className="w-4 h-4 opacity-60" />
-      </button>
-    </DropdownMenuTrigger>
-
-    <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] rounded-xl border border-gray-100 shadow-md">
-      {guides.map((guide, index) => (
-        <DropdownMenuItem
-          key={index}
-          onSelect={() =>
-            setForm((prev) => ({
-              ...prev,
-              selectedGuide: guide,
-            }))
-          }
-          className="cursor-pointer px-3 py-2 text-sm text-[#736345] hover:bg-[#f5ede2] rounded-md"
-        >
-          {guide}
-        </DropdownMenuItem>
-      ))}
-    </DropdownMenuContent>
-  </DropdownMenu>
+  <input
+    type="text"
+    value={form.selectedGuide}
+    readOnly
+    className="w-full min-w-0 bg-white rounded-lg px-3 py-2 text-sm text-gray-700 outline-none border border-transparent cursor-default"
+  />
 </div>
           </div>
 
