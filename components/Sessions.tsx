@@ -61,12 +61,12 @@ export default function Sessions() {
   md:grid-cols-3 
   lg:grid-cols-4 
   xl:grid-cols-5 
-  gap-8 text-center w-fit max-w-4xl mx-auto"
+  gap-5 xl:gap-2 text-center w-full max-w-xl md:max-w-2xl mx-auto"
 >
 
   {/* Item 1 */}
   <div className="flex flex-col items-center gap-3">
-    <div className="rounded-full shadow-sm">
+    <div className="rounded-full">
       <img src="/corporate-2-1.svg" className="w-20 h-20 object-contain" />
     </div>
     <span className="text-[11px] text-[#544120] leading-tight">
@@ -76,7 +76,7 @@ export default function Sessions() {
 
   {/* Item 2 */}
   <div className="flex flex-col items-center gap-3">
-    <div className="rounded-full shadow-sm">
+    <div className="rounded-full">
       <img src="/corporate-2-2.svg" className="w-20 h-20 object-contain" />
     </div>
     <span className="text-[11px] text-[#544120] leading-tight">
@@ -86,7 +86,7 @@ export default function Sessions() {
 
   {/* Item 3 */}
   <div className="flex flex-col items-center gap-3">
-    <div className="rounded-full shadow-sm">
+    <div className="rounded-full">
       <img src="/corporate-2-3.svg" className="w-20 h-20 object-contain" />
     </div>
     <span className="text-[11px] text-[#544120] leading-tight">
@@ -96,7 +96,7 @@ export default function Sessions() {
 
   {/* Item 4 */}
   <div className="flex flex-col items-center gap-3">
-    <div className="rounded-full shadow-sm">
+    <div className="rounded-full">
       <img src="/corporate-2-4.svg" className="w-20 h-20 object-contain" />
     </div>
     <span className="text-[11px] text-[#544120] leading-tight">
@@ -106,7 +106,7 @@ export default function Sessions() {
 
   {/* Item 5 */}
   <div className="flex flex-col items-center gap-3">
-    <div className="rounded-full shadow-sm">
+    <div className="rounded-full">
       <img src="/corporate-2-5.svg" className="w-20 h-20 object-contain" />
     </div>
     <span className="text-[11px] text-[#544120] leading-tight">
@@ -117,9 +117,8 @@ export default function Sessions() {
 </div>
 
   </div>
-
-  {/* DIVIDER */}
-  <div className="hidden md:block w-[3px] bg-yellow-300 self-stretch"></div>
+{/* DIVIDER */}
+<div className="hidden md:block w-[3px] bg-yellow-300 self-stretch mt-5"></div>
 
   {/* RIGHT (Session Format - 1x width) */}
   <div className="flex-1 flex flex-col gap-8 w-full">
@@ -142,12 +141,12 @@ export default function Sessions() {
   md:grid-cols-2 
   lg:grid-cols-2 
   xl:grid-cols-3 
-  gap-2 text-center w-fit max-w-xl mx-auto"
+ gap-5 xl:gap-2 text-center w-full max-w-xl md:max-w-2xl mx-auto"
 >
 
   {/* Item 1 */}
   <div className="flex flex-col items-center gap-3">
-    <div className="rounded-full shadow-sm">
+    <div className="rounded-full">
       <img src="/corporate-2-6.svg" className="w-20 h-20 object-contain" />
     </div>
     <span className="text-[11px] text-[#544120] leading-tight">
@@ -157,7 +156,7 @@ export default function Sessions() {
 
   {/* Item 2 */}
   <div className="flex flex-col items-center gap-3">
-    <div className="rounded-full shadow-sm">
+    <div className="rounded-full">
       <img src="/corporate-2-7.svg" className="w-20 h-20 object-contain" />
     </div>
     <span className="text-[11px] text-[#544120] leading-tight">
@@ -169,7 +168,7 @@ export default function Sessions() {
 
   {/* Item 3 */}
   <div className="flex flex-col items-center gap-3">
-    <div className="rounded-full shadow-sm">
+    <div className="rounded-full">
       <img src="/corporate-2-8.svg" className="w-20 h-20 object-contain" />
     </div>
     <span className="text-[11px] text-[#544120] leading-tight">

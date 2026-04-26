@@ -67,7 +67,7 @@ export default function Published() {
               </p>
 
               <span className="text-sm mt-6 md:mt-10 lg:mt-2">
-                <Link className="cursor-pointer"   
+                <Link className="cursor-pointer underline"   
                       target="_blank"
                       rel="noopener noreferrer" href="https://timesofindia.indiatimes.com/blogs/toi-edit-page/unheeded-wisdom-and-a-materialistic-superpower/">
                   Read on Speaking Tree
@@ -100,7 +100,7 @@ export default function Published() {
               </p>
 
               <span className="text-sm mt-2">
-                <Link   className="cursor-pointer"   
+                <Link   className="cursor-pointer underline"   
                         target="_blank"
                         rel="noopener noreferrer"
                         href="https://timesofindia.indiatimes.com/blogs/toi-edit-page/laughter-the-forgotten-doorway-to-divinity/">

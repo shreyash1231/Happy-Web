@@ -48,7 +48,7 @@ export default function Header() {
   return (
     <div className="pt-12 px-4 xl:p-8 z-50 mx-auto max-w-[1920px]">
       
-      <div className="bg-[#dcd8ce] rounded-full flex md:grid md:grid-cols-4 lg:grid-cols-5 items-center">
+      <div className="bg-[#dcd8ce] rounded-full flex md:grid md:grid-cols-4 lg:grid-cols-5 items-center shadow-xl">
 
         {/* LOGO */}
         <div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState ,useRef} from "react";
   import { motion } from "framer-motion";
   import {
   DropdownMenu,
@@ -65,12 +65,17 @@ export default function BookingDetailsForm({ guide, serviceName }: BookingDetail
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(form);
-    setIsSubmitted(true);
+const paymentRef = useRef<HTMLDivElement>(null);
 
-  };
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
+  console.log(form);
+  setIsSubmitted(true);
+  setTimeout(() => {
+    paymentRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, 100);
+};
+  
 
 
   return (
@@ -252,6 +257,7 @@ export default function BookingDetailsForm({ guide, serviceName }: BookingDetail
         </div>
       </motion.div>
     {isSubmitted && (
+        <div ref={paymentRef}>
       <motion.div
         initial="hidden"
         animate="show"
@@ -308,7 +314,9 @@ export default function BookingDetailsForm({ guide, serviceName }: BookingDetail
           </button>
         </div>
       </div>
-    </motion.div>)}
+    </motion.div>
+     </div>
+    )}
   </div>
   );
 }

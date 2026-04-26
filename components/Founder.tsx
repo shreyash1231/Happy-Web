@@ -38,7 +38,7 @@ export default function Founder() {
   };
 
   return (
-    <div className="px-4 pt-12 xl:px-30 xl:pt-12 mx-auto max-w-[1920px] md:pb-5">
+    <div className="px-4 pt-12 xl:px-30 xl:pt-12 mx-auto max-w-[1920px]">
       
        <motion.div
               variants={container}
@@ -104,7 +104,7 @@ export default function Founder() {
                   {/* Image wrapper */}
                   <div className="w-[200px] sm:w-[240px] md:w-[330px] lg:w-[300px] xl:w-[400px]">
                     <Image
-                      src="/guid3.jpeg"
+                      src="/42.png"
                       alt="Founder"
                       width={400}
                       height={500}

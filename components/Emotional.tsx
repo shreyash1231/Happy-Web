@@ -3,6 +3,7 @@
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Emotional() {
   /* ================= Animations ================= */
@@ -143,14 +144,25 @@ export default function Emotional() {
 
         {/* ================= Button ================= */}
 
-        <motion.div
+       <motion.div
           variants={fadeUp}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
+          className="relative w-fit cursor-pointer"
         >
-          <Button className="cursor-pointer text-[#e9dac9] w-[150px] md:w-[220px] bg-[#3f5c4a] hover:bg-[#344c3d] rounded-full py-5 px-6  md:py-5 lg:py-7 border-yellow-400 border-2 text-[10px] md:text-[16px]">
+          {/* Image */}
+          <Link href="/Payment">
+          <img
+            src="/HappyHo_Corporate_Book-Corporate-Session.svg"
+            alt="Book Session"
+            className="w-[150px] md:w-[220px]"
+          />
+
+          {/* Text on top of image */}
+          <span className="absolute inset-0 flex items-center justify-center text-[#e9dac9] text-[10px] md:text-[16px] font-medium pointer-events-none">
             Book Discovery Session
-          </Button>
+          </span>
+          </Link>
         </motion.div>
       </motion.div>
     </div>

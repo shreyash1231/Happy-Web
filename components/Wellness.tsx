@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Header from "./Header";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
@@ -76,13 +77,16 @@ export default function Wellness() {
             </motion.span>
 
             {/* Buttons */}
+            
             <motion.span
               variants={fadeUp}
               className="flex flex-col md:flex-row gap-2 md:gap-8 pt-8 md:mt-5"
             >
-              <Button className="w-60 md:w-60 lg:w-70 h-10 p-6 rounded-4xl bg-[#3f5c4a] text-[#c39e86] border-2 border-yellow-400 hover:bg-[#2d4435] transition-colors cursor-pointer text-sm">
+                 <Link href="/Payment">
+              <Button className="w-60 md:w-60 lg:w-70 h-10 p-6 rounded-4xl bg-[#3f5c4a] text-[#e9dac9] border-1 border-yellow-400 transition-colors cursor-pointer text-sm lg:text-lg">
                 Book Corporate Consultation
               </Button>
+              </Link>
             </motion.span>
             </div>
           </motion.div>

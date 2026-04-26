@@ -29,7 +29,7 @@ export default function Journery() {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="/Happy Ho_Payments_Banner.svg"
+          src="/Payment-page-banner.svg"
           alt="background"
           className="w-full h-full object-cover object-center rounded-b-[40px] xl:rounded-b-[80px]"
         />
