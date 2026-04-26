@@ -88,8 +88,8 @@ Somatic Experiencing"
             <motion.div whileHover={{ scale: 1.05 }}>
                          <GuideCard
     src="/guid4.jpeg"
-  title="Nonah"
-  desc="Health Tarot + Energy Healing"
+  title="Nonah Khanna"
+  desc="Career & Health Tarot + Energy Healing"
 />
             </motion.div>
           </motion.div>
@@ -110,10 +110,7 @@ Name Correction"
                                <GuideCardlarge
              src="/42.png"
   title="Jwalant Swaroop"
-  desc="Tarot + Meditation + Career &
-Business Coach +
-Life Coach + Neuro Linguistic Programming (NLP) +
-Motivation"
+  desc="Meditation + Tarot aided Life & Career Coach + Neuro Linguistic Programming (NLP) + Motivation Speaker"
 />
             </motion.div>
           </motion.div>
@@ -124,8 +121,7 @@ Motivation"
                <GuideCardlarge
               src="/NageshAlai_HH.png"
   title="Nagesh Alai"
-  desc="Career & Business Coach +
-Motivation"
+  desc="Career & Business Coach + Motivation Speaker"
 />
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }}>
@@ -161,18 +157,15 @@ Motivation"
                <GuideCardlarge
              src="/42.png"
   title="Jwalant Swaroop"
-  desc="Tarot + Meditation + Career &
-Business Coach +
-Life Coach + Neuro Linguistic Programming (NLP) +
-Motivation"
+  desc="Meditation + Tarot aided Life & Career Coach + Neuro Linguistic Programming (NLP) + Motivation Speaker"
 />
             </motion.div>
 
             <motion.div whileHover={{ scale: 1.05 }}>
                 <GuideCardlarge
     src="/guid4.jpeg"
-  title="Nonah"
-  desc="Health Tarot + Energy Healing"
+  title="Nonah Khanna"
+  desc="Career & Health Tarot + Energy Healing"
 />
             </motion.div>
              <motion.div whileHover={{ scale: 1.05 }}>
@@ -215,8 +208,7 @@ Somatic Experiencing"
                <GuideCard
               src="/NageshAlai_HH.png"
   title="Nagesh Alai"
-  desc="Career & Business Coach +
-Motivation"
+  desc="Career & Business Coach + Motivation Speaker"
 />
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }}>

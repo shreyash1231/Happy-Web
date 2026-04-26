@@ -21,9 +21,9 @@ import { ChevronDown } from "lucide-react";
 type Category = "all" | "leadership" | "hr" | "sales" | "employee";
 
 const filterMap: Record<Category, number[]> = {
-  all:        Array.from({ length: 16 }, (_, i) => i),
-  leadership: [4, 5, 6, 8],
-  hr:         [1, 11, 12, 13, 14],
+  all:        Array.from({ length: 18 }, (_, i) => i),
+  leadership: [4, 5, 6, 8,17],
+  hr:         [1, 11, 12, 13, 14, 16],
   sales:      [2, 7, 10],
   employee:   [0, 3, 9, 15],
 };
@@ -117,6 +117,16 @@ export default function ProgramsGrid() {
     title: "Unlearning Helplessness",
     desc: "Helps employees overcome learned helplessness and contribute positively to the workplace ecosystem.",
     tags: ["Emotional Resilience"]
+  },
+  {
+    title :"Emotional Resilience for High Performers",
+    desc:"Train individuals to recover quickly from setbacks and maintain peak performance.",
+    tags:["Emotional Strength","Resilience"]
+  },
+   {
+    title :"Mindful Decision Making",
+    desc:"Improve clarity and reduce impulsive decisions through structured awareness practices.",
+    tags:["Mindfulness","Decision Making"]
   }
 ];
   const fadeUp = {
@@ -881,6 +891,82 @@ export default function ProgramsGrid() {
         </Button>
       </div>
     </div>
+  </Card>
+</motion.div>)}
+  {visible(16) && (
+        <motion.div
+  className="w-full max-w-[320px]"
+  initial="offscreen"
+  whileInView="onscreen"
+  viewport={{ once: true, amount: 0.3 }}
+  variants={cardVariants}
+>
+  <Card className="relative w-70 h-65 rounded-4xl overflow-hidden border-yellow-400 border-2">
+    
+    {/* Background Image */}
+    <div
+      className="absolute inset-0 bg-cover bg-center"
+      style={{
+        backgroundImage: "url('/Card_EmployeeWellness.png')",
+      }}
+    />
+
+    {/* Content */}
+    <div className="relative z-10 flex flex-col gap-5 px-3 pt-2 text-[#736345]">
+      <div className="text-lg">
+        {programs[16].title}
+      </div>
+
+      <div className="text-sm">
+        {programs[16].desc}
+      </div>
+
+      <div className="flex gap-3 mt-5">
+        <Button className="bg-[#F3EFE8]/70 w-30 rounded-4xl text-[10px] text-[#736345]">
+          {programs[16].tags[0]}
+        </Button>
+        <Button className="bg-[#F3EFE8]/70 rounded-4xl w-22 text-[10px] text-[#736345]">
+          {programs[16].tags[1]}
+        </Button>
+      </div>
+    </div>
+  </Card>
+</motion.div>)}
+{visible(17) && (
+  <motion.div
+  className="w-full max-w-[320px]"
+  initial="offscreen"
+  whileInView="onscreen"
+  viewport={{ once: true, amount: 0.3 }}
+  variants={cardVariants}
+>
+  <Card className="relative w-70 h-65 rounded-4xl overflow-hidden border-yellow-400 border-2">
+    
+    {/* Background Image */}
+    <div
+      className="absolute inset-0 bg-cover bg-center"
+      style={{
+        backgroundImage: "url('/Card_Leadership.png')",
+      }}
+    />
+
+    {/* Content */}
+    <div className="relative z-10 flex flex-col gap-5 px-3 pt-2 text-[#9EAD8C]">
+      <div className="text-lg">
+        {programs[17].title}
+      </div>
+
+      <div className="text-sm">
+        {programs[17].desc}
+      </div>
+
+      <div className="flex gap-3 mt-12">
+  <Button className="bg-[#F3EFE8]/40 w-37 rounded-4xl text-[10px] text-[#F3EFE8]">
+    {programs[17].tags[0]}
+  </Button>
+</div>
+    </div>
+
   </Card>
 </motion.div>)}
 

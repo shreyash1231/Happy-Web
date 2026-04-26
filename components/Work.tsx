@@ -91,7 +91,7 @@ export default function Work() {
               />
 
               {/* Text overlay */}
-              <span className="absolute inset-0 flex items-center justify-center text-[#e9dac9] text-sm font-medium pointer-events-none">
+              <span className="absolute inset-0 flex items-center justify-center text-[#e9dac9] text-[12px] font-medium pointer-events-none">
                 Book Corporate Consultation
               </span>
               </Link>

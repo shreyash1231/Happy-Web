@@ -40,7 +40,7 @@ export default function Trust() {
 
 
   return (
-    <div className="bg-[#dcd8ce] p-1 pt-8 xl:p-8 xl:pt-10 mx-auto max-w-[1920px]">
+    <div className="bg-[#dcd8ce] p-1 pt-8 pb-8 xl:p-8 xl:pt-10 mx-auto max-w-[1920px]">
       <div className="flex flex-col mx-auto max-w-[1920px] gap-6">
         
         {/* Heading */}

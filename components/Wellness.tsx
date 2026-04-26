@@ -83,7 +83,7 @@ export default function Wellness() {
               className="flex flex-col md:flex-row gap-2 md:gap-8 pt-8 md:mt-5"
             >
                  <Link href="/Payment">
-              <Button className="w-60 md:w-60 lg:w-70 h-10 p-6 rounded-4xl bg-[#3f5c4a] text-[#e9dac9] border-1 border-yellow-400 transition-colors cursor-pointer text-sm lg:text-lg">
+              <Button className="w-60 md:w-60 lg:w-70 h-10 p-6 rounded-4xl bg-[#3f5c4a] text-[#e9dac9] border-1 border-yellow-400 transition-colors cursor-pointer text-sm">
                 Book Corporate Consultation
               </Button>
               </Link>

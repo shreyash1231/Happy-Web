@@ -41,7 +41,7 @@ export default function Sessions() {
   <div className="flex flex-col md:flex-row items-start gap-6 mt-10 mx-auto max-w-[1200px] px-2">
 
   {/* LEFT (Techniques - 2x width) */}
-  <div className="flex-[2] flex flex-col gap-8 w-full">
+  <div className="flex-[2] flex flex-col gap-8 w-fit">
 
     {/* HEADER */}
     <div className="flex justify-center">
@@ -118,7 +118,7 @@ export default function Sessions() {
 
   </div>
 {/* DIVIDER */}
-<div className="hidden md:block w-[3px] bg-yellow-300 self-stretch mt-5"></div>
+<div className="hidden md:block w-[3px] bg-yellow-300 self-stretch mt-5 xl:-ml-15"></div>
 
   {/* RIGHT (Session Format - 1x width) */}
   <div className="flex-1 flex flex-col gap-8 w-full">
