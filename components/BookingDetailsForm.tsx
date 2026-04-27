@@ -1,6 +1,6 @@
 "use client";
 
-import { useState ,useRef} from "react";
+import { useState ,useRef,useEffect} from "react";
   import { motion } from "framer-motion";
   import {
   DropdownMenu,
@@ -75,7 +75,13 @@ const handleSubmit = (e: React.FormEvent) => {
     paymentRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, 100);
 };
-  
+  useEffect(() => {
+  setForm((prev) => ({
+    ...prev,
+    selectedService: serviceName,
+    selectedGuide: guide,
+  }));
+}, [serviceName, guide]);
 
 
   return (

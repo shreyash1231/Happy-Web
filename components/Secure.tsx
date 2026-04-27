@@ -148,8 +148,8 @@ const services = [
                           <DropdownMenuItem
                             key={j}
                             onSelect={() =>
-                              setSelectedSessions((prev) => {
-                                const updated = [...prev];
+                              setSelectedSessions(() => {
+                                const updated = services.map(() => "");
                                 updated[i] = session;
                                 return updated;
                               })
@@ -186,8 +186,8 @@ const services = [
                         <DropdownMenuItem
                           key={j}
                           onSelect={() =>
-                            setSelectedGuides((prev) => {
-                              const updated = [...prev];
+                            setSelectedGuides(() => {
+                              const updated = services.map(() => "");
                               updated[i] = guide;
                               return updated;
                             })
@@ -223,6 +223,7 @@ const services = [
      {activeBooking && (
         <div ref={bookingRef}>
           <BookingDetailsForm
+            key={activeBooking.guide + activeBooking.serviceName}
             guide={activeBooking.guide}
             serviceName={activeBooking.serviceName}
           />

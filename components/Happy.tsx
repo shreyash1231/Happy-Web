@@ -44,9 +44,9 @@ export default function Happy() {
         {/* Paragraph lines */}
        <motion.div className="flex flex-col text-sm md:text-2xl text-left md:text-center">
         <motion.span variants={fadeUp}>
-          Many wellness platforms offer inspiration or quick advice.<br className="lg:block hidden"/>
-          Happy Ho focuses on building sustainable habits that help<br className="lg:block hidden"/>
-          people navigate emotions, relationships, and personal growth<br className="lg:block hidden"/>
+          Many wellness platforms offer inspiration or quick advice. <br className="lg:block hidden"/>
+           Happy Ho focuses on building sustainable habits that help <br className="lg:block hidden"/>
+          people navigate emotions, relationships, and personal growth <br className="lg:block hidden"/>
           more intentionally.
         </motion.span>
       </motion.div>

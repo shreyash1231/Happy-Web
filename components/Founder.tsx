@@ -147,7 +147,7 @@ export default function Founder() {
               >
                 
                 {/* Image wrapper */}
-                <div className="w-[200px] sm:w-[240px] md:w-[330px] lg:w-[300px] xl:w-[400px]">
+                <div className="w-full">
                   <Image
                     src="/Jwalant-Swaroop.svg"
                     alt="Founder"
