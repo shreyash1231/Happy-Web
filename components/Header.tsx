@@ -51,7 +51,7 @@ export default function Header() {
       <div className="bg-[#dcd8ce] rounded-full flex md:grid md:grid-cols-4 lg:grid-cols-5 items-center shadow-xl">
 
         {/* LOGO */}
-        <div className="relative inline-block">
+        <div className="flex">
   <Link href="/">
     <Image
       src="/footerImage.png"
@@ -63,7 +63,7 @@ export default function Header() {
   </Link>
 
   {/* ® symbol */}
-  <span className="absolute top-4 -right-2 md:right-30 lg:right-33 xl:right-50 translate-x-1/2 -translate-y-1/2 text-2xl font-bold">
+  <span className="text-2xl font-bold">
     ®
   </span>
 </div>

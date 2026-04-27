@@ -23,9 +23,9 @@ type Category = "all" | "leadership" | "hr" | "sales" | "employee";
 const filterMap: Record<Category, number[]> = {
   all:        Array.from({ length: 18 }, (_, i) => i),
   leadership: [4, 5, 6, 8,17],
-  hr:         [1, 11, 12, 13, 14, 16],
+  hr:         [1, 11, 12, 13, 14],
   sales:      [2, 7, 10],
-  employee:   [0, 3, 9, 15],
+  employee:   [0, 3, 9, 15,16],
 };
 
 export default function ProgramsGrid() {
