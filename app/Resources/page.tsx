@@ -24,7 +24,7 @@ export default function Blog(){
            <Published/>
         </div>
         {/* Overlapping Footer */}
-        <div className="relative z-20 -mt-10 md:-mt-15 xl:-mt-30">
+        <div className="relative z-20 -mt-20 md:-mt-15 xl:-mt-30">
            <div className="hidden md:block">
                   <Footer/>
               </div>

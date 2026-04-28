@@ -38,19 +38,19 @@ export default function Sessions() {
           </motion.span>
         </div>
       </div>
-  <div className="flex flex-col md:flex-row items-start gap-6 mt-10 mx-auto max-w-[1200px] px-2">
+<div className="flex flex-col md:flex-row items-center justify-center gap-10 mt-10 mx-auto max-w-[1920px] w-full">
 
   {/* LEFT (Techniques - 2x width) */}
-  <div className="flex-[2] flex flex-col gap-8 w-fit">
+  <div className="flex flex-col gap-8 w-fit">
 
     {/* HEADER */}
     <div className="flex justify-center">
-      <div className="flex items-center gap-3 w-full max-w-2xl">
-        <div className="flex-1 h-[2px] bg-[#6b5b3e]" />
+      <div className="flex items-center gap-3 w-full max-w-xl min-w-0">
+        <div className="flex-1 min-w-[20px] h-[2px] bg-[#6b5b3e]" />
         <span className="px-5 py-2 border border-[#6b5b3e] rounded-full text-[#6b5b3e] text-sm md:text-base whitespace-nowrap">
           Techniques We Use
         </span>
-        <div className="flex-1 h-[2px] bg-[#6b5b3e]" />
+       <div className="flex-1 min-w-[20px] h-[2px] bg-[#6b5b3e]" />
       </div>
     </div>
 
@@ -61,7 +61,7 @@ export default function Sessions() {
   md:grid-cols-3 
   lg:grid-cols-4 
   xl:grid-cols-5 
-  gap-5 xl:gap-2 text-center w-full max-w-xl md:max-w-2xl mx-auto"
+  gap-5 xl:gap-8 text-center w-full max-w-xl mx-auto"
 >
 
   {/* Item 1 */}
@@ -118,19 +118,19 @@ export default function Sessions() {
 
   </div>
 {/* DIVIDER */}
-<div className="hidden md:block w-[3px] bg-yellow-300 self-stretch mt-5 xl:-ml-15"></div>
+<div className="hidden md:block w-[3px] bg-yellow-300 self-stretch mt-5"></div>
 
   {/* RIGHT (Session Format - 1x width) */}
-  <div className="flex-1 flex flex-col gap-8 w-full">
+  <div className="flex flex-col gap-8 w-fit">
 
     {/* HEADER */}
     <div className="flex justify-center">
-      <div className="flex items-center gap-3 w-full max-w-xl">
-        <div className="flex-1 h-[2px] bg-[#6b5b3e]" />
-        <span className="px-5 py-2 border border-[#6b5b3e] rounded-full text-[#6b5b3e] text-sm md:text-base whitespace-nowrap">
+      <div className="flex items-center gap-3 w-full max-w-xl min-w-0">
+        <div className="flex-1 min-w-[20px] h-[2px] bg-[#6b5b3e]" />
+        <span className="px-10 md:px-5 py-2 border border-[#6b5b3e] rounded-full text-[#6b5b3e] text-sm md:text-base whitespace-nowrap">
           Session Format
         </span>
-        <div className="flex-1 h-[2px] bg-[#6b5b3e]" />
+         <div className="flex-1 min-w-[20px] h-[2px] bg-[#6b5b3e]" />
       </div>
     </div>
 
