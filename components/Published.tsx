@@ -15,6 +15,7 @@ export default function Published() {
   };
 
   return (
+    <div className="bg-[#3f5c4a] py-12 px-1 xl:px-16 mt-10 max-w-[1920px] mx-auto">
     <div className="bg-[#3f5c4a] py-12 px-1 xl:px-16 mt-10 max-w-[1920px] min-h-[550px] md:min-h-[600px] mx-auto">
       
       {/* Heading */}
@@ -45,7 +46,8 @@ export default function Published() {
 <motion.div
   variants={fadeUp}
   whileHover={{ scale: 1.02 }}
-  className="w-[300px] md:w-[420px] flex-shrink-0 md:w-auto snap-start bg-white rounded-3xl p-6 flex gap-4 items-start"
+  className="w-[420px] flex-shrink-0 md:w-auto snap-start bg-white rounded-3xl p-6 flex gap-4 items-start"
+  className="w-[300px] md:w-[420px] flex-shrink-0 md:w-auto snap-start bg-white rounded-3xl p-6 flex gap-4 items-start
 >
             {/* Logo */}
             <Image
@@ -78,6 +80,10 @@ export default function Published() {
                     Spirituality has been made unnecessarily serious. Priests, monks, and moralists have turned it into a grave business, as if truth can only be reached with a long face. But existence is not serious. Existence is playful.
               </p>
 
+
+              <span className="text-sm mt-6 md:mt-10 lg:mt-2">
+                <Link className="cursor-pointer"   
+
               <span className="text-[8px] md:text-sm mt-5 md:mt-10 lg:mt-2">
                 <Link className="cursor-pointer underline"   
                       target="_blank"
@@ -90,6 +96,8 @@ export default function Published() {
 <motion.div
   variants={fadeUp}
   whileHover={{ scale: 1.02 }}
+
+  className="w-[420px] flex-shrink-0 md:w-auto snap-start bg-white rounded-3xl p-6 flex gap-4 items-start"
   className="w-[300px] md:w-[420px] flex-shrink-0 md:w-auto snap-start bg-white rounded-3xl p-6 flex gap-4 items-start"
 >
             {/* Logo */}
@@ -124,6 +132,9 @@ export default function Published() {
                 When Swami Vivekananda, Paramhansa Yogananda, Osho, and AC Bhaktivedanta Swami Prabhupada arrived in US, they carried with them not merely Eastern teachings, but a corrective wisdom meant for a civilisation rising rapidly in external power yet lacking inner anchorage.
               </p>
 
+
+              <span className="text-sm mt-2">
+                <Link   className="cursor-pointer"   
               <span className="text-[8px] md:text-sm mt-2">
                 <Link   className="cursor-pointer underline"   
                         target="_blank"
