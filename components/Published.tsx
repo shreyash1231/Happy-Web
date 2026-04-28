@@ -53,12 +53,24 @@ export default function Published() {
               alt="logo"
               width={80}
               height={80}
-              className="w-10 h-10 md:w-20 md:h-20 rounded-md"
+              className="w-10 h-10 md:w-20 md:h-20 rounded-md hidden md:block"
             />
 
             {/* Content */}
             <div className="flex flex-col space-y-2  text-[#544120]">
-              <h3 className="font-semibold text-[10px] md:text-sm">
+              <div className="md:hidden flex">
+                     <Image
+              src="/22.png"
+              alt="logo"
+              width={80}
+              height={80}
+              className="w-10 h-10 md:w-20 md:h-20 rounded-md"
+            />
+                <h3 className="font-semibold text-[10px] md:text-sm">
+                    Unheeded wisdom and a materialistic superpower
+                </h3>
+              </div>
+              <h3 className="font-semibold text-[10px] md:text-sm hidden md:block">
                     Unheeded wisdom and a materialistic superpower
               </h3>
 
@@ -66,7 +78,7 @@ export default function Published() {
                     Spirituality has been made unnecessarily serious. Priests, monks, and moralists have turned it into a grave business, as if truth can only be reached with a long face. But existence is not serious. Existence is playful.
               </p>
 
-              <span className="text-[8px] md:text-sm mt-6 md:mt-10 lg:mt-2">
+              <span className="text-[8px] md:text-sm mt-5 md:mt-10 lg:mt-2">
                 <Link className="cursor-pointer underline"   
                       target="_blank"
                       rel="noopener noreferrer" href="https://timesofindia.indiatimes.com/blogs/toi-edit-page/unheeded-wisdom-and-a-materialistic-superpower/">
@@ -86,12 +98,25 @@ export default function Published() {
               alt="logo"
               width={80}
               height={80}
-              className="w-10 h-10 md:w-20 md:h-20 rounded-md"
+              className="w-10 h-10 md:w-20 md:h-20 rounded-md hidden md:block"
             />
 
             {/* Content */}
             <div className="flex flex-col space-y-2  text-[#544120]">
-              <h3 className="font-semibold text-[10px] md:text-sm">
+              <div className="md:hidden flex">
+                        <Image
+              src="/22.png"
+              alt="logo"
+              width={80}
+              height={80}
+              className="w-10 h-10 md:w-20 md:h-20 rounded-md"
+            />
+                  <h3 className="font-semibold text-[10px] md:text-sm ">
+             Laughter: The forgotten doorway to divinity
+              </h3>
+
+              </div>
+              <h3 className="font-semibold text-[10px] md:text-sm hidden md:block">
              Laughter: The forgotten doorway to divinity
               </h3>
 
