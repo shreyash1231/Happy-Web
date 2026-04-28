@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Header from "./Header";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
@@ -22,14 +23,13 @@ const stagger = {
 
 export default function Wellness() {
   return (
-    <div className="relative z-10 mx-auto max-w-[1920px] pb-20">
-
+    <div className="relative z-10 mx-auto max-w-[1920px] pb-20 min-h-[400px] md:min-h-[500px] xl:min-h-[800px]">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
           src="/corporatebgImage.png"
           alt="background"
-          className="w-full h-full object-cover object-center rounded-b-[40px]"
+          className="w-full h-full object-cover object-center rounded-b-[40px] xl:rounded-b-[80px]"
         />
       </div>
 
@@ -47,10 +47,10 @@ export default function Wellness() {
           >
             {/* Title */}
             <motion.div variants={fadeUp} className="flex flex-col gap-1 lg:gap-3 font-canela font-normal">
-              <span className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+              <span className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl">
                 Corporate
               </span>
-              <span className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+              <span className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl">
                 Wellness Programs
               </span>
             </motion.div>
@@ -77,16 +77,16 @@ export default function Wellness() {
             </motion.span>
 
             {/* Buttons */}
+            
             <motion.span
               variants={fadeUp}
               className="flex flex-col md:flex-row gap-2 md:gap-8 pt-8 md:mt-5"
             >
-              <Button className="w-full md:w-60 lg:w-70 h-10 p-6 rounded-4xl bg-[#3f5c4a] text-[#c39e86] border-2 border-yellow-400 hover:bg-[#2d4435] transition-colors cursor-pointer text-sm">
+                 <Link href="/Payment">
+              <Button className="w-60 md:w-60 lg:w-70 h-10 p-6 rounded-4xl bg-[#3f5c4a] text-[#e9dac9] border-1 border-yellow-400 transition-colors cursor-pointer text-sm">
                 Book Corporate Consultation
               </Button>
-              <Button className="w-full md:w-60 lg:w-60 p-6 h-10 rounded-4xl bg-[#f3efe8] text-[#c39e86] border-2 border-[#3f5c4a] hover:bg-[#e8e2d8] transition-colors cursor-pointer text-sm">
-                Explore Programs
-              </Button>
+              </Link>
             </motion.span>
             </div>
           </motion.div>

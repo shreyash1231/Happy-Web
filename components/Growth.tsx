@@ -86,7 +86,7 @@ export default function Growth() {
 
           <motion.span
             variants={fadeUp}
-            className="text-[#c39e86] text-center text-xl xl:text-3xl"
+            className="text-[#c39e86] text-center text-xl xl:text-4xl"
           >
             Growth through awareness and practice
           </motion.span>
@@ -116,7 +116,7 @@ export default function Growth() {
          alt=""
          width={400}
          height={300}
-         className="w-full md:h-[350px] xl:h-[450px] object-contain rounded-3xl"
+         className="w-full md:h-[260px] xl:h-[350px] object-contain rounded-3xl"
        />
      </motion.div>
        ))}

@@ -16,7 +16,7 @@ export default function Sessions() {
 
   return (
     <motion.div
-      className="p-6 xl:p-16"
+      className="p-6 xl:p-10"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
@@ -31,57 +31,158 @@ export default function Sessions() {
             Pre-Curated Corporate Wellness Sessions
           </motion.span>
           <motion.span
-            className="text-center text-sm md:text-xl xl:text-xl text-[#7d4545]"
+            className="text-center text-sm md:text-xl xl:text-xl text-[#736345]"
             variants={fadeUp}
           >
             Experiential emotional wellness workshops designed for corporate teams.
           </motion.span>
-
-          <motion.div
-            className="flex flex-col md:flex-row justify-center pt-2 gap-3 md:gap-20 text-[#7d4545]"
-            variants={fadeUp}
-          >
-            <span>
-              <span>Techniques Used:</span>
-              <div className="flex flex-col pl-4">
-                <span>• Mindfulness</span>
-                <span>• NLP</span>
-                <span>• Meditation</span>
-                <span>• Healing Practices</span>
-                <span>• Positive Psychology</span>
-                <span>• Behavioral Interventions</span>
-              </div>
-            </span>
-
-            <span>
-              <span>Session Format:</span>
-              <div className="flex flex-col pl-4">
-                <span>• Duration: 4–5 hours</span>
-                <span>• Group Size: 30–35 participants</span>
-                <span>• Delivery: Interactive workshop</span>
-              </div>
-            </span>
-          </motion.div>
         </div>
-
-        <motion.div
-          className="flex flex-col xl:flex xl:flex-row justify-center gap-6"
-          variants={fadeUp}
-        >
-        <Button className="px-20 py-6 rounded-full bg-[#544120] text-white border-2 border-yellow-400 self-center">
-  All Programs
-</Button>
-<Button className="hidden md:flex items-center justify-center text-lg py-6 px-10 rounded-full bg-[#f3efe8] text-[#7d4545] border-2 border-[#544120] gap-4 whitespace-nowrap w-fit self-center">
-  <span>Leadership</span>
-  <span>|</span>
-  <span>Employee Wellness</span>
-  <span>|</span>
-  <span>HR Programs</span>
-  <span>|</span>
-  <span>Sales Teams</span>
-</Button>
-        </motion.div>
       </div>
+<div className="flex flex-col md:flex-row items-center justify-center gap-10 mt-10 mx-auto max-w-[1920px] w-full">
+
+  {/* LEFT (Techniques - 2x width) */}
+  <div className="flex flex-col gap-8 w-fit">
+
+    {/* HEADER */}
+    <div className="flex justify-center">
+      <div className="flex items-center gap-3 w-full max-w-xl min-w-0">
+        <div className="flex-1 min-w-[20px] h-[2px] bg-[#6b5b3e]" />
+        <span className="px-5 py-2 border border-[#6b5b3e] rounded-full text-[#6b5b3e] text-sm md:text-base whitespace-nowrap">
+          Techniques We Use
+        </span>
+       <div className="flex-1 min-w-[20px] h-[2px] bg-[#6b5b3e]" />
+      </div>
+    </div>
+
+    {/* GRID */}
+   <div className="grid 
+  grid-cols-2 
+  sm:grid-cols-3 
+  md:grid-cols-3 
+  lg:grid-cols-4 
+  xl:grid-cols-5 
+  gap-5 xl:gap-8 text-center w-full max-w-xl mx-auto"
+>
+
+  {/* Item 1 */}
+  <div className="flex flex-col items-center gap-3">
+    <div className="rounded-full">
+      <img src="/corporate-2-1.svg" className="w-20 h-20 object-contain" />
+    </div>
+    <span className="text-[11px] text-[#544120] leading-tight">
+      Mindfulness <br/>practices
+    </span>
+  </div>
+
+  {/* Item 2 */}
+  <div className="flex flex-col items-center gap-3">
+    <div className="rounded-full">
+      <img src="/corporate-2-2.svg" className="w-20 h-20 object-contain" />
+    </div>
+    <span className="text-[11px] text-[#544120] leading-tight">
+      NLP<br/>Techniques
+    </span>
+  </div>
+
+  {/* Item 3 */}
+  <div className="flex flex-col items-center gap-3">
+    <div className="rounded-full">
+      <img src="/corporate-2-3.svg" className="w-20 h-20 object-contain" />
+    </div>
+    <span className="text-[11px] text-[#544120] leading-tight">
+      Meditation
+    </span>
+  </div>
+
+  {/* Item 4 */}
+  <div className="flex flex-col items-center gap-3">
+    <div className="rounded-full">
+      <img src="/corporate-2-4.svg" className="w-20 h-20 object-contain" />
+    </div>
+    <span className="text-[11px] text-[#544120] leading-tight">
+      Positive <br/>Psychology
+    </span>
+  </div>
+
+  {/* Item 5 */}
+  <div className="flex flex-col items-center gap-3">
+    <div className="rounded-full">
+      <img src="/corporate-2-5.svg" className="w-20 h-20 object-contain" />
+    </div>
+    <span className="text-[11px] text-[#544120] leading-tight">
+      Behavioural <br/>Interventions
+    </span>
+  </div>
+
+</div>
+
+  </div>
+{/* DIVIDER */}
+<div className="hidden md:block w-[3px] bg-yellow-300 self-stretch mt-5"></div>
+
+  {/* RIGHT (Session Format - 1x width) */}
+  <div className="flex flex-col gap-8 w-fit">
+
+    {/* HEADER */}
+    <div className="flex justify-center">
+      <div className="flex items-center gap-3 w-full max-w-xl min-w-0">
+        <div className="flex-1 min-w-[20px] h-[2px] bg-[#6b5b3e]" />
+        <span className="px-10 md:px-5 py-2 border border-[#6b5b3e] rounded-full text-[#6b5b3e] text-sm md:text-base whitespace-nowrap">
+          Session Format
+        </span>
+         <div className="flex-1 min-w-[20px] h-[2px] bg-[#6b5b3e]" />
+      </div>
+    </div>
+
+    {/* GRID */}
+<div className="grid 
+  grid-cols-2 
+  sm:grid-cols-2 
+  md:grid-cols-2 
+  lg:grid-cols-2 
+  xl:grid-cols-3 
+ gap-5 xl:gap-2 text-center w-full max-w-xl md:max-w-2xl mx-auto"
+>
+
+  {/* Item 1 */}
+  <div className="flex flex-col items-center gap-3">
+    <div className="rounded-full">
+      <img src="/corporate-2-6.svg" className="w-20 h-20 object-contain" />
+    </div>
+    <span className="text-[11px] text-[#544120] leading-tight">
+      <span className="font-semibold">4 - 5 hours</span><br/>Immersive Workshop
+    </span>
+  </div>
+
+  {/* Item 2 */}
+  <div className="flex flex-col items-center gap-3">
+    <div className="rounded-full">
+      <img src="/corporate-2-7.svg" className="w-20 h-20 object-contain" />
+    </div>
+    <span className="text-[11px] text-[#544120] leading-tight">
+      <span className="font-semibold">30 - 35</span>
+      <br />
+      Participants
+    </span>
+  </div>
+
+  {/* Item 3 */}
+  <div className="flex flex-col items-center gap-3">
+    <div className="rounded-full">
+      <img src="/corporate-2-8.svg" className="w-20 h-20 object-contain" />
+    </div>
+    <span className="text-[11px] text-[#544120] leading-tight">
+      <span className="font-semibold">Interactive</span>
+      <br />
+      Practical & Engaging
+    </span>
+  </div>
+
+</div>
+
+  </div>
+
+</div>
     </motion.div>
   );
 }

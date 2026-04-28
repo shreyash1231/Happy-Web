@@ -1,6 +1,7 @@
 
 "use client"
 
+import Link from "next/link";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
 
@@ -65,20 +66,36 @@ export default function Work() {
         </motion.div>
 
         <motion.div variants={fadeUp} className="flex flex-col gap-2 text-center mt-10">
-          <span className="text-xl md:text-2xl xl:text-6xl text-[#77510f] font-canela font-normal">
+          <span className="text-xl md:text-2xl xl:text-5xl text-[#77510f] font-canela font-normal">
             Build a Happier, Healthier Workplace
           </span>
 
           <div className="flex flex-col gap-1 text-[#7d4545]">
-            <span className="text-sm md:text-xl xl:text-2xl">
+            <span className="text-sm md:text-xl xl:text-xl">
               Empower your teams with mindfulness, emotional intelligence,<br className="hidden md:block"/> and resilience training.
             </span>
           </div>
 
           <div className="flex items-center justify-center mt-5">
-            <Button className="w-50 md:w-60 lg:w-70 h-10 p-6 rounded-4xl bg-[#3f5c4a] text-[#c39e86] border-2 border-yellow-400 hover:bg-[#2d4435] transition-colors cursor-pointer text-[10px] md:text-sm">
-              Book Corporate Consultation
-            </Button>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="relative w-[250px] md:w-[300px] lg:w-[350px] cursor-pointer"
+            >
+                <Link href="/Payment">
+              {/* Image */}
+              <img
+                src="/HappyHo_Corporate_Book-Corporate-Session.svg"
+                alt="Book Corporate Consultation"
+                className="w-full h-[48px] object-contain"
+              />
+
+              {/* Text overlay */}
+              <span className="absolute inset-0 flex items-center justify-center text-[#e9dac9] text-[12px] font-medium pointer-events-none">
+                Book Corporate Consultation
+              </span>
+              </Link>
+            </motion.div>
           </div>
         </motion.div>
       </motion.div>

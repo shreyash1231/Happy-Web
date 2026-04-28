@@ -55,7 +55,7 @@ export default function FAQ() {
   };
 
   return (
-    <div className="pt-8 px-4 xl:p-16 xl:px-40 mx-auto max-w-[1920px]">
+    <div className="pt-8 px-4 xl:p-8 mx-auto max-w-[1920px]">
       <div className="flex flex-col gap-10">
 
         {/* ================= Heading ================= */}
@@ -75,19 +75,20 @@ export default function FAQ() {
         </motion.div>
 
         {/* ================= FAQ Card ================= */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
-          <Card className="w-full border-2 border-[#c39e86] bg-[#f3efe8] rounded-xl">
+<motion.div
+  variants={container}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  className="flex justify-center"
+>
+  <Card className="w-full max-w-6xl border-2 border-[#c39e86] bg-[#f3efe8] rounded-xl pb-0 pt-0 min-h-[50px] justify-center gap-0">
 
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
                 variants={fadeUp}
-                className="border-b-2 border-[#c39e86] py-2 last:border-none p-3"
+                className="border-b-2 border-[#c39e86] py-4 last:border-none px-3 justify-center"
               >
 
                 {/* Question */}
@@ -118,7 +119,7 @@ export default function FAQ() {
                       transition={{ duration: 0.4, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="mt-3 text-gray-700 leading-relaxed text-sm md:text-lg 2xl:text-xl">
+                      <p className=" text-gray-700 leading-relaxed text-sm md:text-lg 2xl:text-xl">
                         {faq.answer}
                       </p>
                     </motion.div>

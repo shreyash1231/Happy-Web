@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,31 +9,108 @@ import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [opened, setOpened] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [openedsmall, setOpenedsmall] = useState(false);
+  const dropdownRefsmall = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutsidesmall = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setOpened(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutsidesmall);
+    return () => document.removeEventListener("mousedown", handleClickOutsidesmall);
+  }, []);
+
+  useEffect(() => {
+  const handleResize = () => {
+    if (window.innerWidth >= 768) { // 768px = Tailwind's md breakpoint
+      setOpen(false);
+    }
+  };
+
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setOpened(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <div className="pt-12 px-4 xl:p-8 z-50 mx-auto max-w-[1920px]">
       
-      <div className="bg-[#dcd8ce] rounded-full flex md:grid md:grid-cols-4 lg:grid-cols-5 items-center">
+      <div className="bg-[#dcd8ce] rounded-full flex md:grid md:grid-cols-4 lg:grid-cols-5 items-center shadow-xl">
 
         {/* LOGO */}
-        <div>
-          <Link href="/">
-            <Image
-              src="/footerImage.png"
-              alt="logo"
-              width={70}
-              height={70}
-              className="w-13 h-13 md:w-15 md:h-15 xl:w-20 xl:h-20 cursor-pointer"
-            />
-          </Link>
-        </div>
+  <Link href="/">
+    <Image
+      src="/footerImage.png"
+      alt="logo"
+      width={70}
+      height={70}
+      className="w-13 h-13 md:w-15 md:h-15 xl:w-20 xl:h-20 cursor-pointer"
+    />
+  </Link>
+
+
 
         {/* NAV LINKS (desktop only) */}
         <div className="col-span-2 lg:col-span-3 hidden md:flex gap-6 lg:gap-10 items-center justify-center text-sm lg:text-xl">
           <Link href="/AboutUs" className="cursor-pointer">About Us</Link>
           <Link href="/Programs" className="cursor-pointer">Programs</Link>
           <Link href="/Corporate" className="cursor-pointer">Corporate</Link>
-          <Link href="/Resources" className="cursor-pointer">Resources</Link>
+          <div className="relative" ref={dropdownRef}>
+  <div className="flex items-center gap-1">
+    
+    {/* Navigate to /Resources */}
+    <Link href="/Resources" className="cursor-pointer">
+      Resources
+    </Link>
+
+    {/* Only arrow toggles dropdown */}
+    <button
+      onClick={() => setOpened(prev => !prev)}
+      className="cursor-pointer"
+    >
+     <span
+  className={`inline-block text-xs transform transition-transform duration-200 ${
+    opened ? "rotate-180" : "rotate-0"
+  }`}
+>
+  ▼
+</span>
+    </button>
+  </div>
+
+  {opened && (
+    <div className="absolute top-full mt-3 bg-white shadow-lg rounded-lg py-2 w-[160px] lg:w-[180px] z-50">
+      <Link
+        href="/blog"
+        className="block px-4 py-2 hover:bg-gray-100"
+        onClick={() => setOpened(false)}
+      >
+        Blog
+      </Link>
+
+      <Link
+        href="/videos"
+        className="block px-4 py-2 hover:bg-gray-100"
+        onClick={() => setOpened(false)}
+      >
+        Videos / Reels
+      </Link>
+    </div>
+  )}
+</div>
         </div>
 
         {/* RIGHT SIDE */}
@@ -41,7 +118,10 @@ export default function Header() {
 
           {/* DESKTOP BUTTON */}
           <Button className="hidden md:flex items-center justify-center bg-[#3f5c4a] hover:bg-[#162d22] cursor-pointer rounded-full text-sm lg:text-xl px-4 md:py-6 xl:px-8 xl:py-8">
-  Get Started
+              <Link href="/Payment" className="cursor-pointer">
+      Get Started
+    </Link>
+
 </Button>
 
           {/* MOBILE MENU ICON */}
@@ -77,11 +157,55 @@ className="fixed inset-0 bg-[#dcd8ce] z-40 flex flex-col items-start justify-cen
       <Link href="/AboutUs" onClick={() => setOpen(false)}>About Us</Link>
       <Link href="/Programs" onClick={() => setOpen(false)}>Programs</Link>
       <Link href="/Corporate" onClick={() => setOpen(false)}>Corporate</Link>
-      <Link href="/Resources" onClick={() => setOpen(false)}>Blog</Link>
+   <div className="relative" ref={dropdownRefsmall}>
+  <div className="flex items-center gap-1">
+    
+    {/* Navigate to /Resources */}
+    <Link href="/Resources" className="cursor-pointer">
+      Resources
+    </Link>
+
+    {/* Only arrow toggles dropdown */}
+    <button
+      onClick={() => setOpenedsmall(prev => !prev)}
+      className="cursor-pointer"
+    >
+     <span
+  className={`inline-block text-xs transform transition-transform duration-200 ${
+    opened ? "rotate-180" : "rotate-0"
+  }`}
+>
+  ▼
+</span>
+    </button>
+  </div>
+
+  {openedsmall && (
+    <div className="absolute top-full mt-3 bg-white shadow-lg rounded-lg py-2 w-[160px] lg:w-[180px] z-50">
+      <Link
+        href="/blog"
+        className="block px-4 py-2 hover:bg-gray-100 text-sm"
+        onClick={() => setOpenedsmall(false)}
+      >
+        Blog
+      </Link>
+
+      <Link
+        href="/videos"
+        className="block px-4 py-2 hover:bg-gray-100 text-sm"
+        onClick={() => setOpenedsmall(false)}
+      >
+        Videos / Reels
+      </Link>
+    </div>
+  )}
+</div>
 
       {/* CTA */}
       <Button className="bg-[#3f5c4a] text-white px-8 py-6 rounded-full">
-        Get Started
+        <Link href="/Payment" className="cursor-pointer">
+      Get Started
+    </Link>
       </Button>
 
     </motion.div>

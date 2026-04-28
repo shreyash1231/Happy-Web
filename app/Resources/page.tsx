@@ -20,6 +20,7 @@ type BlogPageProps = {
   searchParams?: Promise<{ q?: string; page?: string }>;
 };
 
+
 function buildResourcesUrl(page: number, query: string): string {
   const params = new URLSearchParams();
   if (query) params.set("q", query);
@@ -44,6 +45,30 @@ function getVisiblePages(currentPage: number, totalPages: number): number[] {
   }
 
   return Array.from({ length: end - start + 1 }, (_, index) => start + index);
+export default function Blog(){
+    return(
+        <>
+         <div className="bg-[#E5DFD5] rounded-b-[60px] pb-10">
+        <Header/>
+        <Insights/>
+        </div>
+        <Featured/>
+        <Articles/>
+        {/* Step section */}
+        <div className="relative z-0">
+           <Published/>
+        </div>
+        {/* Overlapping Footer */}
+        <div className="relative z-20 -mt-20 md:-mt-15 xl:-mt-30">
+           <div className="hidden md:block">
+                  <Footer/>
+              </div>
+                <div className="block md:hidden">
+                  <FooterSmall/>
+              </div>
+        </div>
+        </>
+    );
 }
 
 export default async function Blog({ searchParams }: BlogPageProps) {

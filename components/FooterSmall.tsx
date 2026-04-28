@@ -76,7 +76,15 @@ export default function FooterSmall() {
 
       {/* Right: Logo/Image only on mobile */}
       <div className="flex items-start justify-end">
+          <div className="relative w-fit">
+
+     
         <Image src="/footerImage.png" alt="Meditation" width={130} height={130} />
+          {/* ® symbol */}
+    <span className="absolute top-0 right-2 text-2xl font-bold">
+      ®
+    </span>
+         </div>
       </div>
     </div>
 

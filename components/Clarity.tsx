@@ -24,14 +24,14 @@ export default function Clarity() {
   };
 
   return (
-    <div className="bg-[#3f5c4a] pt-8 px-6 p-8 mt-8 mx-auto max-w-[1920px]">
+    <div className="bg-[#3f5c4a] pt-8 px-6 p-8 mt-8 mx-auto max-w-[1920px] justify-center items-center">
 
       <motion.div
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="md:grid md:grid-cols-6 items-center text-white max-w-5xl mx-auto gap-4 mx-auto"
+        className="md:mt-5 md:grid md:grid-cols-6 items-center text-white max-w-5xl mx-auto gap-4 justify-center"
       >
 
         {/* LEFT → End comma (middle) */}

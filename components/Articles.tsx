@@ -52,7 +52,7 @@ export default function Articles() {
   ];
 
   return (
-    <div className="p-6 xl:p-8 pb-5 max-w-[1200px] mx-auto">
+    <div className="p-6 xl:p-8  max-w-[1200px] mx-auto">
       
       {/* Title */}
       <h2 className="text-3xl xl:text-5xl text-center mb-8">

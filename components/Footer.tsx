@@ -84,17 +84,27 @@ export default function Footer() {
           </motion.div>
 
           {/* Footer Image */}
-     <motion.div
+<motion.div
   className="mt-10 md:mt-0 flex justify-center"
   variants={fadeUp}
 >
-  <Image
-    src="/footerImage.png"
-    alt="Meditation"
-    width={220}
-    height={220}
-  />
+  <div className="relative w-fit">
+    
+    <Image
+      src="/footerImage.png"
+      alt="Meditation"
+      width={220}
+      height={220}
+    />
+
+    {/* ® symbol */}
+    <span className="absolute top-0 right-5 text-4xl font-bold">
+      ®
+    </span>
+
+  </div>
 </motion.div>
+
         </motion.div>
 
         {/* Contact Section */}

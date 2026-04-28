@@ -54,7 +54,7 @@ const [activeIndex, setActiveIndex] = useState(0);
       >
         <motion.span
           variants={fadeUp}
-          className="text-center text-2xl md:text-3xl xl:text-5xl font-canela font-normal"
+          className="text-center text-xl md:text-2xl xl:text-4xl font-canela font-normal"
         >
           Programs designed for emotional <br className="block md:hidden"/>clarity and growth
         </motion.span>
@@ -95,7 +95,7 @@ const [activeIndex, setActiveIndex] = useState(0);
                alt=""
                width={400}
                height={300}
-               className="w-full md:h-[350px] xl:h-[450px] object-contain rounded-3xl"
+               className="w-full md:h-[250px] xl:h-[350px] object-contain rounded-3xl"
              />
            </motion.div>
              ))}

@@ -127,7 +127,7 @@ const handleScroll = () => {
           viewport={{ once: true }}
           className="text-center mt-5"
         >
-          <span className="text-xl md:text-4xl lg:text-5xl  xl:text-6xl">
+          <span className="text-xl md:text-4xl lg:text-5xl">
             Designed Around Your Needs
           </span>
         </motion.div>
@@ -156,7 +156,7 @@ const handleScroll = () => {
     alt=""
     width={400}
     height={300}
-    className="w-full md:h-[250px] xl:h-[450px] object-contain rounded-3xl"
+    className="w-full md:h-[250px] xl:h-[350px] object-contain rounded-3xl"
   />
 </motion.div>
   ))}
@@ -203,7 +203,7 @@ const handleScroll = () => {
           viewport={{ once: true }}
           className="text-center mt-6"
         >
-          <span className="text-xl md:text-4xl lg:text-6xl">
+          <span className="text-xl md:text-4xl lg:text-5xl">
             Therapy Formats
           </span>
         </motion.div>

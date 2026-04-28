@@ -16,8 +16,7 @@ export default function Practice() {
   };
 
   return (
-    <div className="relative z-10 mx-auto max-w-[1920px] pb-20 h-min-screen">
-      
+    <div className="relative z-10 mx-auto max-w-[1920px] pb-20 min-h-[400px] md:min-h-[500px] xl:min-h-[700px]"> 
       {/* Background image */}
          <div className="absolute inset-0">
            <img src="/Assets1.png" className="w-full h-full object-cover object-center rounded-b-[40px] xl:rounded-b-[80px]" />
@@ -49,7 +48,7 @@ export default function Practice() {
                 className="text-center grid grid-cols-4"
               >
                 <span className="col-span-3">
-                  <span className="text-2xl md:text-5xl lg:text-6xl xl:text-7xl">
+                  <span className="text-2xl md:text-5xl lg:text-5xl xl:text-6xl">
                     Happiness is a skill
                   </span>
                 </span>
@@ -60,7 +59,7 @@ export default function Practice() {
                 className="text-center grid grid-cols-6"
               >
                 <span></span>
-                <span className="text-2xl md:text-5xl lg:text-6xl xl:text-7xl col-span-5 md:col-span-5 lg:col-span-5">
+                <span className="text-2xl md:text-5xl lg:text-5xl xl:text-6xl col-span-5 md:col-span-5 lg:col-span-5">
                   We help you practice it.
                 </span>
                 <span></span>
